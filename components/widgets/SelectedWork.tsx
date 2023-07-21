@@ -3,6 +3,13 @@ import Wrapper from "../shared/Wrapper";
 import Image from "next/image";
 import Button from "../shared/Button";
 import BorderButton from "../shared/BorderButton";
+import {  Work_Sans } from "next/font/google";
+
+const font = Work_Sans({
+  subsets: ["latin"],
+  weight: ["100", "300", "400", "500", "700", "800", "900"],
+});
+
 
 const SelectedWork = () => {
   const card = [
@@ -58,9 +65,9 @@ const SelectedWork = () => {
   return (
     <section>
       <Wrapper>
-        <div className="flex flex-col my-10  justify-center items-center">
+        <div className="flex flex-col my-5  justify-center items-center">
           <div>
-            <h1 className="text-[40px] font-bold text-[#081840] text-center">
+            <h1 className={`${font.className} text-[40px] font-[600] text-[#081840] text-center`}>
               Selected Works
             </h1>
             <p className="px-8 md:px-44 py-4 text-center">

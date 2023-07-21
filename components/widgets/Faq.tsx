@@ -1,7 +1,7 @@
 "use client"
 import React from "react";
 import Wrapper from "../shared/Wrapper";
-import SingleQuestion from "./Question";
+import Accordian from '../Accordian'
 
 const Faq = () => {
   const questions = [
@@ -60,19 +60,19 @@ const Faq = () => {
             </p>
           </div>
 
-          <div className="mt-16 md:lg:mt-0 flex flex-col md:flex-row lg:flex-row md:gap-16 justify-center items-center max-h-[700px]">
+          <div className="mt-16 md:lg:mt-0 flex flex-col md:flex-row lg:flex-row md:gap-16 justify-center items-start max-h-[700px]">
             <div className="container-faq basis-[50%]">
-              <section className="info ">
-                {questions.map((question) => (
-                  <SingleQuestion key={question.id} {...question} />
-                ))}
+              <section className="info mt-3 ">
+              {questions.map((q) => (
+        <Accordian key={q.id} title={q.title} info={q.info} />
+      ))}
               </section>
             </div>
             <div className="container-faq basis-[50%]">
               <section className="info ">
-                {questions2.map((question) => (
-                  <SingleQuestion key={question.id} {...question} />
-                ))}
+              {questions.map((q) => (
+        <Accordian key={q.id} title={q.title} info={q.info} />
+      ))}
               </section>
             </div>
           </div>

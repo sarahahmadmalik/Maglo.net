@@ -1,10 +1,28 @@
 "use client";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import { BsArrowRightShort, BsArrowLeftShort } from "react-icons/bs";
 import { Swiper, SwiperSlide } from "swiper/react";
 const Carousel = () => {
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const prevSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex === 0 ? cards.length - 1 : prevIndex - 1));
+  };
+
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex === cards.length - 1 ? 0 : prevIndex + 1));
+  };
+
+  useEffect(() => {
+    const autoSlide = setInterval(() => {
+      nextSlide();
+    }, 3000);
+
+    return () => clearInterval(autoSlide);
+  }, [currentIndex]);
+
   const cards = [
     {
       name: "Karan Ruber",
@@ -46,7 +64,7 @@ const Carousel = () => {
   return (
     <div className="relative">
       <div className="flex justify-end items-end mb-4 gap-2">
-        {/* <button
+        <button
           onClick={prevSlide}
           className="px-1 py-1 bg-gray-400 hover:bg-[#1E7FCB] duration-300 ease-in transition-all text-white rounded-lg"
         >
@@ -57,7 +75,7 @@ const Carousel = () => {
           className="px-1 py-1 bg-gray-400 duration-300 ease-in transition-all hover:bg-[#1E7FCB] text-white rounded-lg"
         >
           <BsArrowRightShort size={25} />
-        </button> */}
+        </button>
       </div>
   
         <div className="flex justify-center items-center gap-16 moving ">

@@ -21,8 +21,10 @@ export default function Home() {
     <Hero />
     <Results />
     <Inquiries />
+    <div className="bg-[url('/assets/pngwing2.png')] overflow-hidden">
     <WhyUs />
     <SelectedWork/>
+    </div>
     <Testimonials/>
     <Faq/>
     <Footer/>

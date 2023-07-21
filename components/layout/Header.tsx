@@ -41,7 +41,7 @@ const Header = () => {
               <Link href="/">
                 <li className="">Home</li>
               </Link>
-              <Link href="/">
+              <Link href="/seller">
                 <li className="">Seller</li>
               </Link>
               <Link href="/">
@@ -87,7 +87,7 @@ const Header = () => {
                 <Link href="/">Home</Link>
               </li>
               <li className="p-4 text-xl hover:text-custom-blue duration-300 cursor-pointer">
-                <Link href="/">Seller</Link>
+                <Link href="/seller">Seller</Link>
               </li>
               <li className="p-4  text-xl hover:text-custom-blue duration-30 cursor-pointer">
                 <Link href="/">Buyer</Link>

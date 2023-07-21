@@ -7,8 +7,8 @@ const Testimonials = () => {
   return (
     <section>
       <Wrapper>
-        <div>
-          <div className="text-left px-4">
+        <div className='md:my-6'>
+          <div className="text-left px-4 ">
             <h1 className="text-[24px] font-bold">Testomonials</h1>
             <h2 className="text-[40px] font-bold">What Our Client Say About Us</h2>
           </div>

@@ -11,8 +11,7 @@ const Hero = () => {
   const [activeTab, setActiveTab] = useState('tab1');
   
   return (
-    <section className="relative   bg-[url('/assets/bg-image.png')] -z-30 overflow-hidden">
-      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-black opacity-60"></div>
+    <section className=" bg-[url('/assets/bg-image.png')] bg-cover bg-no-repeat -z-30 overflow-hidden" >
       <Wrapper>
         {/* parent  */}
         <div className="flex flex-col md:flex-row  py-10 md:py-20 ">
