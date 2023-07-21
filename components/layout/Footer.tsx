@@ -45,7 +45,7 @@ const Footer = () => {
           </div>
         </div>
       </Wrapper>
-      <div className="border-t-2 border-[#C7C7C7] mt-6"></div>
+      <div className="border-t border-[#C7C7C7] mt-6"></div>
       <div>
         <ul className="flex flex-col md:flex-row justify-around items-center px-8">
           <li>Design and Developed by: Zysoftec</li>
