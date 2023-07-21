@@ -1,7 +1,12 @@
 import Image from "next/image";
-import { useState } from 'react';
+import { useState } from "react";
+import { Work_Sans } from "next/font/google";
+const font = Work_Sans({
+  subsets: ["latin"],
+  weight: ["100", "300", "400", "500", "700"],
+});
 
-function login() {
+function Login() {
     const [formData, setFormData] = useState({
         email: '',
         password: '',
@@ -38,18 +43,17 @@ function login() {
       const handleRememberMeChange = (event) => {
         setRememberMe(event.target.checked);
       };
-    
-
-      
   return (
-    <div className="bg-white w-full h-full  border border-yellow-500 text-black overflow-hidden">
+    <div className="bg-white w-[100vw] h-[100vh] text-black overflow-hidden">
       <div className="w-full h-full flex">
-        <div className="w-full h-full relative border border-red-400 overflow-hidden">
+        
+        <div className="w-full h-full relative overflow-hidden hidden sm:block">
           <Image
             src="/assets/login-img.svg"
             alt="banner-image"
             fill
             priority
+            style={{ objectFit: "cover" }}
           />
         </div>
 
@@ -64,11 +68,16 @@ function login() {
               />
             </div>
             <div>
-              <h1 className="font-bold text-2xl font-workSans">Welcome</h1>
+              <h1 className={` ${font.className} font-bold text-2xl`}>
+                Welcome!
+              </h1>
             </div>
             <div>
-              <h1 className="font-semibold text-medium font-workSans">Log in</h1>
+              <h1 className={`${font.className} font-medium text-lg`}>
+                Log in
+              </h1>
             </div>
+            <div>
             <div>
               <form className="font-inter py-4" onSubmit={handleSubmit}>
                 <div className="flex flex-col gap-3">
@@ -81,7 +90,7 @@ function login() {
                       id="email"
                       placeholder="Doejohn78@gmail.com"
                       value={formData.email}
-                      className="text-xs font-medium w-full border border-[#A4CCEC] bg-[#F3FAFF] px-4 py-2 rounded"
+                      className="text-xs font-medium w-full border border-[#A4CCEC] bg-[#F3FAFF] px-4 py-2 rounded focus:border-[A4CCEC] focus:outline-none focus:bg-[#F3FAFF]"
                       onChange={handleChange}
                     />
                   </div>
@@ -114,12 +123,13 @@ function login() {
                   </div>
                   <button
                     type="submit"
-                    className="bg-customYellow text-black py-2 rounded-md text-sm"
+                    className="bg-customYellow text-black py-2 rounded-md text-sm hover:scale-105 ease-in duration-300 transition-all"
                   >
                     Log in
                   </button>
                 </div>
               </form>
+            </div>
             </div>
           </div>
         </div>
@@ -128,4 +138,4 @@ function login() {
   );
 }
 
-export default login;
+export default Login;
