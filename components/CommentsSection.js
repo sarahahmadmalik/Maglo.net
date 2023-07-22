@@ -1,0 +1,65 @@
+import React, { useState } from 'react';
+import Comments from './Comments';
+import Button from './shared/Button.tsx';
+import Avatar from '@mui/material/Avatar'; // Import the Avatar component
+
+const CommentsSection = (props) => {
+  const [comments, setComments] = useState(props.comments);
+  const [newComment, setNewComment] = useState('');
+  const [sortOrder, setSortOrder] = useState('newest');
+
+
+  const handleSortChange = (event) => {
+    setSortOrder(event.target.value);
+  
+  };
+
+  const handleSubmitComment = () => {
+ 
+    setNewComment('');
+  };
+
+  return (
+    <div className="sm:mx-[4rem] mx-2 mb-5 border border-[#D6D6D6] overflow-hidden">
+      <div className="flex justify-between items-center mb-4 bg-[#F2F9FF] py-5 px-5 border-b border-[#F2F9FF]">
+        <div className="text-lg font-bold text-gray-500">
+          {props.comments.length} Comments
+        </div>
+        <div className="flex items-center">
+          <span className="mr-2 text-sm font-bold text-gray-500">Sort:</span>
+          <select
+            value={sortOrder}
+            onChange={handleSortChange}
+            className="p-2 text-sm rounded bg-gray-100 focus:outline-none"
+          >
+            <option value="newest">Newest</option>
+            <option value="oldest">Oldest</option>
+          </select>
+        </div>
+      </div>
+
+      <div className="mt-4 mb-[3.9rem]">
+        <div className="flex items-start sm:px-[3rem] px-2 w-full">
+          <Avatar alt="User Avatar" src="/assets/user.jpg" className='mr-4' sx={{ width: 70, height: 70}} />
+          <textarea
+            value={newComment}
+            onChange={(e) => setNewComment(e.target.value)}
+            placeholder="Don't miss out on the countless opportunities that await you. Start your inquiry today and unlock the full potential of the Marine Global Network. Together, we will navigate the seas of success."
+            className="w-full py-5 px-7 mb-2 border rounded focus:outline-none resize-none"
+          />
+        </div>
+        <div className='my-[1.4rem] smd:pl-[8.6rem] pl-[3rem]'>
+        <Button text="Submit Now"  onClick={handleSubmitComment} disabled={!newComment.trim()} />
+        </div>
+      </div>
+
+      <div>
+        {props.comments.map((eachComment, index) => (
+          <Comments key={index} eachComment={eachComment} />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default CommentsSection;

@@ -1,4 +1,5 @@
 import { Roboto } from "next/font/google";
+import Link from 'next/link';
 const font = Roboto({
   subsets: ["latin"],
   weight: ["100", "300", "400", "500", "700"],
@@ -33,9 +34,9 @@ function InquiryLists({ inquiries }) {
             <p className="pr-10">Item: {data.item}</p>
           </div>
           <div className={`flex justify-between items-center px-4 py-3 my-3 ${font.className}`}>
-            <button className="px-4 py-2 bg-[#1E7FCB] text-white rounded">
-              View & Quote
-            </button>
+          <Link href={`/inquiry/${data.id}`}>
+              <span className="px-4 py-2 bg-[#1E7FCB] text-white rounded">View & Quote</span>
+            </Link>
             <div className="bg-[#E2E2E2] text-black rounded px-4 py-1">{data.date} {data.time}</div>
           </div>
         </div>

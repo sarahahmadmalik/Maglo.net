@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Banner from '../components/Banner';
-import InquiryData from '../data/InquiryData';
-import InquiryLists from '../components/InquiryLists';
+import Banner from '../../components/Banner';
+import InquiryData from '../../data/InquiryData';
+import InquiryLists from '../../components/InquiryLists';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import Image from "next/image";
