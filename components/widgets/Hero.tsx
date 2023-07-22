@@ -6,18 +6,25 @@ import Wrapper from "../shared/Wrapper";
 import Button from "../shared/Button";
 import GetQuot from "./forms/GetQuot";
 import Sales from "./forms/Sales";
+import {  Work_Sans } from "next/font/google";
+
+const font = Work_Sans({
+  subsets: ["latin"],
+  weight: ["100", "300", "400", "500", "700"],
+});
 
 const Hero = () => {
   const [activeTab, setActiveTab] = useState('tab1');
   
   return (
-    <section className=" bg-[url('/assets/bg-image.png')] bg-cover bg-no-repeat -z-30 overflow-hidden" >
+    <section className="bg-[url('../public/assets/bg-image.png')] bg-no-repeat bg-cover bg-center -z-30 overflow-hidden "  >
+        {/* <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-black opacity-60 -z-10 "></div> */}
       <Wrapper>
         {/* parent  */}
         <div className="flex flex-col md:flex-row  py-10 md:py-20 ">
           {/* right  */}
-          <div className="basis-[100%] md:basis-[50%] md:pt-10 flex flex-col justify-start items-start text-white ">
-            <h1 className="text-[32px] font-[700]  md:text-[70px] font-payOne ">Bridging the ocean</h1>
+          <div className="basis-[100%] md:basis-[50%] md:pt-6 flex flex-col justify-start items-start text-white">
+            <h1 className={`text-[32px] font-[700]  md:text-[65px] ${font.className}`}>Bridging the ocean</h1>
             <p className="text-[28px] md:text-[48px] font-[600] font-workSans">Worldwide Connections <br /> for Your Needs</p>
             <div className="flex gap-x-4 mt-10">
             <Button text="Get quotation" />

@@ -3,6 +3,13 @@ import React from "react";
 import Wrapper from "../shared/Wrapper";
 import Accordian from '../Accordian'
 
+import {  Work_Sans } from "next/font/google";
+
+const font = Work_Sans({
+  subsets: ["latin"],
+  weight: ["100", "300", "400", "500", "700"],
+});
+
 const Faq = () => {
   const questions = [
     {
@@ -50,7 +57,7 @@ const Faq = () => {
       <Wrapper>
         <div>
           <div>
-            <h1 className="text-[40px] font-bold text-[#081840] text-center font-workSans">
+            <h1 className={`text-[40px] font-bold text-[#081840] text-center ${font.className}`}>
               Frequently Ask Questions
             </h1>
             <p className="px-8 md:px-44 lg:px-44 py-4 text-center">
@@ -69,7 +76,7 @@ const Faq = () => {
               </section>
             </div>
             <div className="container-faq basis-[50%]">
-              <section className="info ">
+              <section className="info mt-3 ">
               {questions.map((q) => (
         <Accordian key={q.id} title={q.title} info={q.info} />
       ))}

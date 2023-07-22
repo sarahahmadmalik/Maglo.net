@@ -3,7 +3,7 @@ import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import { BsArrowRightShort, BsArrowLeftShort } from "react-icons/bs";
-import { Swiper, SwiperSlide } from "swiper/react";
+
 const Carousel = () => {
 
   const [currentIndex, setCurrentIndex] = useState(0);
