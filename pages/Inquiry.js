@@ -4,7 +4,7 @@ import InquiryData from '../data/InquiryData';
 import InquiryLists from '../components/InquiryLists';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-
+import Image from "next/image";
 function Inquiry() {
   const PAGE_SIZE = 6;
   const totalPosts = InquiryData.length;
@@ -89,11 +89,11 @@ function Inquiry() {
            </div>
         <button
           onClick={handleSort}
-          className={`px-4 py-2 rounded ${
-            sortBy === 'recent' ? 'bg-[#1E7FCB] text-white' : 'bg-white text-[#1E7FCB]'
+          className={`px-4 py-4 rounded bg-[#1E7FCB] ${
+            sortBy === 'recent' ? ' text-white' : ' text-[#1E7FCB]'
           }`}
         >
-          {sortBy === 'recent' ? 'Recent' : 'Old'}
+          {sortBy === 'recent' ? <Image src='/assets/recent.png' width={20} height={20} alt='recent'/> : <Image src='/assets/old.png' width={20} height={20} alt='old'/>}
         </button>
       </div>
       {posts.length > 0 ? (

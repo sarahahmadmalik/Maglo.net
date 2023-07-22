@@ -6,7 +6,7 @@ const font = Roboto({
 
 function InquiryLists({ inquiries }) {
   return (
-    <div className="w-full grid-row  sm:inline-grid grid-cols-2 place-content-center px-4 sm:px-8 mdd:px-12 md:px-16 mb-3 ">
+    <div className="w-full grid-row  sm:inline-grid grid-cols-2 items-center place-content-center px-4 sm:px-8 mdd:px-12 md:px-16 mb-3 ">
       {inquiries.map((data, id) => (
         <div
           key={id}
