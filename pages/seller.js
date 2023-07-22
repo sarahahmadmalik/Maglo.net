@@ -7,7 +7,7 @@ function seller() {
   return (
     <>
     <Header/>
-    <Banner/>
+    <Banner title='Seller'/>
     <Main/>
     <Footer/>
     </>
