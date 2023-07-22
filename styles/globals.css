@@ -185,6 +185,10 @@ a {
   animation: move-rt1 20000ms linear infinite;
 }
 
+.moving-1{
+  animation: move-rt1 200000ms linear infinite;
+}
+
 @keyframes move-rt1 {
   0% {
     transform: translateX(0);

@@ -1,6 +1,8 @@
 import '../styles/globals.css'
 import { Metadata } from "next";
 import {  Roboto } from "next/font/google";
+import Header from '../components/layout/Header';
+import Footer from '../components/layout/Footer';
 
 const font = Roboto({
   subsets: ["latin"],
@@ -15,7 +17,9 @@ export const metadata = {
 export default function App({ Component, pageProps }) {
   return (
   <main className={font.className}>
+    <Header/>
     <Component {...pageProps}/>
+    <Footer/>
     </main> 
     )
 }

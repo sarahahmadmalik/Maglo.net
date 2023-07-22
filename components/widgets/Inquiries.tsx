@@ -2,6 +2,8 @@ import React from "react";
 import Wrapper from "../shared/Wrapper";
 import Button from "../shared/Button";
 import { useState, useEffect } from "react";
+import InquiryData from '../../data/InquiryData'
+
 const Inquiries = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -12,43 +14,26 @@ const Inquiries = () => {
 
     return () => clearInterval(autoSlide);
   }, [currentIndex]);
-  const data = [
-    {
-      country: "India",
-      brand: "Man B&W",
-      model: "Man B&W L27/38",
-      item: "Kit Cylinder Head, Kit Cylender, Bearing Bush Rocker arms, Bearing Bush Piston Conection rod small end, Piston, Piston ring.",
-    },
-    {
-      country: "India",
-      brand: "Man B&W",
-      model: "Man B&W L27/38",
-      item: "Kit Cylinder Head, Kit Cylender, Bearing Bush Rocker arms, Bearing Bush Piston Conection rod small end, Piston, Piston ring.",
-    },
-    {
-      country: "India",
-      brand: "Man B&W",
-      model: "Man B&W L27/38",
-      item: "Kit Cylinder Head, Kit Cylender, Bearing Bush Rocker arms, Bearing Bush Piston Conection rod small end, Piston, Piston ring.",
-    },
-  
-  ];
+
 
   const prevSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === 0 ? data.length - 1 : prevIndex - 1));
+    setCurrentIndex((prevIndex) => (prevIndex === 0 ? InquiryData.length - 1 : prevIndex - 1));
   };
 
   const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === data.length - 1 ? 0 : prevIndex + 1));
+    setCurrentIndex((prevIndex) => (prevIndex === InquiryData.length - 1 ? 0 : prevIndex + 1));
   };
+
+ 
+
   return (
     <section className="bg-[#EAF0FF] py-10">
       <Wrapper>
         <div className="flex flex-col items-center justify-center">
           <h1 className="font-bold text-[40px]">Current Inquiries</h1>
-          <div className="grid grid-cols-3 gap-3 moving overflow-hidden">
-            {data.map((data, id) => (
-              <div key={id} className="max-w-[420px] h-[250px] md:h-[230px] bg-white mt-8 overflow-hidden rounded-md ">
+          <div className={`flex flex-row justify-center items-center gap-3 moving-1 overflow-hidden`}>
+            {InquiryData.map((data, id) => (
+              <div key={id} className="w-[420px] h-[250px] md:h-[230px] bg-white mt-8 overflow-hidden rounded-md ">
                 <div className="bg-[#1E7FCB] w-full h-8 flex justify-between items-center px-4">
                   <p className="text-white font-medium">
                     Whimson International

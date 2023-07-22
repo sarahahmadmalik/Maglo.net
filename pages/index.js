@@ -9,15 +9,11 @@ import Results from "../components/widgets/Results.tsx";
 import SelectedWork from "../components/widgets/SelectedWork.tsx";
 import Testimonials from "../components/widgets/Testimonials.tsx";
 import WhyUs from "../components/widgets/WhyUs.tsx";
-import Header from '../components/layout/Header';
-import Footer from '../components/layout/Footer';
-
 
 
 export default function Home() {
   return (
     <main>
-      <Header/>
     <Hero />
     <Results />
     <Inquiries />
@@ -27,7 +23,6 @@ export default function Home() {
     </div>
     <Testimonials/>
     <Faq/>
-    <Footer/>
   </main>
   )
 }
