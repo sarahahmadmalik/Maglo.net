@@ -5,16 +5,15 @@ const ReplyItem = ({ reply }) => {
 
   return (
     <div className="flex items-start mt-2 pb-2">
-    <div >
-     <Image
+    <div className="relative aspect-square rounded-md w-full min-w-[30px] max-w-[50px] overflow-hidden mr-3">
+        <Image
           src={reply.profile}
           alt="Profile"
-          width={60}
-          height={50}
-          className=" mr-2"
+          fill
+          priority
           style={{ objectFit: 'cover' }}
         />
-        </div>
+      </div>
       <div>
         <div className="flex mb-1 text-sm font-bold"><p>{reply.user}</p> <p className="text-xs text-gray-500  ml-[1.6rem]">
             {reply.day}
@@ -36,24 +35,23 @@ const Comments = (props) => {
 
   return (
     <div className="flex items-start my-3 mx-5">
-      <div className="rounded-full">
+      <div className="relative aspect-square rounded-full w-full min-w-[60px] max-w-[80px] mr-3">
         <Image
           src={props.eachComment.profile}
           alt="Profile"
-          width={170}
-          height={170}
-          className=" mr-2"
+          fill
+          priority
           style={{ objectFit: 'contain' }}
         />
       </div>
-      <div className="px-5 py-4 ">
-        <div className="font-bold flex align-center">
+      <div className="sm:px-5 sm:py-4 px-auto ">
+        <div className="font-bold flex align-center justify-between">
           <p>{props.eachComment.user}</p>{' '}
-          <p className="text-sm text-gray-500 ml-[1.6rem]">
+          <p className="text-sm text-gray-500 sm:ml-[1.6rem]">
             {props.eachComment.day}
           </p>
         </div>
-        <div className="px-2 pb-8 rounded border-b border-[#E6D8D8]">
+        <div className="sm:px-2 pb-8 rounded border-b border-[#E6D8D8]">
           <p>{props.eachComment.comment}</p>
         </div>
         {props.eachComment.replies.length > visibleReplies && (
