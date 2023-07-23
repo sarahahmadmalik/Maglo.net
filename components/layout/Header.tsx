@@ -48,7 +48,7 @@ const Header = () => {
                 <li className="">Buyer</li>
               </Link>
               <Link href="/">
-                <li className="">Blogs</li>
+                <li className="/blogs">Blogs</li>
               </Link>
               <Link href="/">
                 <li className="">Join Us</li>
@@ -93,7 +93,7 @@ const Header = () => {
                 <Link href="/">Buyer</Link>
               </li>
               <li className="p-4  text-xl hover:text-custom-blue duration-30 cursor-pointer">
-                <Link href="/">Blogs</Link>
+                <Link href="/blogs">Blogs</Link>
               </li>
               <li className="p-4  text-xl hover:text-custom-blue duration-30 pb-16 cursor-pointer">
                 <Link href="/">Join Us</Link>

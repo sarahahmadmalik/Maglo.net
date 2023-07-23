@@ -39,12 +39,6 @@ module.exports = {
         customYellow: '#F6BE00', 
         landingBlue: '#1E7FCB'
       },
-      fontFamily: {
-        workSans: ['Work Sans', 'sans-serif'],
-        roboto: ['Roboto', 'sans-serif'],
-        inter: ['Inter'],
-        payOne: ['Paytone One']
-      }
     },
   },
   plugins: [],
