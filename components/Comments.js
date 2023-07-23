@@ -35,7 +35,7 @@ const Comments = (props) => {
 
   return (
     <div className="flex items-start my-3 mx-5">
-      <div className="relative aspect-square rounded-full w-full min-w-[60px] max-w-[80px] mr-3">
+      <div className="relative aspect-square rounded-full w-full min-w-[60px] max-w-[80px] mr-3 sm:my-2 sm:mr-auto">
         <Image
           src={props.eachComment.profile}
           alt="Profile"
@@ -45,7 +45,7 @@ const Comments = (props) => {
         />
       </div>
       <div className="sm:px-5 sm:py-4 px-auto ">
-        <div className="font-bold flex align-center justify-between">
+        <div className="font-bold flex align-center justify- sm:justify-start">
           <p>{props.eachComment.user}</p>{' '}
           <p className="text-sm text-gray-500 sm:ml-[1.6rem]">
             {props.eachComment.day}
