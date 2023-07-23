@@ -45,7 +45,7 @@ const CommentsSection = (props) => {
             value={newComment}
             onChange={(e) => setNewComment(e.target.value)}
             placeholder="Don't miss out on the countless opportunities that await you. Start your inquiry today and unlock the full potential of the Marine Global Network. Together, we will navigate the seas of success."
-            className="w-full us:py-2 us:px-2 us:text-[13px] us:h-[80px]  sm:py-5 sm:px-7 mb-2 border rounded focus:outline-none resize-none"
+            className="w-full us:py-2 us:px-2 us:text-[13px] us:h-[80px] sm:h-auto mdd:text-[15px]  sm:py-5 sm:px-7 mb-2 border rounded focus:outline-none resize-none"
           />
         </div>
         <div className=' us:my-2 sm:my-[1.4rem] smd:pl-[8.6rem] pl-[3rem]'>

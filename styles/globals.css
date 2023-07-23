@@ -107,11 +107,15 @@ a {
   }
 } */
 
-.bg-shade {
-  background-image: url("../public/assets/bg-image.png"), lightgray 50%;
+.bg_shade {
+  background-image: url("../public/assets/bg-image.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.bg_shade::before{
+  background-image: linear-gradient(to bottom, black, black);
 }
 
 /* faq */

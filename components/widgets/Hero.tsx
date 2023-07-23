@@ -17,16 +17,16 @@ const Hero = () => {
   const [activeTab, setActiveTab] = useState('tab1');
   
   return (
-    <section className="bg-[url('../public/assets/bg-image.png')] bg-no-repeat bg-cover bg-center -z-30 overflow-hidden "  >
-        {/* <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-black opacity-60 -z-10 "></div> */}
+    <section className="relative bg_shade h-full   overflow-hidden "  >
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-black opacity-60 -z-[-2] "></div>
       <Wrapper>
         {/* parent  */}
-        <div className="flex flex-col md:flex-row  py-10 md:py-20 ">
+        <div className="flex flex-col mdd:flex-row mdd:justify-between sm:justify-center items-center py-10 w-full">
           {/* right  */}
-          <div className="basis-[100%] md:basis-[50%] md:pt-6 flex flex-col justify-start items-start text-white">
-            <h1 className={`text-[32px] font-[700]  md:text-[65px] ${font.className}`}>Bridging the ocean</h1>
-            <p className="text-[28px] md:text-[48px] font-[600] font-workSans">Worldwide Connections <br /> for Your Needs</p>
-            <div className="flex gap-x-4 mt-10">
+          <div className="basis-[100%] md:basis-[60%]   flex flex-col xl:mt-[5rem] justify-start items-start text-white z-10">
+            <h1 className={`text-[35px] font-[700] md:leading-[6rem]  md:text-[3.8rem] ${font.className} z-90`}>Bridging the ocean</h1>
+            <p className={`text-[28px] md:text-[2.6rem] md:leading-[3rem] font-[500] ${font.className} z-90`}>Worldwide Connections <br /> for Your Needs</p>
+            <div className="flex gap-x-4 mt-6 z-90">
             <Button text="Get quotation" />
             <button
               type="button"
@@ -37,9 +37,9 @@ const Hero = () => {
             </div>
           </div>
           {/* left  */}
-          <div className="basis-[100%] md:basis-[50%] mt-10 md:mt-0 z-10 ">
+          <div className="basis-[100%] md:basis-[40%] mt-10 md:mt-0 z-10 ">
           <div className="max-w-[450px] max-h-[530px]  bg float-right backdrop-blur-[5px]" >
-      <div className="flex  border-slate-600">
+      <div className="flex  border-slate-600 z-60">
         <button
           className={` w-full h-12 rounded-tl-lg  ${
             activeTab === 'tab1' ? 'bg-black/40 text-[#F6BE00]' : 'bg-black/0 text-white'
