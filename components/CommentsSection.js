@@ -38,17 +38,17 @@ const CommentsSection = (props) => {
         </div>
       </div>
 
-      <div className="mt-4 mb-[3.9rem]">
+      <div className="mt-4 us:mb-[1.6rem] sm:mb-[2.5rem]">
         <div className="flex items-start sm:px-[3rem] px-2 w-full">
           <Avatar alt="User Avatar" src="/assets/user.jpg" className='mr-4' sx={{ width: 70, height: 70}} />
           <textarea
             value={newComment}
             onChange={(e) => setNewComment(e.target.value)}
             placeholder="Don't miss out on the countless opportunities that await you. Start your inquiry today and unlock the full potential of the Marine Global Network. Together, we will navigate the seas of success."
-            className="w-full py-5 px-7 mb-2 border rounded focus:outline-none resize-none"
+            className="w-full us:py-2 us:px-2 us:text-[13px] us:h-[80px]  sm:py-5 sm:px-7 mb-2 border rounded focus:outline-none resize-none"
           />
         </div>
-        <div className='my-[1.4rem] smd:pl-[8.6rem] pl-[3rem]'>
+        <div className=' us:my-2 sm:my-[1.4rem] smd:pl-[8.6rem] pl-[3rem]'>
         <Button text="Submit Now"  onClick={handleSubmitComment} disabled={!newComment.trim()} />
         </div>
       </div>

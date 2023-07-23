@@ -45,13 +45,13 @@ const Comments = (props) => {
         />
       </div>
       <div className="sm:px-5 sm:py-4 px-auto ">
-        <div className="font-bold flex align-center justify- sm:justify-start">
+        <div className="font-bold us:text-[14px] flex align-center justify-between sm:justify-start">
           <p>{props.eachComment.user}</p>{' '}
-          <p className="text-sm text-gray-500 sm:ml-[1.6rem]">
+          <p className="text-sm text-gray-500 us:text-[14px] sm:ml-[1.6rem]">
             {props.eachComment.day}
           </p>
         </div>
-        <div className="sm:px-2 pb-8 rounded border-b border-[#E6D8D8]">
+        <div className="sm:px-2 pb-8 us:text-[15px] rounded border-b border-[#E6D8D8]">
           <p>{props.eachComment.comment}</p>
         </div>
         {props.eachComment.replies.length > visibleReplies && (
