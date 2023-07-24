@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Nunito_Sans } from "next/font/google";
 import { DM_Sans } from "next/font/google";
 import blogsData from "../../data/Blogs";
+import Image from 'next/image'
 
 const font = Nunito_Sans({
   subsets: ["latin"],
@@ -26,6 +27,34 @@ function blogs() {
     "Spare",
     "Ship Engine",
   ];
+
+  const recentBlogs =[
+    {
+      id: 1,
+      title: "How websites work properly",
+      date: "May 9,2023",
+      image: "/assets/recentBlog1.png"
+    },
+     {
+      id: 2,
+      title: "How websites work properly",
+      date: "May 9,2023",
+      image: "/assets/recentBlog2.png"
+    },
+
+    {
+      id: 3,
+      title: "How websites work properly",
+      date: "May 9,2023",
+      image: "/assets/recentBlog3.png"
+    },
+    {
+      id: 4,
+      title: "How websites work properly",
+      date: "May 9,2023",
+      image: "/assets/recentBlog4.png"
+    }
+  ]
 
   const itemsPerPage = 4;
   const totalPosts = blogsData.length;
@@ -83,8 +112,19 @@ function blogs() {
           {/* Recent Blogs Section */}
           <div className="hidden mdd:block bg-white p-4 shadow">
             <h2 className="text-lg font-semibold mb-4">Recent Blogs</h2>
-            {/* Add your recent blogs content here */}
+            {recentBlogs.map((recent, index) => (
+              <div key={index} className="flex w-full my-2 cursor-pointer">
+                <div className="relative w-full objectFit-contain h-full">
+                  <Image src={recent.image} alt="blog" width={100} height={100} objectFit="contain"/>
+                </div>
+                <div className="ml-2">
+                <div><p className="text-[13px] xl:text-md font-medium text-[#77777777]">{recent.date}</p></div>
+                <div><p className="font-medium text-sm xl:text-xl leading-2">{recent.title}</p></div>
+                </div>
+              </div>
+            ))}
           </div>
+
 
           {/* Popular Tags Section */}
           <div className="hidden mdd:block mt-4 bg-white p-4 shadow">

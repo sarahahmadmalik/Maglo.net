@@ -3,9 +3,14 @@ import blogsData from "../../data/Blogs";
 import Banner from "../../components/Banner";
 import CommentsSection from '../../components/CommentsSection'
 import { Work_Sans } from "next/font/google";
+import { Nunito_Sans } from "next/font/google";
 import Image from "next/image";
 
 const font = Work_Sans({
+  subsets: ["latin"],
+  weight: ["200", "300", "400", "500", "700", "800", "900"],
+});
+const font2 = Nunito_Sans({
   subsets: ["latin"],
   weight: ["200", "300", "400", "500", "700", "800", "900"],
 });
@@ -14,8 +19,25 @@ function BlogDetails() {
   const router = useRouter();
   const { id } = router.query;
   // console.log(id);
-  const blog = blogsData.find((blog) => blog.id === parseInt(id));
   
+  const blogId = parseInt(id);
+  const blog = blogsData.find((blog) => blog.id === parseInt(id));
+  const blogIndex = blogsData.findIndex((blog) => blog.id === blogId);
+ 
+  const handlePrevBlog = () => {
+    if (blogIndex > 0) {
+      const prevBlogId = blogsData[blogIndex - 1].id;
+      router.push(`/blogs/${prevBlogId}`);
+    }
+  };
+
+  const handleNextBlog = () => {
+    if (blogIndex < blogsData.length - 1) {
+      const nextBlogId = blogsData[blogIndex + 1].id;
+      router.push(`/blogs/${nextBlogId}`);
+    }
+  };
+
   return (
     <div>
       <Banner title="Blogs" para="Blogs" />
@@ -63,7 +85,7 @@ function BlogDetails() {
                 </div>
               </div>
 
-              <div className='mx-4 mx-2'>
+              <div className='mx-4'>
                 <div className="smd:mx-6 mb-3">
                   <p className={`font-semibold smd:text-[1.7rem] text-[1.3rem] ${font.className}`}>Why Choose Our Services</p>
                 </div>
@@ -90,6 +112,55 @@ function BlogDetails() {
                   <p>{blog.content}</p>
                 </div>
             </div>
+            <div className="smd:flex hidden  justify-between w-[800px] rounded-md shadow-md px-2 sm:px-0 mt-8 mb-4">
+              <div className='flex flex-row mx-3 my-3 items-center w-80 overflow-hidden'>
+              <div className='relative objectFit-cover w-[50%]'>
+              <Image
+  src={blogIndex > 0 ? blogsData[blogIndex - 1].image : blogsData[blogIndex].image}
+  alt="blog"
+  width={110}
+  height={110}
+  objectFit="cover"
+/>
+              </div>
+              <div className='flex flex-col text-left ml-2'>
+              <button
+                onClick={handlePrevBlog}
+                disabled={blogIndex === 0}
+                className={`px-2 rounded focus:outline-none text-left font-medium w-20 ${font2.className} ${
+                  blogIndex === 0 ? "text-gray-400 cursor-not-allowed" :"text-[#1E7FCB]"
+                }`}
+              >
+                Previous
+              </button>
+              <p className={`px-2 text-sm font-medium ${font.className}`}>{blogsData[blogIndex].title}</p>
+              </div>
+              </div>
+
+              <div className='flex flex-row-reverse mx-3 my-3 items-center w-80 overflow-hidden'>
+              <div className='relative objectFit-contain w-[50%]'>
+              <Image
+  src={blogIndex < blogsData.length ? blogsData[blogIndex + 1].image : blogsData[blogIndex].image}
+  alt="blog"
+  width={110}
+  height={110}
+  objectFit="cover"
+/>              </div>
+              <div className='flex flex-col mr-2'>
+              <button
+                onClick={handleNextBlog}
+                disabled={blogIndex === blogsData.length - 1}
+                className={`px-2 rounded focus:outline-none font-medium text-right ${font2.className} ${
+                  blogIndex === blogsData.length - 1 ? "text-gray-400 cursor-not-allowed" : "text-[#1E7FCB]"
+                }`}
+              >
+                Next
+              </button>
+              <p className={`px-2 text-sm font-medium text-right ${font2.className}`}>{blogsData[blogIndex].title}</p>
+            </div>
+              </div>
+            
+              </div>
             <CommentsSection wrapperStyles="max-w-[800px] my-6 h-full rounded-md shadow-md flex flex-col overflow-hidden" comments={blog.comments}/>
           </>
         )}
