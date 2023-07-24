@@ -83,7 +83,7 @@ const Inquiries = () => {
             ))}
           </div>
           <div className="flex space-x-4 mt-8">
-            <Button text="Add Comments" />
+            <Button text="Add Comments" linkTo="" />
             <button
               type="button"
               className="bg-[#1E7FCB] rounded-full w-40 h-12 flex-shrink-0 text-white hover:scale-105 ease-in duration-300 transition-all"

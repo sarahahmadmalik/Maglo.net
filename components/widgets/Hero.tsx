@@ -29,7 +29,7 @@ const Hero = () => {
             <h1 className={`text-[35px] font-[700] md:leading-[6rem]  md:text-[3.8rem] ${font.className} z-90`}>Bridging the ocean</h1>
             <p className={`text-[28px] md:text-[2.6rem] md:leading-[3rem] font-[500] ${font.className} z-90`}>Worldwide Connections <br /> for Your Needs</p>
             <div className="flex gap-x-4 mt-6 z-90">
-            <Button text="Get quotation" />
+            <Button text="Get quotation" linkTo="" />
             <button
               type="button"
               className="bg-transparent border-[#F6BE00] border-2 rounded-full w-40 h-12 flex-shrink-0 text-[#F6BE00] hover:scale-105 ease-in duration-300 transition-all"

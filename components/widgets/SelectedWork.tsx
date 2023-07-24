@@ -126,7 +126,7 @@ const SelectedWork = () => {
                   </div>
                 </div>
                 <div className="my-4 ml-4">
-                  <BorderButton text="Get in Touch" />
+                  <BorderButton text="Get in Touch" linkTo="" />
                 </div>
               </div>
             ))}

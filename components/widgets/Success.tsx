@@ -11,7 +11,7 @@ const Success = () => {
       <div className="bg-white w-[270px] p-5 h-[370px] sm:w-[500px] sm:h-[300px] md:w-[600px] md:h-[420px] absolute z-1 flex flex-col md:p-10   sm:ml-[20rem] md:ml-[42rem]  mt-[15.5rem] md:mt-[10rem]">
         <h1 className="sm:text-[30px] md:text-[40px] font-bold">Navigating to Success: How Working with Us Sets You Apart</h1>
         <p className="mb-6">Dont miss out on the countless opportunities that await you. Start your inquiry today and unlock the full potential of the Marine Global Network. Together, we will navigate the seas of success.</p>
-        <Button text="Read more"/>
+        <Button text="Read more" linkTo=""/>
       </div>
     </div>
   );
