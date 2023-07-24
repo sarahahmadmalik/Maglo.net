@@ -1,7 +1,9 @@
 import Image from "next/image";
 import { useState } from "react";
 import { Work_Sans } from "next/font/google";
-
+import { useRouter } from 'next/router';
+import User from '../data/User';
+import { useAuth } from "../context/AuthProvider";
 const font = Work_Sans({
   subsets: ["latin"],
   weight: ["100", "300", "400", "500", "700"],
@@ -14,22 +16,35 @@ function Login() {
       });
 
       const [rememberMe, setRememberMe] = useState(false);
+      const [error, setError] = useState('');
+      const { user, login} = useAuth();
+      const router = useRouter();
 
-    const handleSubmit = async (event) => {
+    const handleSubmit =  (event) => {
         event.preventDefault();
-        try {
-            //http requests here
-            const response = await axios.post('/api/login', formData);
+        // try {
+        //     // const response = await axios.post('/api/login', formData);
       
-            if (response.status === 200) {
-              console.log('Login successful!');
+        //     // if (response.status === 200) {
+        //     //   console.log('Login successful!');
 
-            } else {
-              console.log('Login failed!');
-            }
-          } catch (error) {
-            console.error('Error during login:', error);
-          }
+        //     // } else {
+        //     //   console.log('Login failed!');
+        //     // }
+        //   } catch (error) {
+        //     console.error('Error during login:', error);
+        //   }
+
+        const loginUser = User.find((user) => user.email === formData.email && user.password === formData.password);
+        if (loginUser) {
+          login(loginUser)
+          router.push({
+            pathname: '/user',
+            query: { role: user.role }, 
+          });
+        } else {
+          setError('Invalid username or password');
+        }
 
       };
 
@@ -90,6 +105,7 @@ function Login() {
                     <input
                       type="email"
                       id="email"
+                      name="email"
                       placeholder="Doejohn78@gmail.com"
                       value={formData.email}
                       className="text-xs font-medium w-full border border-[#A4CCEC] bg-[#F3FAFF] px-4 py-2 rounded focus:border-[A4CCEC] focus:outline-none focus:bg-[#F3FAFF]"
@@ -106,6 +122,7 @@ function Login() {
                       type="password"
                       id="createPassword"
                       placeholder=". . . . ."
+                      name="password"
                       value={formData.password}
                       onChange={handleChange}
                       className=" text-xs font-medium w-full border border-[#A4CCEC] px-4 py-2 rounded focus:border bg-[#F3FAFF] focus:border-[A4CCEC] focus:outline-none focus:bg-[#F3FAFF] transition-colors"
@@ -123,6 +140,9 @@ function Login() {
                     Forgot password?
                   </a>
                   </div>
+                  <div>
+  {error && <p className="text-red-500 text-xs">{error}</p>}
+</div>
                   <button
                     type="submit"
                     className="bg-customYellow text-black py-2 rounded-md text-sm hover:scale-105 ease-in duration-300 transition-all"
