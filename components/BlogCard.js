@@ -68,7 +68,7 @@ const BlogCard = ({blog}) => {
                         blog.content
                     }</p>
                 </div>
-                <Link href='/' className="inline-block relative text-black font-semibold group ml-3 mb-8">
+                <Link href={`/blogs/${blog.id}`} className="inline-block relative text-black font-semibold group ml-3 mb-8">
                     <span className="">Learn More</span>
                     <span className="absolute bottom-0 left-0 w-[80%] h-[3px] bg-black rounded-[80px]"></span>
                     <ArrowForwardIcon sx={

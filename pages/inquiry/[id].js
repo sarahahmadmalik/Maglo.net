@@ -26,7 +26,6 @@ const InquiryDetails = () => {
     return <div>Inquiry not found</div>;
   }
 
-  console.log(inquiry.Comments)
 
   return (
     <>

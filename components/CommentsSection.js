@@ -8,6 +8,7 @@ const CommentsSection = (props) => {
   const [newComment, setNewComment] = useState('');
   const [sortOrder, setSortOrder] = useState('newest');
 
+  const wrapperStyles = props.wrapperStyles;
 
   const handleSortChange = (event) => {
     setSortOrder(event.target.value);
@@ -20,7 +21,7 @@ const CommentsSection = (props) => {
   };
 
   return (
-    <div className="sm:mx-[4rem] mx-2 mb-5 border border-[#D6D6D6] overflow-hidden">
+    <div className={wrapperStyles ? wrapperStyles : `sm:mx-[4rem] mx-2 mb-5 border border-[#D6D6D6] overflow-hidden`}>
       <div className="flex justify-between items-center mb-4 bg-[#F2F9FF] py-5 px-5 border-b border-[#F2F9FF]">
         <div className="text-lg font-bold text-gray-500">
           {props.comments.length} Comments
@@ -38,6 +39,11 @@ const CommentsSection = (props) => {
         </div>
       </div>
 
+      {wrapperStyles ? (
+    
+      <div style={{ display: "none" }}>
+      </div>
+    ) : (
       <div className="mt-4 us:mb-[1.6rem] sm:mb-[2.5rem]">
         <div className="flex items-start sm:px-[3rem] px-2 w-full">
           <Avatar alt="User Avatar" src="/assets/user.jpg" className='mr-4' sx={{ width: 70, height: 70}} />
@@ -48,14 +54,15 @@ const CommentsSection = (props) => {
             className="w-full us:py-2 us:px-2 us:text-[13px] us:h-[80px] sm:h-auto mdd:text-[15px]  sm:py-5 sm:px-7 mb-2 border rounded focus:outline-none resize-none"
           />
         </div>
-        <div className=' us:my-2 sm:my-[1.4rem] smd:pl-[8.6rem] pl-[3rem]'>
-        <Button text="Submit Now"  onClick={handleSubmitComment} disabled={!newComment.trim()} />
+        <div className='us:my-2 sm:my-[1.4rem] smd:pl-[8.6rem] pl-[3rem]'>
+          <Button text="Submit Now" onClick={handleSubmitComment} disabled={!newComment.trim()} />
         </div>
       </div>
+    )}
 
       <div>
         {props.comments.map((eachComment, index) => (
-          <Comments key={index} eachComment={eachComment} />
+          <Comments wrapperStyles={wrapperStyles} key={index} eachComment={eachComment} />
         ))}
       </div>
     </div>
