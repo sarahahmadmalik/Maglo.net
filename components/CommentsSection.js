@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Comments from './Comments';
 import Button from './shared/Button.tsx';
 import Avatar from '@mui/material/Avatar'; // Import the Avatar component
-
+import ReplyForm from './ReplyForm'
 const CommentsSection = (props) => {
   const [comments, setComments] = useState(props.comments);
   const [newComment, setNewComment] = useState('');
@@ -65,6 +65,9 @@ const CommentsSection = (props) => {
           <Comments wrapperStyles={wrapperStyles} key={index} eachComment={eachComment} />
         ))}
       </div>
+      {wrapperStyles && (
+        <ReplyForm/>
+      )}
     </div>
   );
 };
