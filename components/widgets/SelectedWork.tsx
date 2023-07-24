@@ -5,7 +5,7 @@ import Button from "../shared/Button";
 import BorderButton from "../shared/BorderButton";
 import {  Work_Sans } from "next/font/google";
 
-const font = Work_Sans({
+const font21 = Work_Sans({
   subsets: ["latin"],
   weight: ["100", "300", "400", "500", "700", "800", "900"],
 });
@@ -67,7 +67,7 @@ const SelectedWork = () => {
       <Wrapper>
         <div className="flex flex-col my-5  justify-center items-center">
           <div>
-            <h1 className={`${font.className} text-[40px] font-[600] text-[#081840] text-center`}>
+            <h1 className={`${font21.className} text-[40px] font-[600] text-[#081840] text-center`}>
               Selected Works
             </h1>
             <p className="px-8 md:px-44 py-4 text-center">
@@ -90,7 +90,7 @@ const SelectedWork = () => {
                   height={1080}
                 />
                 <div className="px-4 py-4 text-base ">
-                  <h4 className={`${font.className}  text-xl pt-6 pb-2 font-semibold text-black`}>
+                  <h4 className={`${font21.className}  text-xl pt-6 pb-2 font-semibold text-black`}>
                     {item.heading}
                   </h4>
                   <div className="flex items-center gap-3">

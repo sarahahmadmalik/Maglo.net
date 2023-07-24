@@ -8,7 +8,7 @@ import GetQuot from "./forms/GetQuot";
 import Sales from "./forms/Sales";
 import {  Work_Sans } from "next/font/google";
 
-const font = Work_Sans({
+const font6 = Work_Sans({
   subsets: ["latin"],
   weight: ["100", "300", "400", "500", "700"],
 });
@@ -26,8 +26,8 @@ const Hero = () => {
         <div className="flex flex-col mdd:flex-row mdd:justify-between sm:justify-center items-center py-10 w-full">
           {/* right  */}
           <div className="basis-[100%] md:basis-[60%]   flex flex-col xl:mt-[5rem] justify-start items-start text-white z-10">
-            <h1 className={`text-[35px] font-[700] md:leading-[6rem]  md:text-[3.8rem] ${font.className} z-90`}>Bridging the ocean</h1>
-            <p className={`text-[28px] md:text-[2.6rem] md:leading-[3rem] font-[500] ${font.className} z-90`}>Worldwide Connections <br /> for Your Needs</p>
+            <h1 className={`text-[35px] font-[700] md:leading-[6rem]  md:text-[3.8rem] ${font6.className} z-90`}>Bridging the ocean</h1>
+            <p className={`text-[28px] md:text-[2.6rem] md:leading-[3rem] font-[500] ${font6.className} z-90`}>Worldwide Connections <br /> for Your Needs</p>
             <div className="flex gap-x-4 mt-6 z-90">
             <Button text="Get quotation" linkTo="" />
             <button

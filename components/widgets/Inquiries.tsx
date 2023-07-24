@@ -7,7 +7,7 @@ import { useRouter } from "next/router";
 import {  Roboto } from "next/font/google";
 import {  Work_Sans } from "next/font/google";
 
-const font2 = Work_Sans({
+const font11 = Work_Sans({
   subsets: ["latin"],
   weight: ["100", "300", "400", "500", "700"],
 });
@@ -49,18 +49,18 @@ const Inquiries = () => {
     <section className="bg-[#EAF0FF] py-10">
       <Wrapper>
         <div className={`flex flex-col items-center justify-center cursor-pointer `} onClick={handlePage}>
-          <h1 className={` ${font2.className} font-semibold text-[40px]`}>Current Inquiries</h1>
+          <h1 className={` ${font11.className} font-semibold text-[40px]`}>Current Inquiries</h1>
           <div className={`flex flex-row justify-center items-center gap-3 moving-1 overflow-hidden`}>
             {InquiryData.map((data, id) => (
               <div key={id} className="w-[420px] h-[250px] md:h-[230px] bg-white mt-8 overflow-hidden rounded-md ">
-                <div className={`${font2.className} bg-[#1E7FCB] w-full h-8 flex justify-between items-center px-4`}>
+                <div className={`${font11.className} bg-[#1E7FCB] w-full h-8 flex justify-between items-center px-4`}>
                   <p className="text-white font-medium">
                     Whimson International
                   </p>
                   <p className="text-white">10 Days Left</p>
                 </div>
 
-                <div className=" px-4 font-medium text-base flex flex-col pt-3 gap-y-3">
+                <div className="px-4 font-medium text-base flex flex-col pt-3 gap-y-3">
                   <p>
                     {" "}
                     Country:{" "}

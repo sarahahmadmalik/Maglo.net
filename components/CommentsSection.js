@@ -1,22 +1,22 @@
 import React, { useState } from 'react';
 import Comments from './Comments';
 import Button from './shared/Button.tsx';
-import Avatar from '@mui/material/Avatar'; // Import the Avatar component
-import ReplyForm from './ReplyForm'
+import Avatar from '@mui/material/Avatar'; 
+import ReplyForm from './ReplyForm';
+
 const CommentsSection = (props) => {
   const [comments, setComments] = useState(props.comments);
   const [newComment, setNewComment] = useState('');
   const [sortOrder, setSortOrder] = useState('newest');
 
   const wrapperStyles = props.wrapperStyles;
+  const hide = props.hide;
 
   const handleSortChange = (event) => {
     setSortOrder(event.target.value);
-  
   };
 
   const handleSubmitComment = () => {
- 
     setNewComment('');
   };
 
@@ -40,25 +40,32 @@ const CommentsSection = (props) => {
       </div>
 
       {wrapperStyles ? (
-    
-      <div style={{ display: "none" }}>
-      </div>
-    ) : (
-      <div className="mt-4 us:mb-[1.6rem] sm:mb-[2.5rem]">
-        <div className="flex items-start sm:px-[3rem] px-2 w-full">
-          <Avatar alt="User Avatar" src="/assets/user.jpg" className='mr-4' sx={{ width: 70, height: 70}} />
-          <textarea
-            value={newComment}
-            onChange={(e) => setNewComment(e.target.value)}
-            placeholder="Don't miss out on the countless opportunities that await you. Start your inquiry today and unlock the full potential of the Marine Global Network. Together, we will navigate the seas of success."
-            className="w-full us:py-2 us:px-2 us:text-[13px] us:h-[80px] sm:h-auto mdd:text-[15px]  sm:py-5 sm:px-7 mb-2 border rounded focus:outline-none resize-none"
-          />
+        <div style={{ display: "none" }}>
         </div>
-        <div className='us:my-2 sm:my-[1.4rem] smd:pl-[8.6rem] pl-[3rem]'>
-          <Button text="Submit Now" onClick={handleSubmitComment} disabled={!newComment.trim()} />
-        </div>
-      </div>
-    )}
+      ) : (
+        !hide && ( 
+          <div className="mt-4 us:mb-[1.6rem] sm:mb-[2.5rem]">
+            <div className="flex items-start sm:px-[3rem] px-2 w-full">
+              {!hide && ( 
+                <Avatar alt="User Avatar" src="/assets/user.jpg" className='mr-4' sx={{ width: 70, height: 70 }} />
+              )}
+              {!hide && ( 
+                <textarea
+                  value={newComment}
+                  onChange={(e) => setNewComment(e.target.value)}
+                  placeholder="Don't miss out on the countless opportunities that await you. Start your inquiry today and unlock the full potential of the Marine Global Network. Together, we will navigate the seas of success."
+                  className="w-full us:py-2 us:px-2 us:text-[13px] us:h-[80px] sm:h-auto mdd:text-[15px]  sm:py-5 sm:px-7 mb-2 border rounded focus:outline-none resize-none"
+                />
+              )}
+            </div>
+            {!hide && ( 
+              <div className='us:my-2 sm:my-[1.4rem] smd:pl-[8.6rem] pl-[3rem]'>
+                <Button text="Submit Now" onClick={handleSubmitComment} disabled={!newComment.trim()} />
+              </div>
+            )}
+          </div>
+        )
+      )}
 
       <div>
         {props.comments.map((eachComment, index) => (
@@ -66,7 +73,7 @@ const CommentsSection = (props) => {
         ))}
       </div>
       {wrapperStyles && (
-        <ReplyForm/>
+        <ReplyForm />
       )}
     </div>
   );

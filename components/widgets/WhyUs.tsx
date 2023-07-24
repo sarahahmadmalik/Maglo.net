@@ -4,7 +4,7 @@ import Image from "next/image";
 import Success from "./Success";
 import {  Work_Sans } from "next/font/google";
 
-const font = Work_Sans({
+const font45 = Work_Sans({
   subsets: ["latin"],
   weight: ["100", "300", "400", "500", "700", "800", "900"],
 });
@@ -36,7 +36,7 @@ const WhyUs = () => {
   return (
     <section className="py-10 bg-shade">
       <div className=" flex flex-col justify-center items-center">
-        <h1 className={`${font.className} text-[#081840] text-[40px] font-bold`}>Why Choose Us</h1>
+        <h1 className={`${font45.className} text-[#081840] text-[40px] font-bold`}>Why Choose Us</h1>
         <p className="px-8 md:px-44 py-4 text-center">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad

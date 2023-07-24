@@ -1,12 +1,14 @@
-import { createContext, useState, useContext } from 'react';
-
+import { createContext, useState, useContext, useEffect } from 'react';
+import User from '../data/User'
 const AuthContext = createContext();
+import { useRouter } from 'next/router';
 
 export const useAuth = () => useContext(AuthContext);
 
 export const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState([]);
+  const router = useRouter();
 
   const login = (userData) => {
     setUser(userData);
@@ -18,6 +20,14 @@ export const AuthProvider = ({ children }) => {
     setIsLoggedIn(false);
     setUser({}); 
   };
+
+  useEffect(() => {
+
+    if (!isLoggedIn) {
+
+      router.push('/');
+    }
+  }, [isLoggedIn]);
 
   
 

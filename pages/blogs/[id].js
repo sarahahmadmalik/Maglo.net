@@ -166,7 +166,7 @@ function BlogDetails() {
               </div>
             
               </div>
-            <CommentsSection wrapperStyles="max-w-[800px] my-6 h-full rounded-md shadow-md flex flex-col overflow-hidden" comments={blog.comments}/>
+            <CommentsSection hide={false} wrapperStyles="max-w-[800px] my-6 h-full rounded-md shadow-md flex flex-col overflow-hidden" comments={blog.comments}/>
           </>
         )}
       </main>

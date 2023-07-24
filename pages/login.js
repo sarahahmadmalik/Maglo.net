@@ -40,7 +40,7 @@ function Login() {
           login(loginUser)
           router.push({
             pathname: '/user',
-            query: { role: user.role }, 
+            query: { role: loginUser.role }, 
           });
         } else {
           setError('Invalid username or password');
