@@ -13,6 +13,8 @@ const font = Work_Sans({
   weight: ["100", "300", "400", "500", "700"],
 });
 
+
+
 const Hero = () => {
   const [activeTab, setActiveTab] = useState('tab1');
   

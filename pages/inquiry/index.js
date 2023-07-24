@@ -5,6 +5,9 @@ import InquiryLists from '../../components/InquiryLists';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import Image from "next/image";
+import Header from '../../components/layout/Header';
+import Footer from '../../components/layout/Footer';
+
 function Inquiry() {
   const PAGE_SIZE = 6;
   const totalPosts = InquiryData.length;
@@ -75,6 +78,7 @@ function Inquiry() {
 
   return (
     <>
+    <Header/>
       <Banner title="Inquiry List" />
       <div className=" flex justify-center items-center mt-[2rem] mt[.9rem] mdd:mt-[4rem] mdd:mb-[2rem] space-x-2 w-full px-3 overflow-hidden ">
         <div className='relative w-full sm:w-[30%] flex justify-center '>
@@ -134,6 +138,7 @@ function Inquiry() {
           No inquiries found for the given search criteria.
         </div>
       )}
+      <Footer/>
     </>
   );
 }

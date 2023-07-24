@@ -80,7 +80,7 @@ const SelectedWork = () => {
             {card.map((item, key) => (
               <div
                 key={key}
-                className="max-w-[370px] w-[290px] md:w-[340px] rounded-xl bg-white shadow-xl"
+                className={`max-w-[370px] w-[290px] md:w-[340px] rounded-xl bg-white shadow-xl`}
               >
                 <Image
                   className="object-cover w-full h-48 rounded-t-xl"
@@ -90,7 +90,7 @@ const SelectedWork = () => {
                   height={1080}
                 />
                 <div className="px-4 py-4 text-base ">
-                  <h4 className="text-xl pt-6 pb-2 font-bold text-black">
+                  <h4 className={`${font.className}  text-xl pt-6 pb-2 font-semibold text-black`}>
                     {item.heading}
                   </h4>
                   <div className="flex items-center gap-3">

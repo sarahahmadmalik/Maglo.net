@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { Work_Sans } from "next/font/google";
+
 const font = Work_Sans({
   subsets: ["latin"],
   weight: ["100", "300", "400", "500", "700"],
@@ -44,6 +45,7 @@ function Login() {
         setRememberMe(event.target.checked);
       };
   return (
+    <>
     <div className="bg-white w-[100vw] h-[100vh] text-black overflow-hidden">
       <div className="w-full h-full flex">
         
@@ -135,6 +137,7 @@ function Login() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 

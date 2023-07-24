@@ -5,6 +5,10 @@ import CommentsSection from '../../components/CommentsSection'
 import { Work_Sans } from "next/font/google";
 import { Nunito_Sans } from "next/font/google";
 import Image from "next/image";
+import Header from '../../components/layout/Header';
+import Footer from '../../components/layout/Footer';
+
+
 
 const font = Work_Sans({
   subsets: ["latin"],
@@ -40,6 +44,7 @@ function BlogDetails() {
 
   return (
     <div>
+      <Header/>
       <Banner title="Blogs" para="Blogs" />
       <main className="w-full h-full my-[3rem]  flex flex-col items-center">
         {blog && (
@@ -165,6 +170,7 @@ function BlogDetails() {
           </>
         )}
       </main>
+      <Footer/>
     </div>
   );
 }

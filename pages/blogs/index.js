@@ -5,13 +5,15 @@ import { Nunito_Sans } from "next/font/google";
 import { DM_Sans } from "next/font/google";
 import blogsData from "../../data/Blogs";
 import Image from 'next/image'
+import Header from '../../components/layout/Header';
+import Footer from '../../components/layout/Footer';
 
-const font = Nunito_Sans({
+const font3 = Nunito_Sans({
   subsets: ["latin"],
   weight: ["200", "300", "400", "500", "700", "800", "900"],
 });
 
-const font2 = DM_Sans({
+const font4 = DM_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "700"],
 });
@@ -105,10 +107,11 @@ function blogs() {
 
   return (
     <>
+    <Header/>
       <Banner title="Blogs" para="Blogs" />
       <main className="grid md:grid-cols-3 gap-4 smd:mx-[2.4rem] mx-[1.8rem] mdd:mx-[4rem] my-5">
         {/* First Column */}
-        <div className={`md:col-span-1 w-[67%] ${font.className}`}>
+        <div className={`md:col-span-1 w-[67%] ${font3.className}`}>
           {/* Recent Blogs Section */}
           <div className="hidden mdd:block bg-white p-4 shadow">
             <h2 className="text-lg font-semibold mb-4">Recent Blogs</h2>
@@ -132,7 +135,7 @@ function blogs() {
             <div className="flex justify-center flex-wrap">
               {popularTags.map((tag, index) => (
                 <p
-                  className={`cursor-pointer flex-grow align-center text-sm m-1 px-4 py-2 rounded-md bg-[#DFEBF5] ${font2.className}`}
+                  className={`cursor-pointer flex-grow align-center text-sm m-1 px-4 py-2 rounded-md bg-[#DFEBF5] ${font4.className}`}
                   key={index}
                 >
                   {tag}
@@ -184,6 +187,7 @@ function blogs() {
           </div>
         </div>
       </main>
+      <Footer/>
     </>
   );
 }

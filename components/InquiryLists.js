@@ -1,5 +1,12 @@
 import { Roboto } from "next/font/google";
+import { Work_Sans } from "next/font/google";
+
 import Link from 'next/link';
+const font2 = Work_Sans({
+  subsets: ["latin"],
+  weight: ["100", "300", "400", "500", "700"],
+});
+
 const font = Roboto({
   subsets: ["latin"],
   weight: ["100", "300", "400", "500", "700"],
@@ -13,13 +20,13 @@ function InquiryLists({ inquiries }) {
           key={id}
           className="max-w-[480px] h-[250px] md:h-auto bg-white mt-8 overflow-hidden rounded-md shadow-md"
         >
-          <div className="bg-[#1E7FCB] w-full h-8 flex justify-between items-center px-4">
+          <div className={`${font2.className} bg-[#1E7FCB] w-full h-8 flex justify-between items-center px-4`}>
             <p className="text-white font-medium">Whimson International</p>
             <p className="text-white">10 Days Left</p>
           </div>
 
-          <div className="px-4 font-medium text-base flex flex-col pt-3 gap-y-3">
-            <p>
+          <div className={`px-4 font-medium text-base flex flex-col pt-3 gap-y-3 ${font.className}` }>
+            <p className=''>
               Country: <span className="text-[#1E7FCB]">{data.country}</span>
             </p>
 

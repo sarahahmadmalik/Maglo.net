@@ -54,9 +54,9 @@ const Header = () => {
                 <li className="">Join Us</li>
               </Link>
               <div className="text-base flex gap-x-4">
-                <BorderButton text="Login" />
+                <BorderButton text="Login" linkTo="login" />
 
-                <Button text="Join Us" />
+                <Button text="Join Us" linkTo="" />
               </div>
             </ul>
           </div>
@@ -99,8 +99,8 @@ const Header = () => {
                 <Link href="/">Join Us</Link>
               </li>
               <div className="text-base flex-col space-y-4">
-                <BorderButton text="Login" />
-                <Button text="Join Us" />
+                <BorderButton text="Login" linkTo="login" />
+                <Button text="Join Us" linkTo=" " />
               </div>
             </ul>
           </div>

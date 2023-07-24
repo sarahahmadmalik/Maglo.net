@@ -12,7 +12,7 @@ const Accordian = ({ title, info }) => {
     <div className="accordion bg-[#FFFFFF] rounded-md border border-[#EAF0FF] mb-4 overflow-hidden">
       <div
         className={`accordion bg-[#EAF0FF] rounded-md border border-[#EAF0FF] p-2 flex justify-between 
-           "text-black" font-[500]
+           "text-black" font-[600]
         }`}
         onClick={handleAccordionClick}
       >
