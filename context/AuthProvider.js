@@ -1,5 +1,4 @@
 import { createContext, useState, useContext, useEffect } from 'react';
-import User from '../data/User';
 import { useRouter } from 'next/router';
 
 const AuthContext = createContext();

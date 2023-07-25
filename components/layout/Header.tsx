@@ -15,6 +15,7 @@ const Header = () => {
     setNav(!nav);
   };
 
+
   const { isLoggedIn, user, logout } = useAuth();
   const [showDropdown, setShowDropdown] = useState(false);
 

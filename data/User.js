@@ -9,6 +9,7 @@ const User = [
         location: "New York,USA",
         image: "/assets/dummyUser.png",
         role: "buyer",
+
         inquiries: [
             {
                 id: 1,

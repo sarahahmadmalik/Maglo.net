@@ -10,15 +10,18 @@ const BuyerDashboard = () => {
     const [showMoreContent, setShowMoreContent] = useState(false);
     const [selectedInquiryIndex, setSelectedInquiryIndex] = useState(null);
     const {user, isLoggedIn} = useAuth();
-
-    const [firstName, setFirstName] = useState(user.firstName || '');
-    const [lastName, setLastName] = useState(user.lastName || '');
-    const [email, setEmail] = useState(user.email || '');
-    const [phoneNumber, setPhoneNumber] = useState(user.phone || '');
+    const [firstName, setFirstName] = useState(() => user ? user.firstName : "");
+    const [lastName, setLastName] = useState(() => user ? user.lastName : "");
+    const [email, setEmail] = useState(() => user ? user.email : "");
+    const [phoneNumber, setPhoneNumber] = useState(()=> user? user.phone : "");
     const [newPassword, setNewPassword] = useState('');
     const [repeatNewPassword, setRepeatNewPassword] = useState('');
     const[isSubmitted, setIsSubmitted] = useState(false);
 
+ 
+    if (!user) {
+        return <div>User not logged in</div>;
+      }
 
     const handleButtonClick = (button) => {
         setActiveButton(button);
