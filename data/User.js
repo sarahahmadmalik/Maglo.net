@@ -4,7 +4,7 @@ const User = [
         firstName: "James",
         lastName: "Williams",
         email: "James@gmail.com",
-        phone: "Cancelled",
+        phone: "3445677878",
         password: "abcd123",
         location: "New York,USA",
         image: "/assets/dummyUser.png",

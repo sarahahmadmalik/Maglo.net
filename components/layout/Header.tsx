@@ -1,16 +1,13 @@
-
-import  { useAuth }  from '../../context/AuthProvider';
-
+import { useState } from 'react';
+import { useAuth } from '../../context/AuthProvider';
 import Image from 'next/image';
 import Link from 'next/link';
 import Wrapper from '../shared/Wrapper';
-import { useState } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
 import Logo from '../../public/assets/Maglolologo.svg';
 import Button from '../shared/Button';
 import { CgMenuRightAlt } from 'react-icons/cg';
 import BorderButton from '../shared/BorderButton';
-
 
 const Header = () => {
   const [nav, setNav] = useState(false);
@@ -18,7 +15,17 @@ const Header = () => {
     setNav(!nav);
   };
 
-  const { isLoggedIn, user } = useAuth();
+  const { isLoggedIn, user, logout } = useAuth();
+  const [showDropdown, setShowDropdown] = useState(false);
+
+  const handleDropdown = () => {
+    setShowDropdown(!showDropdown);
+  };
+
+  const handleLogout = () => {
+    logout();
+    setShowDropdown(false);
+  };
 
   return (
     <header className="">
@@ -57,7 +64,10 @@ const Header = () => {
               </Link>
               <div className="text-base flex gap-x-4">
                 {isLoggedIn ? (
-                  <div className="flex flex-row-reverse items-center gap-x-2">
+                  <div
+                    className="relative flex flex-row-reverse items-center gap-x-2 cursor-pointer"
+                    onClick={handleDropdown}
+                  >
                     <Image
                       src={user.image}
                       alt="User Profile"
@@ -65,10 +75,25 @@ const Header = () => {
                       height={60}
                       className="rounded-full"
                     />
-                    <div className='mr-2'>
+                    <div className="mr-2">
                       <p className="text-md font-medium">{user.firstName} {user.lastName}</p>
                       <p className="text-xs">{user.location}</p>
                     </div>
+                    {showDropdown && (
+                      <div className="absolute bottom-[-120px] left-35 bg-white text-black text-center py-4 px-3 rounded shadow-lg z-20">
+                        <Link href={{ pathname: '/user', query: { role: user.role } }}>
+                          <span className="block rounded-md px-4 py-2 hover:bg-custom-blue hover:bg-blue-300">
+                            Dashboard
+                          </span>
+                        </Link>
+                        <button
+                          className="block rounded-md px-4 py-2 hover:bg-custom-red hover:bg-blue-300 w-full"
+                          onClick={handleLogout}
+                        >
+                          Logout
+                        </button>
+                      </div>
+                    )}
                   </div>
                 ) : (
                   <>
@@ -97,8 +122,8 @@ const Header = () => {
           <div
             className={
               nav
-                ? 'sm:hidden absolute top-0 right-0 left-0 bottom-0 flex justify-center items-center w-full h-screen bg-white text-black text-center ease-linear duration-300 z-20'
-                : 'sm:hidden absolute top-0 right-0 left-[-100%] bottom-0 flex justify-center items-center w-full h-screen bg-white text-black text-center ease-linear duration-300 z-20'
+                ? 'sm:hidden fixed top-0 right-0 left-0 bottom-0 flex justify-center items-center w-full h-full bg-white text-black text-center ease-linear duration-300 z-20'
+                : 'sm:hidden fixed top-0 right-0 left-[-100%] bottom-0 flex justify-center items-center w-full h-full bg-white text-black text-center ease-linear duration-300 z-20'
             }
           >
             <ul>
@@ -118,10 +143,29 @@ const Header = () => {
                 <Link href="/">Join Us</Link>
               </li>
               <div className="text-base flex-col space-y-4">
-                <BorderButton text="Login" linkTo="login" />
-                <Button text="Join Us" linkTo=" " />
-              </div>
+              {isLoggedIn ? (
+                <div className="flex items-center gap-x-2 cursor-pointer">
+                  <Image
+                    src={user.image}
+                    alt="User Profile"
+                    width={60}
+                    height={60}
+                    className="rounded-full"
+                  />
+                  <div className="text-left">
+                    <p className="text-md font-medium">{user.firstName} {user.lastName}</p>
+                    <p className="text-xs">{user.location}</p>
+                  </div>
+                </div>
+              ) : (
+                <div className="text-base flex-col space-y-4">
+                  <BorderButton text="Login" linkTo="login" />
+                  <Button text="Join Us" linkTo=" " />
+                </div>
+              )}
+            </div>
             </ul>
+           
           </div>
         </div>
       </Wrapper>

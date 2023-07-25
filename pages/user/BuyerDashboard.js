@@ -4,11 +4,20 @@ import Footer from "../../components/layout/Footer";
 import {useAuth} from "../../context/AuthProvider";
 import {KeyboardArrowDown as KeyboardArrowDownIcon} from "@mui/icons-material";
 import CommentsSection from '../../components/CommentsSection'
+import Button from "../../components/shared/Button";
 const BuyerDashboard = () => {
     const [activeButton, setActiveButton] = useState("inquiries");
     const [showMoreContent, setShowMoreContent] = useState(false);
     const [selectedInquiryIndex, setSelectedInquiryIndex] = useState(null);
     const {user, isLoggedIn} = useAuth();
+
+    const [firstName, setFirstName] = useState(user.firstName || '');
+    const [lastName, setLastName] = useState(user.lastName || '');
+    const [email, setEmail] = useState(user.email || '');
+    const [phoneNumber, setPhoneNumber] = useState(user.phone || '');
+    const [newPassword, setNewPassword] = useState('');
+    const [repeatNewPassword, setRepeatNewPassword] = useState('');
+    const[isSubmitted, setIsSubmitted] = useState(false);
 
 
     const handleButtonClick = (button) => {
@@ -177,9 +186,121 @@ const BuyerDashboard = () => {
     };
 
     const renderAccountSettingContent = () => {
-        return <div>Account Setting Content</div>;
-    };
-
+      
+        const handleSubmit = (event) => {
+          // Perform form submission logic here
+      
+          // Display success message
+         
+        };
+      
+        return (
+            <div className="rounded-md shadow-md border border-grey-400 px-6 py-5 overflow-hidden">
+            <h1 className="font-semibold text-lg mb-4 ml-4">Personal Information</h1>
+            {isSubmitted ? (
+              <div className="mb-4 text-green-500">Changes successfully saved!</div>
+            ) : (
+              <form className="font-inter w-full px-4" onSubmit={handleSubmit}>
+                <div className="flex flex-wrap gap-4 w-[100%]">
+                  <div className="w-full flex">
+                    <div className="w-1/2 pr-2">
+                      <label className="text-xs font-medium" htmlFor="firstName">
+                        First Name
+                      </label>
+                      <input
+                        type="text"
+                        id="firstName"
+                        name="firstName"
+                        value={firstName}
+                        onChange={(e) => setFirstName(e.target.value)}
+                        className="text-xs font-medium w-full border border-[#A4CCEC] bg-[#EBF3FA] px-4 py-2 rounded focus:border-[#1E7FCB] focus:outline-none"
+                      />
+                    </div>
+                    <div className="w-1/2 pl-2">
+                      <label className="text-xs font-medium" htmlFor="lastName">
+                        Last Name
+                      </label>
+                      <input
+                        type="text"
+                        id="lastName"
+                        name="lastName"
+                        value={lastName}
+                        onChange={(e) => setLastName(e.target.value)}
+                        className="text-xs font-medium w-full border border-[#A4CCEC] bg-[#EBF3FA] px-4 py-2 rounded focus:border-[#1E7FCB] focus:outline-none"
+                      />
+                    </div>
+                  </div>
+          
+                  <div className="w-full flex">
+                    <div className="w-1/2 pr-2">
+                      <label className="text-xs font-medium" htmlFor="email">
+                        Email Address
+                      </label>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        className="text-xs font-medium w-full border border-[#A4CCEC] bg-[#EBF3FA] px-4 py-2 rounded focus:border-[#1E7FCB] focus:outline-none"
+                      />
+                    </div>
+                    <div className="w-1/2 pl-2">
+                      <label className="text-xs font-medium" htmlFor="phoneNumber">
+                        Phone Number
+                      </label>
+                      <input
+                        type="text"
+                        id="phoneNumber"
+                        name="phoneNumber"
+                        value={phoneNumber}
+                        onChange={(e) => setPhoneNumber(e.target.value)}
+                        className="text-xs font-medium w-full border border-[#A4CCEC] bg-[#EBF3FA] px-4 py-2 rounded focus:border-[#1E7FCB] focus:outline-none"
+                      />
+                    </div>
+                  </div>
+          
+                  <div className="w-full flex">
+                    <div className="w-1/2 pr-2">
+                      <label className="text-xs font-medium" htmlFor="newPassword">
+                        Create New Password
+                      </label>
+                      <input
+                        type="password"
+                        id="newPassword"
+                        name="newPassword"
+                        value={newPassword}
+                        onChange={(e) => setNewPassword(e.target.value)}
+                        className="text-xs font-medium w-full border border-[#A4CCEC] bg-[#EBF3FA] px-4 py-2 rounded focus:border-[#1E7FCB] focus:outline-none"
+                      />
+                    </div>
+                    <div className="w-1/2 pl-2">
+                      <label className="text-xs font-medium" htmlFor="repeatNewPassword">
+                        Repeat New Password
+                      </label>
+                      <input
+                        type="password"
+                        id="repeatNewPassword"
+                        name="repeatNewPassword"
+                        value={repeatNewPassword}
+                        onChange={(e) => setRepeatNewPassword(e.target.value)}
+                        className="text-xs font-medium w-full border border-[#A4CCEC] bg-[#EBF3FA] px-4 py-2 rounded focus:border-[#1E7FCB] focus:outline-none"
+                      />
+                    </div>
+                  </div>
+                </div>
+          
+                <div className="mt-4">
+                  <Button text='Submit' linkTo=''/>
+                </div>
+              </form>
+            )}
+          </div>
+          
+          
+        );
+      };
+      
 
     const renderContent = () => {
         switch (activeButton) {

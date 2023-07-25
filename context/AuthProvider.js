@@ -1,35 +1,62 @@
 import { createContext, useState, useContext, useEffect } from 'react';
-import User from '../data/User'
-const AuthContext = createContext();
+import User from '../data/User';
 import { useRouter } from 'next/router';
+
+const AuthContext = createContext();
 
 export const useAuth = () => useContext(AuthContext);
 
 export const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [user, setUser] = useState([]);
   const router = useRouter();
 
-  const login = (userData) => {
-    setUser(userData);
-    setIsLoggedIn(true);
-    
-  };
+  function getUserFromLocalStorage() {
+    if (typeof window !== 'undefined') {
+      const userJSON = window.localStorage.getItem('user');
+      return userJSON ? JSON.parse(userJSON) : null;
+    }
+    return null;
+  }
 
-  const logout = () => {
+  const [user, setUser] = useState(getUserFromLocalStorage() || null);
+
+  function updateUser(user) {
+    if (typeof window !== 'undefined') {
+      window.localStorage.setItem('user', JSON.stringify(user));
+    }
+    setUser(user);
+  }
+
+  function logout() {
+    if (typeof window !== 'undefined') {
+      window.localStorage.removeItem('user');
+      window.localStorage.setItem('isLoggedIn', false);
+    }
     setIsLoggedIn(false);
-    setUser({}); 
+    setUser({});
+  }
+
+  const login = (userData) => {
+    updateUser(userData);
+    if (typeof window !== 'undefined') {
+      window.localStorage.setItem('isLoggedIn', true);
+    }
+    setIsLoggedIn(true);
   };
 
   useEffect(() => {
+    const userFromLocalStorage = getUserFromLocalStorage();
+    if (userFromLocalStorage) {
+      setUser(userFromLocalStorage);
+    }
+
+    const isLoggedInFromLocalStorage = typeof window !== 'undefined' ? window.localStorage.getItem('isLoggedIn') : false;
+    setIsLoggedIn(isLoggedInFromLocalStorage === 'true');
 
     if (!isLoggedIn) {
-
       router.push('/');
     }
   }, [isLoggedIn]);
-
-  
 
   return (
     <AuthContext.Provider value={{ isLoggedIn, user, login, logout }}>
