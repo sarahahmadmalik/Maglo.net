@@ -53,9 +53,9 @@ export const AuthProvider = ({ children }) => {
     const isLoggedInFromLocalStorage = typeof window !== 'undefined' ? window.localStorage.getItem('isLoggedIn') : false;
     setIsLoggedIn(isLoggedInFromLocalStorage === 'true');
 
-    if (!isLoggedIn) {
-      router.push('/');
-    }
+    // if (!isLoggedIn) {
+    //   router.push('/');
+    // }
   }, [isLoggedIn]);
 
   return (
