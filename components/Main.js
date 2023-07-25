@@ -1,7 +1,14 @@
 import Link from "next/link";
 import React, {useState} from "react";
 import { Work_Sans } from "next/font/google";
+import {Roboto} from 'next/font/google'
 const font = Work_Sans({
+  subsets: ["latin"],
+  weight: ["100", "300", "400", "500", "700"],
+});
+
+
+const font1 = Roboto({
   subsets: ["latin"],
   weight: ["100", "300", "400", "500", "700"],
 });
@@ -10,22 +17,22 @@ function Main() {
   const [activeButton, setActiveButton] = useState("individual");
 
   return (
-    <main className="max-w-full h-full sm:my-[6rem] my-[4rem] mx-auto bg-white">
+    <main className="max-w-full h-full mx-4  sm:my-[6rem] my-[4rem] md:mx-auto bg-white">
       <div className="flex w-full h-full items-center justify-center">
         <div className="sm:w-[60%] sm:h-[50%] h-auto w-auto overflow-hidden rounded-md">
-          <div className="bg-landingBlue py-2 px-6 md:px-8 md:py-4 text-xs sm:test-base text-white md:text-medium font-medium">
+          <div className="bg-landingBlue py-3 px-6 md:px-8 md:py-4 text-[16px] sm:test-base text-white md:text-medium font-normal">
             <h4 className={font.className}>
               Please Select a Registration Method
             </h4>
           </div>
           <div className="flex w-full h-auto grow">
-            <div className="w-[50%] flex justify-center">
+            <div className="w-[50%] flex  justify-center">
             <button
                 className={` ${
                   activeButton === "individual"
                     ? "bg-customYellow"
                     : "bg-[#EAF0FF]"
-                } ${font.className} w-full py-2 sm:py-4 text-[.8rem] sm:text-base text-black font-semibold`}
+                } ${font.className} w-full py-3 sm:py-4 text-[.8rem] sm:text-base text-black font-semibold`}
                 onClick={() => setActiveButton("individual")}
               >
                 Individual
@@ -55,11 +62,11 @@ function Main() {
                 </h1>
               </div>
               <form className="mt-3 text-black">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4 font-inter h-">
+                <div className={`grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4 ${font1.className}` }>
                   {/* Row 1 */}
                   <div>
                     <label
-                      className="text-xs font-[400] mb-5"
+                      className="text-[16px] font-normal"
                       htmlFor="firstName"
                     >
                       First Name
@@ -68,49 +75,49 @@ function Main() {
                       type="text"
                       id="firstName"
                       placeholder="John"
-                      className=" text-xs font-[400] w-full border border-gray-300 px-4 py-2 rounded"
+                      className=" text-[16px] font-normal mt-2 w-full border border-gray-300 px-5 py-3 rounded"
                     />
                   </div>
                   <div>
-                    <label className="text-xs font-[400]" htmlFor="lastName">
+                    <label className="text-[16px] font-normal" htmlFor="lastName">
                       Last Name
                     </label>
                     <input
                       type="text"
                       id="lastName"
                       placeholder="Doe"
-                      className="text-xs font-[400] w-full border border-gray-300 px-4 py-2 rounded"
+                      className="text-[16px] font-normal mt-2 w-full border border-gray-300 px-5 py-3 rounded"
                     />
                   </div>
 
                   {/* Row 2 */}
                   <div>
-                    <label className="text-xs font-[400]" htmlFor="username">
+                    <label className="text-[16px] font-normal" htmlFor="username">
                       Username
                     </label>
                     <input
                       type="text"
                       id="username"
                       placeholder="JohnDoe1244"
-                      className="text-xs font-[400] w-full border border-gray-300 px-4 py-2 rounded"
+                      className="text-[16px] font-normal mt-2 w-full border border-gray-300 px-5 py-3 rounded"
                     />
                   </div>
                   <div>
-                    <label className="text-xs font-[400]" htmlFor="email">
+                    <label className="text-[16px] font-normal" htmlFor="email">
                       Email Address
                     </label>
                     <input
                       type="email"
                       id="email"
                       placeholder="Doejohn78@gmail.com"
-                      className="text-xs font-[400] w-full border border-gray-300 px-4 py-2 rounded"
+                      className="text-[16px] font-normal mt-2 w-full border border-gray-300 px-5 py-3 rounded"
                     />
                   </div>
 
                   {/* Row 3 */}
                   <div>
                     <label
-                      className="text-xs font-[400]"
+                      className="text-[16px] font-normal"
                       htmlFor="createPassword"
                     >
                       Create Password
@@ -119,12 +126,12 @@ function Main() {
                       type="password"
                       id="createPassword"
                       placeholder=". . . . ."
-                      className=" text-xs font-[400] w-full border border-gray-300 px-4 py-2 rounded"
+                      className=" text-[16px] font-normal mt-2 w-full border border-gray-300 px-5 py-3 rounded"
                     />
                   </div>
                   <div>
                     <label
-                      className="text-xs font-[400]"
+                      className="text-[16px] font-normal"
                       htmlFor="confirmPassword"
                     >
                       Confirm Password
@@ -133,14 +140,14 @@ function Main() {
                       type="password"
                       id="confirmPassword"
                       placeholder=". . . . ."
-                      className=" text-xs font-[400] w-full border border-gray-300 px-4 py-2 rounded"
+                      className=" text-[16px] font-normal mt-2 w-full border border-gray-300 px-5 py-3 rounded"
                     />
                   </div>
 
                   {/* Row 4 */}
                   <div>
                     <label
-                      className="text-xs font-[400]"
+                      className="text-[16px] font-normal"
                       htmlFor="phoneNumber"
                     >
                       Phone Number
@@ -149,26 +156,26 @@ function Main() {
                       type="text"
                       id="phoneNumber"
                       placeholder="76897878678"
-                      className=" text-xs font-[400] w-full border border-gray-300 px-4 py-2 rounded"
+                      className=" text-[16px] font-normal mt-2 w-full border border-gray-300 px-5 py-3 rounded"
                     />
                   </div>
                   <div>
                     <label
-                      className="text-xs font-[400]"
+                      className="text-[16px] font-normal"
                       htmlFor="emailVerificationCode"
                     >
                       Email Verification Code
                     </label>
-                    <div className="flex relative">
+                    <div className="flex relative ">
                       <input
                         type="text"
                         id="emailVerificationCode"
                         placeholder="7788"
-                        className="text-xs font-[400] w-full border border-gray-300 px-4 py-2 rounded "
+                        className="text-[16px] font-normal mt-2 w-full border border-gray-300 px-5 py-3 rounded "
                       />
                       <button
                         type="button"
-                        className="text-[9px] font-light bg-blue-500 text-white px-3 py-[6px] rounded absolute right-[3px] top-[4px]"
+                        className="text-[14px] font-light bg-blue-500 text-white px-3  mt-[9px] mr-[2px] py-[9px] rounded absolute right-[3px] top-[4px]"
                         style={{ backgroundColor: "#1E7FCB" }}
                       >
                         Get Code
@@ -177,8 +184,8 @@ function Main() {
                   </div>
                 </div>
 
-                <div className="mt-5 w-full flex justify-center items-center text-xs font-light">
-                  <input type="checkbox" id="agreeToTerms" className="mr-2" />
+                <div className="mt-5 w-full flex justify-center items-center text-[16px] font-light">
+                  <input type="checkbox" id="agreeToTerms" className="mr-2 p-3" />
                   <p>
                     I agree to the
                     <Link className="text-[#1E7FCB] ml-2 mr-2" href="/">
@@ -194,7 +201,7 @@ function Main() {
                 <div className="flex justify-center mt-6">
                   <button
                     type="submit"
-                    className="bg-customYellow  text-black font-[400] w-[60%] md:w-[50%] py-2 px-4 rounded hover:scale-105 ease-in duration-300 transition-all"
+                    className="bg-customYellow  text-black font-normal w-[60%] md:w-[50%] py-3 px-5 rounded hover:scale-105 ease-in duration-300 transition-all"
                   >
                     Sign up
                   </button>

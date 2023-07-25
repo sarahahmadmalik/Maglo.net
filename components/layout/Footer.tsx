@@ -21,7 +21,7 @@ const Footer = () => {
             />
           </div>
           <div>
-            <ul className="flex gap-4 md:gap-8">
+            <ul className="flex gap-2 md:gap-8">
               <li>Log in</li>
               <li>Join Us</li>
               <li>Place</li>

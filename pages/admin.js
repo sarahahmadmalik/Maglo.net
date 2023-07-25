@@ -25,9 +25,9 @@ function Admin() {
 
   return (
     <div className={`${font09.className} w-[100vw] h-[100vh]`}>
-      <div className="w-full h-full">
+      <div className="w-full h-full flex flex-row">
         {/* sidebar */}
-        <div className="w-[220px] flex flex-col justify-between h-full  border shadow-md">
+        <div className="w-[260px] flex flex-col justify-between h-full  border shadow-md">
             <div className="w-full h-full">
           <div className="flex justify-center mb-4">
             <Image src="/assets/maglolologo.svg" width={100} height={100} alt="Maglo Logo" />
@@ -55,8 +55,45 @@ function Admin() {
           </div>
           
         </div>
+        {/* add search bar with icon on left in the same line add a circle image of location, bell icon with notifacation unread number on top of it, and a user icon img with blue bg in circle */}
+        <div className="h-full w-full bg-[##F9F9F9]">
+        <div className="w-full h-full flex flex-col flex-grow py-4">
+        <div className="flex flex-row justify-between w-[100%] items-center px-4 py-2 border-b">
+        <div className="relative mx-4 w-[40%] ">
+            <input
+              type="text"
+              placeholder="Search for"
+              className="flex-grow bg-[#FFFFFF] py-1 px-5 w-full outline-none rounded-md border border-[#0852C12B]"
+            />
+           
+              <Image src=" /assets/searchIcon.svg" className="absolute top-2 right-2" width={17} height={17} alt="Search Icon" />
+            </div>
+            <div className="flex items-center px-4 py-2 border-b">
+            <Image src="/assets/country.svg" width={24} height={24} alt="Location Icon" className="mx-3" />
+            <div className="relative mx-3">
+              <Image src="/assets/bellIcon.svg" width={24} height={24} alt="Bell Icon" />
+              <span className="absolute -top-5 -right-1 px-2 py-1 text-xs font-medium text-white bg-red-500 rounded-full">
+                9
+              </span>
+            </div>
+            <div className="relative mx-3">
+              <div className="flex align-center justify-center w-10 h-10 rounded-full bg-blue-500">
+                <Image src="/assets/userAdmin.svg" width={20} height={2}  alt="User Icon" />
+              </div>
+            </div>
+          </div>
+          </div>
+        
+
+          {/* Other Components */}
+        
+
+          {/* Rest of the content */}
+        </div>
+        </div>
+
+        </div>
       </div>
-    </div>
   );
 }
 
