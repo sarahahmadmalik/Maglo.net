@@ -59,7 +59,7 @@ function Main() {
                   {/* Row 1 */}
                   <div>
                     <label
-                      className="text-xs font-medium mb-5"
+                      className="text-xs font-[400] mb-5"
                       htmlFor="firstName"
                     >
                       First Name
@@ -68,49 +68,49 @@ function Main() {
                       type="text"
                       id="firstName"
                       placeholder="John"
-                      className=" text-xs font-medium w-full border border-gray-300 px-4 py-2 rounded"
+                      className=" text-xs font-[400] w-full border border-gray-300 px-4 py-2 rounded"
                     />
                   </div>
                   <div>
-                    <label className="text-xs font-medium" htmlFor="lastName">
+                    <label className="text-xs font-[400]" htmlFor="lastName">
                       Last Name
                     </label>
                     <input
                       type="text"
                       id="lastName"
                       placeholder="Doe"
-                      className="text-xs font-medium w-full border border-gray-300 px-4 py-2 rounded"
+                      className="text-xs font-[400] w-full border border-gray-300 px-4 py-2 rounded"
                     />
                   </div>
 
                   {/* Row 2 */}
                   <div>
-                    <label className="text-xs font-medium" htmlFor="username">
+                    <label className="text-xs font-[400]" htmlFor="username">
                       Username
                     </label>
                     <input
                       type="text"
                       id="username"
                       placeholder="JohnDoe1244"
-                      className="text-xs font-medium w-full border border-gray-300 px-4 py-2 rounded"
+                      className="text-xs font-[400] w-full border border-gray-300 px-4 py-2 rounded"
                     />
                   </div>
                   <div>
-                    <label className="text-xs font-medium" htmlFor="email">
+                    <label className="text-xs font-[400]" htmlFor="email">
                       Email Address
                     </label>
                     <input
                       type="email"
                       id="email"
                       placeholder="Doejohn78@gmail.com"
-                      className="text-xs font-medium w-full border border-gray-300 px-4 py-2 rounded"
+                      className="text-xs font-[400] w-full border border-gray-300 px-4 py-2 rounded"
                     />
                   </div>
 
                   {/* Row 3 */}
                   <div>
                     <label
-                      className="text-xs font-medium"
+                      className="text-xs font-[400]"
                       htmlFor="createPassword"
                     >
                       Create Password
@@ -119,12 +119,12 @@ function Main() {
                       type="password"
                       id="createPassword"
                       placeholder=". . . . ."
-                      className=" text-xs font-medium w-full border border-gray-300 px-4 py-2 rounded"
+                      className=" text-xs font-[400] w-full border border-gray-300 px-4 py-2 rounded"
                     />
                   </div>
                   <div>
                     <label
-                      className="text-xs font-medium"
+                      className="text-xs font-[400]"
                       htmlFor="confirmPassword"
                     >
                       Confirm Password
@@ -133,14 +133,14 @@ function Main() {
                       type="password"
                       id="confirmPassword"
                       placeholder=". . . . ."
-                      className=" text-xs font-medium w-full border border-gray-300 px-4 py-2 rounded"
+                      className=" text-xs font-[400] w-full border border-gray-300 px-4 py-2 rounded"
                     />
                   </div>
 
                   {/* Row 4 */}
                   <div>
                     <label
-                      className="text-xs font-medium"
+                      className="text-xs font-[400]"
                       htmlFor="phoneNumber"
                     >
                       Phone Number
@@ -149,12 +149,12 @@ function Main() {
                       type="text"
                       id="phoneNumber"
                       placeholder="76897878678"
-                      className=" text-xs font-medium w-full border border-gray-300 px-4 py-2 rounded"
+                      className=" text-xs font-[400] w-full border border-gray-300 px-4 py-2 rounded"
                     />
                   </div>
                   <div>
                     <label
-                      className="text-xs font-medium"
+                      className="text-xs font-[400]"
                       htmlFor="emailVerificationCode"
                     >
                       Email Verification Code
@@ -164,7 +164,7 @@ function Main() {
                         type="text"
                         id="emailVerificationCode"
                         placeholder="7788"
-                        className="text-xs font-medium w-full border border-gray-300 px-4 py-2 rounded "
+                        className="text-xs font-[400] w-full border border-gray-300 px-4 py-2 rounded "
                       />
                       <button
                         type="button"
@@ -194,7 +194,7 @@ function Main() {
                 <div className="flex justify-center mt-6">
                   <button
                     type="submit"
-                    className="bg-customYellow  text-black font-medium w-[60%] md:w-[50%] py-2 px-4 rounded hover:scale-105 ease-in duration-300 transition-all"
+                    className="bg-customYellow  text-black font-[400] w-[60%] md:w-[50%] py-2 px-4 rounded hover:scale-105 ease-in duration-300 transition-all"
                   >
                     Sign up
                   </button>

@@ -6,11 +6,18 @@ import InquiryData from '../../data/InquiryData'
 import { useRouter } from "next/router";
 import {  Roboto } from "next/font/google";
 import {  Work_Sans } from "next/font/google";
+import {  Saira_Condensed } from "next/font/google";
 
 const font11 = Work_Sans({
   subsets: ["latin"],
   weight: ["100", "300", "400", "500", "700"],
 });
+
+const font99 = Saira_Condensed({
+  subsets: ["latin"],
+  weight: ["100", "300", "400", "500", "700"],
+});
+
 
 
 const font = Roboto({
@@ -83,10 +90,15 @@ const Inquiries = () => {
             ))}
           </div>
           <div className="flex space-x-4 mt-8">
-            <Button text="Add Comments" linkTo="" />
+          <button
+        type="button"
+        className={`bg-[#F6BE00] ${font99.className} font-[500] rounded-full w-40 h-12 flex-shrink-0 text-black hover:scale-105 ease-in duration-300 transition-all`}
+      >
+        Add Comments
+      </button>
             <button
               type="button"
-              className="bg-[#1E7FCB] rounded-full w-40 h-12 flex-shrink-0 text-white hover:scale-105 ease-in duration-300 transition-all"
+              className={`${font99.className} font-[500] bg-[#1E7FCB] rounded-full w-40 h-12 flex-shrink-0 text-white hover:scale-105 ease-in duration-300 transition-all`}
             >
               Send Inquiries
             </button>

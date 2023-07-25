@@ -145,7 +145,9 @@ const Header = () => {
               </li>
               <div className="text-base flex-col space-y-4">
               {isLoggedIn ? (
-                <div className="flex items-center gap-x-2 cursor-pointer">
+                <>
+                <div className="flex items-center cursor-pointer mb-3">
+                <Link href={{ pathname: '/user', query: { role: user.role } }} className='flex items-center gap-x-3 '>
                   <Image
                     src={user.image}
                     alt="User Profile"
@@ -157,7 +159,16 @@ const Header = () => {
                     <p className="text-md font-medium">{user.firstName} {user.lastName}</p>
                     <p className="text-xs">{user.location}</p>
                   </div>
+                  </Link>
                 </div>
+                <button
+                          className="bg-[#F6BE00] rounded-full w-40 h-12 flex-shrink-0 text-black hover:scale-105 ease-in duration-300 transition-all"
+                          onClick={handleLogout}
+                        >
+                          Logout
+                        </button>
+                </>
+                
               ) : (
                 <div className="text-base flex-col space-y-4">
                   <BorderButton text="Login" linkTo="login" />

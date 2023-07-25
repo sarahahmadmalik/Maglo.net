@@ -370,7 +370,7 @@ const User = [
                 deliveryDate: "12.08.2023",
                 deliveryPricing: "78.00",
                 status: "Cancelled",
-                payment: "Completed"
+                payment: "Credit Card"
 
             },
             {

@@ -3,6 +3,13 @@ import Wrapper from "../shared/Wrapper";
 import Image from "next/image";
 import Success from "./Success";
 import {  Work_Sans } from "next/font/google";
+import {  Saira_Condensed } from "next/font/google";
+
+const font99 = Saira_Condensed({
+  subsets: ["latin"],
+  weight: ["100", "300", "400", "500", "700"],
+});
+
 
 const font45 = Work_Sans({
   subsets: ["latin"],
@@ -36,7 +43,7 @@ const WhyUs = () => {
   return (
     <section className="py-10 bg-shade">
       <div className=" flex flex-col justify-center items-center">
-        <h1 className={`${font45.className} text-[#081840] text-[40px] font-bold`}>Why Choose Us</h1>
+        <h1 className={`${font45.className} text-[#081840] text-[40px] font-[600]`}>Why Choose Us</h1>
         <p className="px-8 md:px-44 py-4 text-center">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -49,7 +56,7 @@ const WhyUs = () => {
               className="w-[280px] h-[340px] bg-white drop-shadow-lg px-6 flex flex-col justify-center items-center text-center"
             >
               <Image src={data.image} alt="image" width={100} height={100} />
-              <h1 className=" py-4 text-lg font-bold">{data.heading}</h1>
+              <h1 className={` ${font99.className} py-4 text-[24px] font-[600]`}>{data.heading}</h1>
               <p>{data.text}</p>
             </div>
           ))}

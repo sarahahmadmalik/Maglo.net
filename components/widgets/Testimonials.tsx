@@ -5,7 +5,7 @@ import {  Work_Sans } from "next/font/google";
 
 const font54 = Work_Sans({
   subsets: ["latin"],
-  weight: ["100", "300", "400", "500", "700"],
+  weight: ["100", "300", "400", "500", "700", "800", "900"],
 });
 
 const Testimonials = () => {
@@ -17,7 +17,7 @@ const Testimonials = () => {
         <div className={`md:my-6 ${font54.className}`}>
           <div className="text-left px-4 ">
             <h1 className="text-[24px] font-bold">Testomonials</h1>
-            <h2 className="text-[40px] font-bold">What Our Client Say About Us</h2>
+            <h2 className="text-[40px] font-[800]">What Our Client Say About Us</h2>
           </div>
           <div className="overflow-hidden" id="content">
       <Carousel />

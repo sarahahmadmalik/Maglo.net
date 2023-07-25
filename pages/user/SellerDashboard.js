@@ -18,6 +18,7 @@ const SellerDashboard = () => {
     const [repeatNewPassword, setRepeatNewPassword] = useState('');
     const[isSubmitted, setIsSubmitted] = useState(false);
 
+ 
     if (!user) {
         return <div>User not logged in</div>;
       }
@@ -45,13 +46,13 @@ const SellerDashboard = () => {
 
     const renderInquiriesContent = () => {
         return (
-            <div> {
+            <div className=' w-full'> {
                 user.inquiries.map((inquiry, index) => (
                     <>
                         <div key={index}
                             className=" flex-col rounded-md shadow-md mb-4 py-4 px-6 justify-between border border-grey-400">
-                            <div className="flex">
-                                <div className="flex flex-col w-[40%] justify-between">
+                            <div className="flex smd:flex-row flex-col" >
+                                <div className="flex flex-row flex-wrap smd:flex-col smd:w-[40%] w-full justify-between">
                                     <div className="flex mb-2">
                                         <p>Country:
                                         </p>
@@ -68,17 +69,7 @@ const SellerDashboard = () => {
                                             inquiry.brand
                                         }</p>
                                     </div>
-                                </div>
-                                <div>
                                     <div className="flex">
-                                        <p>Item:{
-                                            inquiry.item
-                                        }</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="flex w-full justify-between items-start mb-2">
-                                <div className="flex">
                                     <p>Model:
                                     </p>
                                     <p className="text-[#1E7FCB] ml-1">
@@ -86,6 +77,17 @@ const SellerDashboard = () => {
                                         inquiry.model
                                     }</p>
                                 </div>
+                                </div>
+                                <div>
+                                    <div className="mt-3 smd:mt-0">
+                                        <p>Item:{
+                                            inquiry.item
+                                        }</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="flex w-full justify-end items-start mt-3 smd:mt-0 mb-2">
+                               
                                 <button className=" text-black px-3 py-2 rounded-md focus:outline-none transition-colors duration-300"
                                     onClick={
                                         () => handleViewMore(index)
@@ -122,63 +124,52 @@ const SellerDashboard = () => {
 
     const renderOrdersContent = () => {
         return (
-            <div className="shadow-md border border-grey-400 rounded-md px-3 py-5">
-                <table className="w-full">
-                    <thead>
-                        <tr className="">
-                            <th className="py-2 pb-6">OrderId</th>
-                            <th className="py-2 pb-6">Order</th>
-                            <th className="py-2 pb-6">Delivery Date</th>
-                            <th className="py-2 pb-6">Delivery Pricing</th>
-                            <th className="py-2 pb-6">Delivery Status</th>
-                            <th className="py-2 pb-6">Payment</th>
-                        </tr>
-                    </thead>
-                    <tbody> {
-                        user.orders.map((order, index) => (
-                            <tr key={index}
-                                className={
-                                    `border-b ${
-                                        index === 0 ? 'border-t' : ''
-                                    } mx-4`
-                            }>
-                                <td className="py-5 text-center text-gray-400">
-                                    {
-                                    order.orderId
-                                }</td>
-                                <td className="py-2 text-center text-gray-400">
-                                    {
-                                    order.orderName
-                                }</td>
-                                <td className="py-2 text-center text-gray-400">
-                                    {
-                                    order.deliveryDate
-                                }</td>
-                                <td className="py-2 text-center text-gray-400">
-                                    {
-                                    order.deliveryPricing
-                                }</td>
-                                <td className="py-2">
-                                    <span className={
-                                        `text-center inline-block w-full py-1 px-2 rounded-md ${
-                                            order.status === "Completed" ? "bg-[#C7F4D1] text-black" : order.status === "Cancelled" ? "bg-[#FFB8C5] text-black" : "bg-yellow-100 text-black"
-                                        }`
-                                    }>
-                                        {
-                                        order.status
-                                    } </span>
-                                </td>
-                                <td className="py-2 text-center text-gray-400">
-                                    {
-                                    order.payment
-                                }</td>
-                            </tr>
-                        ))
-                    } </tbody>
-                </table>
-            </div>
+          <div className="shadow-md border border-grey-400 rounded-md px-3 py-5 overflow-x-auto">
+            <table className="w-full">
+              <thead>
+                <tr className="">
+                  <th className="py-2 smd:pb-6 smd:text-medium text-[13px]">OrderId</th>
+                  <th className="py-2 smd:pb-6 smd:text-medium text-[13px]">Order</th>
+                  <th className="py-2 smd:pb-6 smd:text-medium text-[13px]">Delivery Date</th>
+                  <th className="py-2 smd:pb-6 smd:text-medium text-[13px]">Delivery Pricing</th>
+                  <th className="py-2 smd:pb-6 smd:text-medium text-[13px]">Delivery Status</th>
+                  <th className="py-2 smd:pb-6  smd:text-medium text-[13px]">Payment</th>
+                </tr>
+              </thead>
+              <tbody>
+                {user.orders.map((order, index) => (
+                  <tr
+                    key={index}
+                    className={`border-b text-[10px] ${index === 0 ? "border-t" : ""} mx-4`}
+                  >
+                    <td className="py-2 text-center text-gray-400">
+                      {order.orderId}
+                    </td>
+                    <td className="py-2 text-center text-gray-400">{order.orderName}</td>
+                    <td className="py-2 text-center text-gray-400">{order.deliveryDate}</td>
+                    <td className="py-2 text-center text-gray-400">{order.deliveryPricing}</td>
+                    <td className="py-2">
+                      <span
+                        className={`text-center inline-block w-full py-1 px-2 rounded-md ${
+                          order.status === "Completed"
+                            ? "bg-[#C7F4D1] text-black"
+                            : order.status === "Cancelled"
+                            ? "bg-[#FFB8C5] text-black"
+                            : "bg-yellow-100 text-black"
+                        }`}
+                      >
+                        {order.status}
+                      </span>
+                    </td>
+                    <td className="py-2 text-center text-gray-400">{order.payment}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         );
-    };
+      };
+      
     const renderLoggedOutMessage = () => {
         return (
             <div className="w-[100vw] h-[100vh] flex justify-center items-center">
@@ -190,10 +181,7 @@ const SellerDashboard = () => {
     const renderAccountSettingContent = () => {
       
         const handleSubmit = (event) => {
-          // Perform form submission logic here
-      
-          // Display success message
-         
+         event.preventDefault()
         };
       
         return (
@@ -203,9 +191,9 @@ const SellerDashboard = () => {
               <div className="mb-4 text-green-500">Changes successfully saved!</div>
             ) : (
               <form className="font-inter w-full px-4" onSubmit={handleSubmit}>
-                <div className="flex flex-wrap gap-4 w-[100%]">
-                  <div className="w-full flex">
-                    <div className="w-1/2 pr-2">
+                <div className="flex flex-wrap smd:gap-4 gap-1 w-[100%]">
+                  <div className="w-full smd:flex flex-col">
+                    <div className="smd:w-1/2 w-full smd:pr-2 mb-2">
                       <label className="text-xs font-medium" htmlFor="firstName">
                         First Name
                       </label>
@@ -218,7 +206,7 @@ const SellerDashboard = () => {
                         className="text-xs font-medium w-full border border-[#A4CCEC] bg-[#EBF3FA] px-4 py-2 rounded focus:border-[#1E7FCB] focus:outline-none"
                       />
                     </div>
-                    <div className="w-1/2 pl-2">
+                    <div className="smd:w-1/2 w-full smd:pl-2 mb-2">
                       <label className="text-xs font-medium" htmlFor="lastName">
                         Last Name
                       </label>
@@ -233,8 +221,8 @@ const SellerDashboard = () => {
                     </div>
                   </div>
           
-                  <div className="w-full flex">
-                    <div className="w-1/2 pr-2">
+                  <div className="w-full smd:flex flex-col">
+                    <div className="smd:w-1/2 w-full smd:pr-2 mb-2 smd:mb-0">
                       <label className="text-xs font-medium" htmlFor="email">
                         Email Address
                       </label>
@@ -247,7 +235,7 @@ const SellerDashboard = () => {
                         className="text-xs font-medium w-full border border-[#A4CCEC] bg-[#EBF3FA] px-4 py-2 rounded focus:border-[#1E7FCB] focus:outline-none"
                       />
                     </div>
-                    <div className="w-1/2 pl-2">
+                    <div className="smd:w-1/2 w-full smd:pl-2 mb-2 smd:mb-0">
                       <label className="text-xs font-medium" htmlFor="phoneNumber">
                         Phone Number
                       </label>
@@ -262,8 +250,8 @@ const SellerDashboard = () => {
                     </div>
                   </div>
           
-                  <div className="w-full flex">
-                    <div className="w-1/2 pr-2">
+                  <div className="w-full smd:flex flex-col">
+                    <div className="smd:w-1/2 w-full smd:pr-2 mb-2 smd:mb-0">
                       <label className="text-xs font-medium" htmlFor="newPassword">
                         Create New Password
                       </label>
@@ -276,7 +264,7 @@ const SellerDashboard = () => {
                         className="text-xs font-medium w-full border border-[#A4CCEC] bg-[#EBF3FA] px-4 py-2 rounded focus:border-[#1E7FCB] focus:outline-none"
                       />
                     </div>
-                    <div className="w-1/2 pl-2">
+                    <div className="smd:w-1/2 w-full smd:pl-2 smd:mb-0 mb-2">
                       <label className="text-xs font-medium" htmlFor="repeatNewPassword">
                         Repeat New Password
                       </label>
@@ -323,15 +311,15 @@ const SellerDashboard = () => {
         <div>
             <Header/> {
             user && isLoggedIn ? (
-                <div className="w-[100vw] h-full flex justify-center items-center">
-                    <div className="flex w-full h-full mx-[3rem] my-2 mb-3">
-                        <div className="flex flex-col w-[20%] h-[470px] bg-[#DEF1FF66] rounded-md">
-                            <div className="p-7">
+                <div className="w-[100vw] h-full flex-col smd:flex justify-center items-center">
+                    <div className="smd:flex flex-col w-full h-full smd:mx-[3rem] my-2 mb-3">
+                        <div className=" smd:flex-col w-full smd:w-[20%] h-full flex flex-row  mb-4 bg-[#DEF1FF66] rounded-md">
+                            <div className="smd:p-7 p-3 hidden smd:block">
                                 <h1 className="font-semibold text-lg">My Account</h1>
                             </div>
-                            <div className="flex flex-col text-left">
+                            <div className="flex smd:flex-col justify-center text-left w-full">
                                 <button className={
-                                        `text-left border-b border-t border-[#C8E1F5] px-7 py-3 ${
+                                        `text-left smd:text-medium text-[14px] font-medium smd:border-b smd:border-t border-[#C8E1F5] px-3 smd:px-7 smd:py-3 ${
                                             activeButton === "inquiries" ? "bg-[#1E7FCB] text-white" : ""
                                         }`
                                     }
@@ -340,18 +328,9 @@ const SellerDashboard = () => {
                                 }>
                                     Inquiries
                                 </button>
+                               
                                 <button className={
-                                        `text-left border-b border-[#C8E1F5] px-7 py-3 ${
-                                            activeButton === "commentRecord" ? "bg-[#1E7FCB] text-white" : ""
-                                        }`
-                                    }
-                                    onClick={
-                                        () => handleButtonClick("commentRecord")
-                                }>
-                                    Comment Record
-                                </button>
-                                <button className={
-                                        `text-left border-b border-[#C8E1F5] px-7 py-3 ${
+                                        `text-left  smd:text-medium text-[14px]  font-medium border-l smd:border-b border-[#C8E1F5] px-7 py-3 ${
                                             activeButton === "orders" ? "bg-[#1E7FCB] text-white" : ""
                                         }`
                                     }
@@ -361,7 +340,7 @@ const SellerDashboard = () => {
                                     Orders
                                 </button>
                                 <button className={
-                                        `text-left border-b border-[#C8E1F5] px-7 py-3 ${
+                                        `text-left  smd:text-medium text-[14px] font-medium border-l smd:border-b border-[#C8E1F5] px-7 py-3 ${
                                             activeButton === "accountSetting" ? "bg-[#1E7FCB] text-white" : ""
                                         }`
                                     }
@@ -373,7 +352,7 @@ const SellerDashboard = () => {
                             </div>
                         </div>
 
-                        <div className="w-[80%]  h-full overflow-hidden mx-5">
+                        <div className="smd:w-[80%] w-full  h-full overflow-hidden px-3 smd:mx-5">
 
                             {
                             renderContent()

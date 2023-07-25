@@ -1,6 +1,6 @@
 import { createContext, useState, useContext, useEffect } from 'react';
 import { useRouter } from 'next/router';
-
+import User from '../data/User'
 const AuthContext = createContext();
 
 export const useAuth = () => useContext(AuthContext);
@@ -44,9 +44,10 @@ export const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    const userFromLocalStorage = getUserFromLocalStorage();
+    let userFromLocalStorage = getUserFromLocalStorage();
     if (userFromLocalStorage) {
-      setUser(userFromLocalStorage);
+
+      setUser(() => userFromLocalStorage = User.find((user) => userFromLocalStorage.id === user.id));
     }
 
     const isLoggedInFromLocalStorage = typeof window !== 'undefined' ? window.localStorage.getItem('isLoggedIn') : false;

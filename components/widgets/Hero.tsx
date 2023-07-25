@@ -7,11 +7,19 @@ import Button from "../shared/Button";
 import GetQuot from "./forms/GetQuot";
 import Sales from "./forms/Sales";
 import {  Work_Sans } from "next/font/google";
+import {  Saira_Condensed } from "next/font/google";
 
 const font6 = Work_Sans({
   subsets: ["latin"],
   weight: ["100", "300", "400", "500", "700"],
 });
+
+
+const font99 = Saira_Condensed({
+  subsets: ["latin"],
+  weight: ["100", "300", "400", "500", "700"],
+});
+
 
 
 
@@ -27,7 +35,7 @@ const Hero = () => {
           {/* right  */}
           <div className="basis-[100%] md:basis-[60%]   flex flex-col xl:mt-[5rem] justify-start items-start text-white z-10">
             <h1 className={`text-[35px] font-[700] md:leading-[6rem]  md:text-[3.8rem] ${font6.className} z-90`}>Bridging the ocean</h1>
-            <p className={`text-[28px] md:text-[2.6rem] md:leading-[3rem] font-[500] ${font6.className} z-90`}>Worldwide Connections <br /> for Your Needs</p>
+            <p className={`text-[28px] md:text-[2.6rem] md:leading-[3rem] font-[600] ${font6.className} z-90`}>Worldwide Connections <br /> for Your Needs</p>
             <div className="flex gap-x-4 mt-6 z-90">
             <Button text="Get quotation" linkTo="" />
             <button

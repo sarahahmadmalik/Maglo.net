@@ -44,7 +44,7 @@ const handleReplySubmit = () => {
       </div>
       <div className={wrapperStyles ? `rounded-md border border-grey-600 px-0 smd:px-4 py-5 overflow-hidden` : ``}>
         <div className="flex justify-between items-center w-full mb-1 text-sm font-bold">
-          <div className='flex'><p>{reply.user}</p> <p className="text-xs text-gray-500  ml-[1.6rem]">
+          <div className='flex'><p>{reply.user}</p> <p className="text-xs text-gray-500  smd:ml-[1.6rem]">
             {reply.day}
           </p>
           </div>
@@ -88,8 +88,7 @@ const handleReplyClick = () => {
 };
 
 const handleReplySubmit = () => {
-  // Logic to submit the reply
-  // For now, we just log the reply to the console
+ 
   console.log(newReply);
   setShowReplyInput(false);
   setNewReply('');
@@ -100,7 +99,7 @@ const handleReplySubmit = () => {
 
   return (
     <div className="flex items-start my-3 mx-5">
-      <div className="relative aspect-square rounded-full w-full min-w-[60px] max-w-[80px] mr-3 sm:my-2 sm:mr-auto">
+      <div className="relative aspect-square rounded-full  min-w-[60px] max-w-[80px] mr-3 sm:my-2 sm:mr-auto">
         <Image
           src={props.eachComment.profile}
           alt="Profile"
