@@ -5,7 +5,6 @@ import {useAuth} from "../../context/AuthProvider";
 import {KeyboardArrowDown as KeyboardArrowDownIcon} from "@mui/icons-material";
 import CommentsSection from '../../components/CommentsSection'
 import Button from "../../components/shared/Button";
-
 const SellerDashboard = () => {
     const [activeButton, setActiveButton] = useState("inquiries");
     const [showMoreContent, setShowMoreContent] = useState(false);
@@ -129,19 +128,19 @@ const SellerDashboard = () => {
             <table className="w-full">
               <thead>
                 <tr className="">
-                  <th className="py-2 smd:pb-6 smd:text-[16px] text-[13px]">OrderId</th>
-                  <th className="py-2 smd:pb-6 smd:text-[16px] text-[13px]">Order</th>
-                  <th className="py-2 smd:pb-6 smd:text-[16px] text-[13px]">Delivery Date</th>
-                  <th className="py-2 smd:pb-6 smd:text-[16px] text-[13px]">Delivery Pricing</th>
-                  <th className="py-2 smd:pb-6 smd:text-[16px] text-[13px]">Delivery Status</th>
-                  <th className="py-2 smd:pb-6  smd:text-[16px] text-[13px]">Payment</th>
+                  <th className="py-2 smd:pb-6 smd:text-medium text-[13px]">OrderId</th>
+                  <th className="py-2 smd:pb-6 smd:text-medium text-[13px]">Order</th>
+                  <th className="py-2 smd:pb-6 smd:text-medium text-[13px]">Delivery Date</th>
+                  <th className="py-2 smd:pb-6 smd:text-medium text-[13px]">Delivery Pricing</th>
+                  <th className="py-2 smd:pb-6 smd:text-medium text-[13px]">Delivery Status</th>
+                  <th className="py-2 smd:pb-6  smd:text-medium text-[13px]">Payment</th>
                 </tr>
               </thead>
               <tbody>
                 {user.orders.map((order, index) => (
                   <tr
                     key={index}
-                    className={`border-b text-[10px] smd:text-[16px] ${index === 0 ? "border-t" : ""} mx-4`}
+                    className={`border-b text-[10px] ${index === 0 ? "border-t" : ""} mx-4`}
                   >
                     <td className="py-2 text-center text-gray-400">
                       {order.orderId}
@@ -193,8 +192,8 @@ const SellerDashboard = () => {
             ) : (
               <form className="font-inter w-full px-4" onSubmit={handleSubmit}>
                 <div className="flex flex-wrap smd:gap-4 gap-1 w-[100%]">
-                  <div className="w-full smd:flex flex-col smd:flex-row">
-                    <div className="smd:w-1/2 w-full bordersmd:pr-2 mb-2">
+                  <div className="w-full smd:flex flex-col">
+                    <div className="smd:w-1/2 w-full smd:pr-2 mb-2">
                       <label className="text-xs font-medium" htmlFor="firstName">
                         First Name
                       </label>
@@ -222,7 +221,7 @@ const SellerDashboard = () => {
                     </div>
                   </div>
           
-                  <div className="w-full smd:flex smd:flex-row flex-col">
+                  <div className="w-full smd:flex flex-col">
                     <div className="smd:w-1/2 w-full smd:pr-2 mb-2 smd:mb-0">
                       <label className="text-xs font-medium" htmlFor="email">
                         Email Address
@@ -251,7 +250,7 @@ const SellerDashboard = () => {
                     </div>
                   </div>
           
-                  <div className="w-full smd:flex smd:flex-row flex-col">
+                  <div className="w-full smd:flex flex-col">
                     <div className="smd:w-1/2 w-full smd:pr-2 mb-2 smd:mb-0">
                       <label className="text-xs font-medium" htmlFor="newPassword">
                         Create New Password
@@ -313,14 +312,14 @@ const SellerDashboard = () => {
             <Header/> {
             user && isLoggedIn ? (
                 <div className="w-[100vw] h-full flex-col smd:flex justify-center items-center">
-                    <div className="smd:flex smd:flex-row smd:justify-center flex-col w-full h-full my-2 mb-3">
-                        <div className=" smd:flex-col w-full smd:w-[20%] smd:h-[400px] flex flex-row mx-4  mb-4 bg-[#DEF1FF66] rounded-md">
+                    <div className="smd:flex flex-col w-full h-full smd:mx-[3rem] my-2 mb-3">
+                        <div className=" smd:flex-col w-full smd:w-[20%] h-full flex flex-row  mb-4 bg-[#DEF1FF66] rounded-md">
                             <div className="smd:p-7 p-3 hidden smd:block">
                                 <h1 className="font-semibold text-lg">My Account</h1>
                             </div>
                             <div className="flex smd:flex-col justify-center text-left w-full">
                                 <button className={
-                                        `text-left smd:text-[16px] text-[14px] font-medium smd:border-b smd:border-t border-[#C8E1F5] px-3 smd:px-7 smd:py-3 ${
+                                        `text-left smd:text-medium text-[14px] font-medium smd:border-b smd:border-t border-[#C8E1F5] px-3 smd:px-7 smd:py-3 ${
                                             activeButton === "inquiries" ? "bg-[#1E7FCB] text-white" : ""
                                         }`
                                     }
@@ -331,7 +330,7 @@ const SellerDashboard = () => {
                                 </button>
                                
                                 <button className={
-                                        `text-left  smd:text-[16px] text-[14px]  font-medium border-l smd:border-l-0 smd:border-b border-[#C8E1F5] px-7 py-3 ${
+                                        `text-left  smd:text-medium text-[14px]  font-medium border-l smd:border-b border-[#C8E1F5] px-7 py-3 ${
                                             activeButton === "orders" ? "bg-[#1E7FCB] text-white" : ""
                                         }`
                                     }
@@ -341,7 +340,7 @@ const SellerDashboard = () => {
                                     Orders
                                 </button>
                                 <button className={
-                                        `text-left  smd:text-[16px] text-[14px] font-medium border-l smd:border-l-0 smd:border-b border-[#C8E1F5] px-7 py-3 ${
+                                        `text-left  smd:text-medium text-[14px] font-medium border-l smd:border-b border-[#C8E1F5] px-7 py-3 ${
                                             activeButton === "accountSetting" ? "bg-[#1E7FCB] text-white" : ""
                                         }`
                                     }

@@ -104,8 +104,9 @@ a {
   }
 } */
 
-.bg_shade {
-  background-image: url("../public/assets/bg-image.png");
+.bg-image {
+  background-image: linear-gradient(360deg, #000 0%, rgba(0, 0, 0, 0.12) 100%),
+    url("../public/assets/bg-image.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

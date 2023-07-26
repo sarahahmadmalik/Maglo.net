@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Wrapper from '../shared/Wrapper';
 import { AiOutlineClose } from 'react-icons/ai';
-import Logo from '../../public/assets/Maglolologo.svg';
+import Logo from '../../public/assets/logo-main.png';
 import Button from '../shared/Button';
 import { CgMenuRightAlt } from 'react-icons/cg';
 import BorderButton from '../shared/BorderButton';
@@ -36,12 +36,12 @@ const Header = () => {
           {/* left section */}
           <div>
             <Link href={'/'}>
-              <Image
+            <Image
                 src={Logo}
                 alt="Maglo"
-                width={30}
-                height={30}
-                className="h-24 w-24 md:h-24 md:w-24"
+                width={120}
+                height={100}
+                className="h-9 w-20 md:h-14 md:w-32"
               />
             </Link>
           </div>
