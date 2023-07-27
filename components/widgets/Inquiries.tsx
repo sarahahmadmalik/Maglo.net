@@ -7,6 +7,11 @@ import { useRouter } from "next/router";
 import {  Roboto } from "next/font/google";
 import {  Work_Sans } from "next/font/google";
 import {  Saira_Condensed } from "next/font/google";
+import { Splide } from '@splidejs/splide';
+import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
+
+
+// new Splide( '.splide' ).mount( { AutoScroll } );
 
 const font11 = Work_Sans({
   subsets: ["latin"],
@@ -26,25 +31,9 @@ const font = Roboto({
 });
 
 const Inquiries = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
   const router = useRouter();
 
-  useEffect(() => {
-    const autoSlide = setInterval(() => {
-      nextSlide();
-    }, 3000);
 
-    return () => clearInterval(autoSlide);
-  }, [currentIndex]);
-
-
-  const prevSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === 0 ? InquiryData.length - 1 : prevIndex - 1));
-  };
-
-  const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === InquiryData.length - 1 ? 0 : prevIndex + 1));
-  };
 
 
   const handlePage = () =>{
@@ -56,10 +45,11 @@ const Inquiries = () => {
     <section className="bg-[#EAF0FF] py-10">
       <Wrapper>
         <div className={`flex flex-col items-center justify-center cursor-pointer `} onClick={handlePage}>
-          <h1 className={` ${font11.className} font-semibold text-[40px]`}>Current Inquiries</h1>
-          <div className={`flex flex-row justify-center items-center gap-3 moving-1 overflow-hidden`}>
+          <h1 className={` ${font11.className} font-semibold text-[24px] md:text-[40px]`}>Current Inquiries</h1>
+          <div className="slider">
+          <div className={` flex flex-row justify-center items-center gap-3 moving-1 overflow-hidden `}>
             {InquiryData.map((data, id) => (
-              <div key={id} className="w-[420px] h-[250px] md:h-[230px] bg-white mt-8 overflow-hidden rounded-md ">
+              <div key={id} className=" w-[420px] h-[250px] md:h-[230px] bg-white mt-8 overflow-hidden rounded-md ">
                 <div className={`${font11.className} bg-[#1E7FCB] w-full h-8 flex justify-between items-center px-4`}>
                   <p className="text-white font-medium">
                     Whimson International
@@ -88,6 +78,7 @@ const Inquiries = () => {
                 </div>
               </div>
             ))}
+          </div>
           </div>
           <div className="flex space-x-4 mt-8">
           <button

@@ -2,6 +2,7 @@ import Link from "next/link";
 import React, {useState} from "react";
 import { Work_Sans } from "next/font/google";
 import {Roboto} from 'next/font/google'
+import { RevealWrapper } from "next-reveal";
 const font = Work_Sans({
   subsets: ["latin"],
   weight: ["100", "300", "400", "500", "700"],
@@ -19,7 +20,9 @@ function Main() {
   return (
     <main className="max-w-full h-full mx-4  sm:my-[6rem] my-[4rem] md:mx-auto bg-white">
       <div className="flex w-full h-full items-center justify-center">
+                 
         <div className="sm:w-[60%] sm:h-[50%] h-auto w-auto overflow-hidden rounded-md">
+       
           <div className="bg-landingBlue py-3 px-6 md:px-8 md:py-4 text-[16px] sm:test-base text-white md:text-medium font-normal">
             <h4 className={font.className}>
               Please Select a Registration Method

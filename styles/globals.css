@@ -103,18 +103,82 @@ a {
     color-scheme: dark;
   }
 } */
+.button {
+  cursor: pointer;
+  position: relative;
+  padding: 10px 24px;
+  font-size: 18px;
+  color: rgb(193, 163, 98);
+  border: 2px solid rgb(193, 163, 98);
+  border-radius: 34px;
+  background-color: transparent;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+  overflow: hidden;
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 50px;
+  height: 50px;
+  border-radius: inherit;
+  scale: 0;
+  z-index: -1;
+  background-color: rgb(193, 163, 98);
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.button:hover::before {
+  scale: 3;
+}
+
+.button:hover {
+  color: #212121;
+  scale: 1.1;
+  box-shadow: 0 0px 20px rgba(193, 163, 98,0.4);
+}
+
+.button:active {
+  scale: 1;
+}
+.dropdown{
+  animation: dropDown 1s both;
+}
+@keyframes dropDown{
+  0%{
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100%{
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+
 
 .bg-image {
   background-image: linear-gradient(360deg, #000 0%, rgba(0, 0, 0, 0.12) 100%),
     url("../public/assets/bg-image.png");
   background-size: cover;
-  background-position: center;
   background-repeat: no-repeat;
 }
 
 .bg_shade::before{
   background-image: linear-gradient(to bottom, black, black);
 }
+
+
+.bg-login {
+  background-image: linear-gradient(360deg, #000 0%, rgba(0, 0, 0, 0.12) 100%),
+    url("../public/assets/login-img.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 
 /* faq */
 .container-faq {
@@ -188,7 +252,22 @@ a {
 }
 
 .moving-1{
-  animation: move-rt1 200000ms linear infinite;
+  animation: move-rt1 40s linear infinite;
+}
+.slider::before,
+.slider::after {
+  background: linear-gradient(to right, rgba(255,255,255,1) 0%,
+  rgba(255, 255, 255, 0) 100%);
+  content: '';
+  height: 100%;
+  position: absolute;
+  width: 15%;
+  z-index: 2;
+
+}
+
+.moving-1:hover {
+  animation-play-state: paused;
 }
 
 @keyframes move-rt1 {
@@ -196,7 +275,7 @@ a {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-170%);
+    transform: translateX(calc(-250px * 9));
   }
 }
 

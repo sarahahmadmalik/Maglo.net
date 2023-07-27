@@ -77,6 +77,7 @@ function Login() {
         <div className="w-full h-full border flex justify-center items-center">
           <div className="w-full h-full flex flex-col justify-center items-center ">
             <div className="">
+              
               <Image
                 src="/assets/logo.png"
                 alt="banner-image"
@@ -98,36 +99,41 @@ function Login() {
             <div>
               <form className="font-inter py-4" onSubmit={handleSubmit}>
                 <div className="flex flex-col gap-3">
-                <div>
-                    <label className="text-xs font-medium" htmlFor="email">
-                      Email Address
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      placeholder="Doejohn78@gmail.com"
-                      value={formData.email}
-                      className="text-xs font-medium w-full border border-[#A4CCEC] bg-[#F3FAFF] px-4 py-2 rounded focus:border-[A4CCEC] focus:outline-none focus:bg-[#F3FAFF]"
-                      onChange={handleChange}
-                    />
-                  </div>
+               <div>
+                      <label
+                        className="text-sm lg:text-medium font-medium"
+                        htmlFor="email"
+                      >
+                        Email Address
+                      </label>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Doejohn78@gmail.com"
+                        value={formData.email}
+                        className="text-sm lg:text-medium w-full border border-[#A4CCEC] bg-[#F3FAFF] px-4 py-2 rounded focus:border-[#2D80F3] focus:outline-none focus:bg-[#F3FAFF] transition-all hover:border-[#2D80F3]"
+                        onChange={handleChange}
+                      />
+                    </div>
 
-               
-                  <div>
-                    <label className="text-xs font-medium" htmlFor="createPassword">
-                      Create Password
-                    </label>
-                    <input
-                      type="password"
-                      id="createPassword"
-                      placeholder=". . . . ."
-                      name="password"
-                      value={formData.password}
-                      onChange={handleChange}
-                      className=" text-xs font-medium w-full border border-[#A4CCEC] px-4 py-2 rounded focus:border bg-[#F3FAFF] focus:border-[A4CCEC] focus:outline-none focus:bg-[#F3FAFF] transition-colors"
-                    />
-                  </div>
+                    <div>
+                      <label
+                        className="text-sm lg:text-medium font-medium"
+                        htmlFor="createPassword"
+                      >
+                        Enter Password
+                      </label>
+                      <input
+                        type="password"
+                        id="createPassword"
+                        placeholder=". . . . ."
+                        name="password"
+                        value={formData.password}
+                        onChange={handleChange}
+                        className="text-sm lg:text-medium w-full border border-[#A4CCEC] px-4 py-2 rounded focus:border-[#2D80F3] bg-[#F3FAFF] focus:outline-none focus:bg-[#F3FAFF] transition-all hover:border-[#2D80F3]"
+                      />
+                    </div>
                   <div className="flex items-center justify-between gap-2 my-2">
                     <div className='flex items-center gap-2'>
                     <input type="checkbox" id="rememberMe" name="rememberMe" />

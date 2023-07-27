@@ -21,11 +21,11 @@ const Accordian = ({ title, info }) => {
           {isExpanded ?  <AiOutlineMinus /> : <AiOutlinePlus />}
         </button>
       </div>
-      {isExpanded && (
-        <div className=" px-4 py-2  bg-[#FFFFFF] rounded">
-          {info}
-        </div>
-      )}
+      <div className={` transition-all duration-700 ease-linear overflow-hidden ${isExpanded ? 'duration-300 max-h-[500px]' : 'max-h-0'}`}>
+                <p className="p-4 ">
+                    {info}
+                </p>
+            </div>
     </div>
   );
 };

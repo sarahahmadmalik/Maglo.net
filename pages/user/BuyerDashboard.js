@@ -46,7 +46,7 @@ const BuyerDashboard = () => {
 
     const renderInquiriesContent = () => {
         return (
-            <div className=' w-full'> {
+            <div className=' w-full max-w-screen-md'> {
                 user.inquiries.map((inquiry, index) => (
                     <>
                         <div key={index}
@@ -88,7 +88,7 @@ const BuyerDashboard = () => {
                             </div>
                             <div className="flex w-full justify-end items-start mt-3 smd:mt-0 mb-2">
                                
-                                <button className=" text-black px-3 py-2 rounded-md focus:outline-none transition-colors duration-300"
+                                <button className=" text-black px-3 py-4 rounded-md focus:outline-none transition-colors duration-300"
                                     onClick={
                                         () => handleViewMore(index)
                                 }>
@@ -124,7 +124,7 @@ const BuyerDashboard = () => {
 
     const renderOrdersContent = () => {
         return (
-          <div className="shadow-md border border-grey-400 rounded-md px-3 py-5 overflow-x-auto">
+          <div className="shadow-md border border-grey-400 rounded-md px-3 py-5 overflow-x-auto max-w-screen-md">
             <table className="w-full">
               <thead>
                 <tr className="">
@@ -185,7 +185,7 @@ const BuyerDashboard = () => {
         };
       
         return (
-            <div className="rounded-md shadow-md border border-grey-400 px-6 py-5 overflow-hidden">
+            <div className="rounded-md shadow-md border border-grey-400 px-10 py-5 overflow-hidden max-w-screen-md md:h-[582px]">
             <h1 className="font-semibold text-lg mb-4 ml-4">Personal Information</h1>
             {isSubmitted ? (
               <div className="mb-4 text-green-500">Changes successfully saved!</div>
@@ -194,93 +194,105 @@ const BuyerDashboard = () => {
                 <div className="flex flex-wrap smd:gap-4 gap-1 w-[100%]">
                   <div className="w-full smd:flex flex-col smd:flex-row">
                     <div className="smd:w-1/2 w-full bordersmd:pr-2 mb-2">
-                      <label className="text-xs font-medium" htmlFor="firstName">
+                     <div className="mb-2">
+                     <label className="text-[16px]  font-medium" htmlFor="firstName">
                         First Name
                       </label>
+                     </div>
                       <input
                         type="text"
                         id="firstName"
                         name="firstName"
                         value={firstName}
                         onChange={(e) => setFirstName(e.target.value)}
-                        className="text-xs font-medium w-full border border-[#A4CCEC] bg-[#EBF3FA] px-4 py-2 rounded focus:border-[#1E7FCB] focus:outline-none"
+                        className="text-[16px] font-normal w-full border border-[#A4CCEC] bg-[#EBF3FA] px-4 py-2 rounded focus:border-[#1E7FCB] focus:outline-none"
                       />
                     </div>
                     <div className="smd:w-1/2 w-full smd:pl-2 mb-2">
-                      <label className="text-xs font-medium" htmlFor="lastName">
+                    <div className="mb-2">
+                     <label className="text-[16px]  font-medium" htmlFor="firstName">
                         Last Name
                       </label>
+                     </div>
                       <input
                         type="text"
                         id="lastName"
                         name="lastName"
                         value={lastName}
                         onChange={(e) => setLastName(e.target.value)}
-                        className="text-xs font-medium w-full border border-[#A4CCEC] bg-[#EBF3FA] px-4 py-2 rounded focus:border-[#1E7FCB] focus:outline-none"
+                        className="text-[16px] font-normal w-full border border-[#A4CCEC] bg-[#EBF3FA] px-4 py-2 rounded focus:border-[#1E7FCB] focus:outline-none"
                       />
                     </div>
                   </div>
           
                   <div className="w-full smd:flex smd:flex-row flex-col">
                     <div className="smd:w-1/2 w-full smd:pr-2 mb-2 smd:mb-0">
-                      <label className="text-xs font-medium" htmlFor="email">
+                    <div className="mb-2">
+                     <label className="text-[16px]  font-medium" htmlFor="firstName">
                         Email Address
                       </label>
+                     </div>
                       <input
                         type="email"
                         id="email"
                         name="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className="text-xs font-medium w-full border border-[#A4CCEC] bg-[#EBF3FA] px-4 py-2 rounded focus:border-[#1E7FCB] focus:outline-none"
+                        className="text-[16px] font-normal w-full border border-[#A4CCEC] bg-[#EBF3FA] px-4 py-2 rounded focus:border-[#1E7FCB] focus:outline-none"
                       />
                     </div>
                     <div className="smd:w-1/2 w-full smd:pl-2 mb-2 smd:mb-0">
-                      <label className="text-xs font-medium" htmlFor="phoneNumber">
+                    <div className="mb-2">
+                     <label className="text-[16px]  font-medium" htmlFor="firstName">
                         Phone Number
                       </label>
+                     </div>
                       <input
                         type="text"
                         id="phoneNumber"
                         name="phoneNumber"
                         value={phoneNumber}
                         onChange={(e) => setPhoneNumber(e.target.value)}
-                        className="text-xs font-medium w-full border border-[#A4CCEC] bg-[#EBF3FA] px-4 py-2 rounded focus:border-[#1E7FCB] focus:outline-none"
+                        className="text-[16px] font-normal w-full border border-[#A4CCEC] bg-[#EBF3FA] px-4 py-2 rounded focus:border-[#1E7FCB] focus:outline-none"
                       />
                     </div>
                   </div>
           
                   <div className="w-full smd:flex smd:flex-row flex-col">
                     <div className="smd:w-1/2 w-full smd:pr-2 mb-2 smd:mb-0">
-                      <label className="text-xs font-medium" htmlFor="newPassword">
+                    <div className="mb-2">
+                     <label className="text-[16px]  font-medium" htmlFor="firstName">
                         Create New Password
                       </label>
+                     </div>
                       <input
                         type="password"
                         id="newPassword"
                         name="newPassword"
                         value={newPassword}
                         onChange={(e) => setNewPassword(e.target.value)}
-                        className="text-xs font-medium w-full border border-[#A4CCEC] bg-[#EBF3FA] px-4 py-2 rounded focus:border-[#1E7FCB] focus:outline-none"
+                        className="text-[16px] font-normal w-full border border-[#A4CCEC] bg-[#EBF3FA] px-4 py-2 rounded focus:border-[#1E7FCB] focus:outline-none"
                       />
                     </div>
                     <div className="smd:w-1/2 w-full smd:pl-2 smd:mb-0 mb-2">
-                      <label className="text-xs font-medium" htmlFor="repeatNewPassword">
+                    <div className="mb-2">
+                     <label className="text-[16px]  font-medium" htmlFor="firstName">
                         Repeat New Password
                       </label>
+                     </div>
                       <input
                         type="password"
                         id="repeatNewPassword"
                         name="repeatNewPassword"
                         value={repeatNewPassword}
                         onChange={(e) => setRepeatNewPassword(e.target.value)}
-                        className="text-xs font-medium w-full border border-[#A4CCEC] bg-[#EBF3FA] px-4 py-2 rounded focus:border-[#1E7FCB] focus:outline-none"
+                        className="text-[16px] font-normal w-full border border-[#A4CCEC] bg-[#EBF3FA] px-4 py-2 rounded focus:border-[#1E7FCB] focus:outline-none"
                       />
                     </div>
                   </div>
                 </div>
           
-                <div className="mt-4">
+                <div className="mt-10">
                   <Button text='Submit' linkTo=''/>
                 </div>
               </form>
@@ -309,11 +321,13 @@ const BuyerDashboard = () => {
 
     return (
         <div>
-            <Header/> {
+            <Header/> 
+            <div className="max-w-screen-xl mx-auto mt-8 mb-20 mr-3 md:mr-0">
+            {
             user && isLoggedIn ? (
-                <div className="w-[100vw] h-full flex-col smd:flex justify-center items-center">
+                <div className="w-[100vw]  h-full flex-col smd:flex justify-center items-center">
                     <div className="smd:flex smd:flex-row smd:justify-center flex-col w-full h-full my-2 mb-3">
-                        <div className=" smd:flex-col w-full smd:w-[20%] smd:h-[400px] flex flex-row mx-4  mb-4 bg-[#DEF1FF66] rounded-md">
+                        <div className=" smd:flex-col w-full smd:w-[20%] smd:h-[400px] md:h-[582px] flex flex-row mx-4  mb-4 bg-[#DEF1FF66] rounded-md">
                             <div className="smd:p-7 p-3 hidden smd:block">
                                 <h1 className="font-semibold text-lg">My Account</h1>
                             </div>
@@ -340,7 +354,7 @@ const BuyerDashboard = () => {
                                     Orders
                                 </button>
                                 <button className={
-                                        `text-left  smd:text-[16px] text-[14px] font-medium border-l smd:border-l-0 smd:border-b border-[#C8E1F5] px-7 py-3 ${
+                                        `text-left  smd:text-[16px] text-[14px] font-medium border-l smd:border-l-0 smd:border-b border-[#C8E1F5] px-4 md:px-7 py-3 ${
                                             activeButton === "accountSetting" ? "bg-[#1E7FCB] text-white" : ""
                                         }`
                                     }
@@ -361,6 +375,8 @@ const BuyerDashboard = () => {
                 </div>
             ) : renderLoggedOutMessage()
         }
+
+            </div>
             <Footer/>
         </div>
     );

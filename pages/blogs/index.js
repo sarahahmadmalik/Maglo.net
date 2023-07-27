@@ -7,6 +7,7 @@ import blogsData from "../../data/Blogs";
 import Image from 'next/image'
 import Header from '../../components/layout/Header';
 import Footer from '../../components/layout/Footer';
+import { RevealWrapper } from "next-reveal";
 
 const font3 = Nunito_Sans({
   subsets: ["latin"],
@@ -109,20 +110,21 @@ function blogs() {
     <>
     <Header/>
       <Banner title="Blogs" para="Blogs" />
+      <div className="max-w-screen-xl mx-auto">
       <main className="grid md:grid-cols-3 gap-4 smd:mx-[2.4rem] mx-[1.8rem] mdd:mx-[4rem] my-5">
         {/* First Column */}
         <div className={`md:col-span-1 w-[67%] ${font3.className}`}>
           {/* Recent Blogs Section */}
-          <div className="hidden mdd:block bg-white p-4 shadow">
+          <div className="hidden mdd:block bg-white p-4 shadow md:w-[295px]">
             <h2 className="text-lg font-semibold mb-4">Recent Blogs</h2>
             {recentBlogs.map((recent, index) => (
               <div key={index} className="flex w-full my-2 cursor-pointer">
                 <div className="relative w-full objectFit-contain h-full">
                   <Image src={recent.image} alt="blog" width={100} height={100} objectFit="contain"/>
                 </div>
-                <div className="ml-2">
+                <div className="ml-[-5rem]">
                 <div><p className="text-[13px] xl:text-md font-medium text-[#77777777]">{recent.date}</p></div>
-                <div><p className="font-medium text-sm xl:text-xl leading-2">{recent.title}</p></div>
+                <div><p className="font-medium text-sm xl:text-[16px] leading-2">{recent.title}</p></div>
                 </div>
               </div>
             ))}
@@ -130,9 +132,9 @@ function blogs() {
 
 
           {/* Popular Tags Section */}
-          <div className="hidden mdd:block mt-4 bg-white p-4 shadow">
+          <div className="hidden mdd:block mt-4 bg-white p-4 shadow  md:w-[295px]">
             <h2 className="text-lg font-semibold">Popular Tags</h2>
-            <div className="flex justify-center flex-wrap">
+            <div className="flex justify-center flex-wrap ">
               {popularTags.map((tag, index) => (
                 <p
                   className={`cursor-pointer flex-grow align-center text-sm m-1 px-4 py-2 rounded-md bg-[#DFEBF5] ${font4.className}`}
@@ -147,9 +149,20 @@ function blogs() {
 
         <div className="md:col-span-2">
           {/* Blog Cards */}
-          <div className="grid grid-cols-1 mdd:grid-cols-2 gap-4 justify-center">
+          <div className="grid grid-cols-1 mdd:grid-cols-2 gap-4 justify-center ">
             {posts.map((blog) => (
-              <BlogCard key={blog.id} blog={blog} />
+               <RevealWrapper
+               rotate={{ x: -12, y: 0, z: 0 }}
+               origin="bottom"
+               delay={200}
+               duration={1000}
+               distance="200px"
+               reset={false}
+               viewOffset={{ top: 0, right: 12, bottom: 0, left: 0 }}
+               key={blogs.id}
+               >
+               <BlogCard key={blog.id} blog={blog} />
+               </RevealWrapper>
             ))}
           </div>
 
@@ -187,6 +200,7 @@ function blogs() {
           </div>
         </div>
       </main>
+      </div>
       <Footer/>
     </>
   );

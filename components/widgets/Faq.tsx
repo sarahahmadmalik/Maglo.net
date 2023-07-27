@@ -4,6 +4,7 @@ import Wrapper from "../shared/Wrapper";
 import Accordian from '../Accordian'
 
 import {  Work_Sans } from "next/font/google";
+import { RevealWrapper } from "next-reveal";
 
 const font42 = Work_Sans({
   subsets: ["latin"],
@@ -57,29 +58,51 @@ const Faq = () => {
       <Wrapper>
         <div>
           <div>
-            <h1 className={`text-[40px] font-[800] text-[#081840] text-center ${font42.className}`}>
+            <h1 className={`md:text-[40px] text-[24px] font-bold md:font-[800] text-[#081840] text-center ${font42.className}`}>
               Frequently Ask Questions
             </h1>
-            <p className="px-8 md:px-44 lg:px-44 py-4 text-center">
+            <p className="px-4 md:px-44 lg:px-44 py-4 text-center">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
               enim ad minim veniam, quis nostrud exercitation
             </p>
           </div>
 
-          <div className="mt-16 md:lg:mt-0 flex flex-col md:flex-row lg:flex-row md:gap-16 justify-center items-start max-h-[700px]">
+          <div className="mt-5 md:mt-16  md:lg:mt-0 flex flex-col md:flex-row lg:flex-row md:gap-16 justify-center items-start max-h-[900px]">
+        
             <div className="container-faq basis-[50%]">
-              <section className="info mt-3 ">
+              <section className="info md:mt-3 ">
               {questions.map((q) => (
+                  <RevealWrapper
+                  rotate={{ x: -12, y: 0, z: 0 }}
+                  origin="bottom"
+                  delay={200}
+                  duration={1000}
+                  distance="200px"
+                  reset={false}
+                  viewOffset={{ top: 0, right: 12, bottom: 0, left: 0 }}
+                  key={q.id}
+                >
         <Accordian key={q.id} title={q.title} info={q.info} />
+        </RevealWrapper>
       ))}
               </section>
             </div>
             <div className="container-faq basis-[50%]">
-              <section className="info mt-3 ">
+              <section className="info md:mt-3 ">
               {questions.map((q) => (
+                  <RevealWrapper
+                  rotate={{ x: -12, y: 0, z: 0 }}
+                  origin="bottom"
+                  delay={200}
+                  duration={1000}
+                  distance="200px"
+                  reset={false}
+                  viewOffset={{ top: 0, right: 12, bottom: 0, left: 0 }}
+                  key={q.id}
+                >
         <Accordian key={q.id} title={q.title} info={q.info} />
-      ))}
+        </RevealWrapper>))}
               </section>
             </div>
           </div>

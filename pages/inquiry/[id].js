@@ -34,6 +34,7 @@ const InquiryDetails = () => {
     <>
     <Header/>
       <Banner title="Inquiry Details" />
+      <div className="max-w-screen-xl mx-auto">
       <div className="w-full sm:px-[4.8rem] smd:py-[6rem] py-[2rem] px-3">
         <div className={`flex flex-row px-3 ${font2.className}`}>
         <p className="text-black font-bold "> RFQ.No: </p>
@@ -90,6 +91,7 @@ const InquiryDetails = () => {
             <span className={`text-black font-[500] ${font.className} `}>Item:</span> {inquiry.item}
           </p>
         </div>
+      </div>
       </div>
       {inquiry && <CommentsSection hide={false} comments={inquiry.Comments}/>}
       <Footer/>

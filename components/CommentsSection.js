@@ -21,7 +21,8 @@ const CommentsSection = (props) => {
   };
 
   return (
-    <div className={wrapperStyles ? wrapperStyles : `sm:mx-[4rem] mx-2 mb-5 border border-[#D6D6D6] overflow-hidden`}>
+   <div className='max-w-screen-xl mx-auto'>
+     <div className={wrapperStyles ? wrapperStyles : `sm:mx-[4rem] mx-2 mb-5 border border-[#D6D6D6] overflow-hidden`}>
       <div className="flex justify-between items-center mb-4 bg-[#F2F9FF] py-5 px-5 border-b border-[#F2F9FF]">
         <div className="text-lg font-bold text-gray-500">
           {props.comments.length} Comments
@@ -76,6 +77,7 @@ const CommentsSection = (props) => {
         <ReplyForm />
       )}
     </div>
+   </div>
   );
 };
 

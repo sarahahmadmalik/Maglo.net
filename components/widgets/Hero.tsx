@@ -8,6 +8,8 @@ import GetQuot from "./forms/GetQuot";
 import Sales from "./forms/Sales";
 import {  Work_Sans } from "next/font/google";
 import {  Saira_Condensed } from "next/font/google";
+import { RevealWrapper } from "next-reveal";
+
 
 const font6 = Work_Sans({
   subsets: ["latin"],
@@ -27,13 +29,23 @@ const Hero = () => {
   const [activeTab, setActiveTab] = useState('tab1');
   
   return (
-    <section className="relative bg-image h-full   overflow-hidden "  >
+    <section className="bg-image h-full w-full overflow-hidden "  >
         {/* <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-black opacity-60 -z-[-2] "></div> */}
       <Wrapper>
         {/* parent  */}
         <div className="flex flex-col mdd:flex-row mdd:justify-between sm:justify-center items-center py-10 w-full">
           {/* right  */}
            <div className="basis-[100%] md:basis-[60%] flex flex-col mt-[1rem] md:mt-0 xl:mt-0 justify-start items-start text-white z-10">
+           <RevealWrapper
+             rotate={{ x: -12, y: 0, z: 0 }}
+             origin="left"
+             delay={200}
+             duration={1000}
+             distance="200px"
+             reset={true}
+             viewOffset={{ top: 0, right: 0, bottom: 0, left: 0 }}
+            
+           >
             <h1 className={`text-[35px] font-[700] md:leading-[6rem]   md:text-[70px] xxl:text-[70px] ${font6.className}  z-90`}>Bridging the ocean</h1>
             <p className={`text-[28px] md:text-[48px] md:leading-[4rem] font-[600] ${font6.className} z-90`}>Worldwide Connections <br /> for Your Needs</p>
             <div className="flex gap-x-4 mt-6 z-90">
@@ -45,9 +57,20 @@ const Hero = () => {
               Sales Here
             </button>
             </div>
+            </RevealWrapper>
           </div>
           {/* left  */}
            <div className="basis-[100%] md:basis-[40%] mt-10 md:mt-10 z-10 ">
+           <RevealWrapper
+             rotate={{ x: -12, y: 0, z: 0 }}
+             origin="right"
+             delay={200}
+             duration={1000}
+             distance="200px"
+             reset={false}
+             viewOffset={{ top: 0, right: 12, bottom: 0, left: 0 }}
+            
+           >
           <div className="max-w-[450px] max-h-[530px]  bg float-right backdrop-blur-[5px]" >
       <div className="flex  border-slate-600 z-60">
         <button
@@ -56,7 +79,7 @@ const Hero = () => {
           }`}
           onClick={() => setActiveTab('tab1')}
         >
-          Get quotation
+          Get Quotation
         </button>
         <button
           className={`w-full h-12 rounded-tr-lg ${
@@ -64,13 +87,14 @@ const Hero = () => {
           }`}
           onClick={() => setActiveTab('tab2')}
         >
-          Sales here
+          Sales Here
         </button>
       </div>
 
       {activeTab === 'tab1' && <Sales />}
       {activeTab === 'tab2' && <Sales />}
     </div>
+    </RevealWrapper>
           </div>
         </div>
       </Wrapper>

@@ -47,21 +47,21 @@ const Header = () => {
           </div>
           {/* right section */}
           <div className="md:flex flex-col hidden">
-            <ul className="flex-col pb-6 flex md:flex-row space-x-12 items-center mt-6 text-primary-color-text">
+            <ul className="flex-col text-base pb-6 flex md:flex-row space-x-12 items-center mt-6 text-primary-color-text">
               <Link href="/">
-                <li>Home</li>
+                <li className='hover:text-[#F6BE00] duration-300 ease-in transition-all'>Home</li>
               </Link>
               <Link href="/seller">
-                <li>Seller</li>
+                <li className='hover:text-[#F6BE00] duration-300 ease-in transition-all'>Seller</li>
               </Link>
-              <Link href="/">
-                <li>Buyer</li>
+              <Link href="/seller">
+                <li className='hover:text-[#F6BE00] duration-300 ease-in transition-all'>Buyer</li>
               </Link>
               <Link href="/blogs">
-                <li>Blogs</li>
+                <li className='hover:text-[#F6BE00] duration-300 ease-in transition-all'>Blogs</li>
               </Link>
-              <Link href="/">
-                <li>Join Us</li>
+              <Link href="/inquiry">
+                <li className='hover:text-[#F6BE00] duration-300 ease-in transition-all'>Inquiries</li>
               </Link>
               <div className="text-base flex gap-x-4">
                 {isLoggedIn ? (
@@ -99,7 +99,7 @@ const Header = () => {
                 ) : (
                   <>
                     <BorderButton text="Login" linkTo="login" />
-                    <Button text="Join Us" linkTo="" />
+                    <Button text="Join Us" linkTo="login" />
                   </>
                 )}
               </div>
@@ -108,14 +108,14 @@ const Header = () => {
           {/* menu button  */}
           <div
             onClick={handleNavbar}
-            className="block md:hidden items-center cursor-pointer z-50"
+            className="block md:hidden items-center cursor-pointer z-50 py-5"
           >
             {nav ? (
-              <AiOutlineClose size={35} className="text-black" />
+              <AiOutlineClose size={30} className="text-black" />
             ) : (
               <CgMenuRightAlt
-                size={35}
-                className="text-white bg-[#1E7FCB] py-2 rounded-lg"
+                size={30}
+                className="text-black"
               />
             )}
           </div>
@@ -141,7 +141,7 @@ const Header = () => {
                 <Link href="/blogs">Blogs</Link>
               </li>
               <li className="p-4 text-xl hover:text-custom-blue duration-30 pb-16 cursor-pointer">
-                <Link href="/">Join Us</Link>
+                <Link href="/">Inquiries</Link>
               </li>
               <div className="text-base flex-col space-y-4">
               {isLoggedIn ? (
@@ -172,7 +172,7 @@ const Header = () => {
               ) : (
                 <div className="text-base flex-col space-y-4">
                   <BorderButton text="Login" linkTo="login" />
-                  <Button text="Join Us" linkTo=" " />
+                  <Button text="Join Us" linkTo="login" />
                 </div>
               )}
             </div>

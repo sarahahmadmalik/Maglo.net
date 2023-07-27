@@ -4,6 +4,7 @@ import Image from "next/image";
 import Button from "../shared/Button";
 import BorderButton from "../shared/BorderButton";
 import {  Work_Sans } from "next/font/google";
+import { RevealWrapper } from "next-reveal";
 
 const font21 = Work_Sans({
   subsets: ["latin"],
@@ -67,10 +68,10 @@ const SelectedWork = () => {
       <Wrapper>
         <div className="flex flex-col my-5  justify-center items-center">
           <div>
-            <h1 className={`${font21.className} text-[40px] font-[600] text-[#081840] text-center`}>
+            <h1 className={`${font21.className} text-[24px] md:text-[40px] font-[600] text-[#081840] text-center`}>
               Selected Works
             </h1>
-            <p className="px-8 md:px-44 py-4 text-center">
+            <p className="px-4 md:px-44 py-4 text-center">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
               enim ad minim veniam, quis nostrud exercitation
@@ -78,9 +79,19 @@ const SelectedWork = () => {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6  mt-6">
             {card.map((item, key) => (
+               <RevealWrapper
+               rotate={{ x: -12, y: 0, z: 0 }}
+               origin="bottom"
+               delay={200}
+               duration={1000}
+               distance="200px"
+               reset={false}
+               viewOffset={{ top: 0, right: 12, bottom: 0, left: 0 }}
+               key={key}
+             >
               <div
-                key={key}
-                className={`max-w-[370px] w-[290px] md:w-[340px] rounded-xl bg-white shadow-xl`}
+               
+                className={`max-w-[370px] w-[290px] md:w-[340px] pb-4 rounded-xl bg-white shadow-xl`}
               >
                 <Image
                   className="object-cover w-full h-48 rounded-t-xl"
@@ -125,10 +136,11 @@ const SelectedWork = () => {
                     </div>
                   </div>
                 </div>
-                <div className="my-4 ml-4">
+                <div className="mt-4 ml-4">
                   <BorderButton text="Get in Touch" linkTo="" />
                 </div>
               </div>
+              </RevealWrapper>
             ))}
           </div>
         </div>
