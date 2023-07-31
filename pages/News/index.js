@@ -159,7 +159,7 @@ function News() {
                distance="200px"
                reset={false}
                viewOffset={{ top: 0, right: 12, bottom: 0, left: 0 }}
-               key={blogs.id}
+               key={blog.id}
                >
                <BlogCard key={blog.id} blog={blog} />
                </RevealWrapper>

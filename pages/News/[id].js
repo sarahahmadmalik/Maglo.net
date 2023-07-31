@@ -31,21 +31,21 @@ function NewsDetails() {
   const handlePrevBlog = () => {
     if (blogIndex > 0) {
       const prevBlogId = blogsData[blogIndex - 1].id;
-      router.push(`/blogs/${prevBlogId}`);
+      router.push(`/News/${prevBlogId}`);
     }
   };
 
   const handleNextBlog = () => {
     if (blogIndex < blogsData.length - 1) {
       const nextBlogId = blogsData[blogIndex + 1].id;
-      router.push(`/blogs/${nextBlogId}`);
+      router.push(`/News/${nextBlogId}`);
     }
   };
 
   return (
     <div>
       <Header/>
-      <Banner title="Blogs" para="Blogs" />
+      <Banner title="News" para="News" />
       <main className="w-full h-full my-[3rem]  flex flex-col items-center">
         {blog && (
           <>

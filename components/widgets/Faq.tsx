@@ -49,6 +49,11 @@ const Faq = () => {
       title: "Can I customize my search for specific products or services?",
       info: "Yes, our website allows you to refine your search based on your specific needs. You can use filters to narrow down options by location, pricing, ratings, and other relevant criteria to find the perfect match for your requirements.",
     },
+    {
+      id: 4,
+      title: "What if I encounter any issues during the linking process?",
+info: "Our customer support team is always ready to assist you. If you encounter any problems, have questions, or need guidance, simply reach out to our dedicated support team via email or phone, and we'll be happy to help you resolve any concerns promptly.\n At MAGLO.net, we are committed to providing a reliable, user-friendly platform that connects you with top-tier suppliers and service workshops. If you have any further questions, don't hesitate to reach out to us. We're here to make your experience exceptional!",
+    },
   ]
   return (
     <section className="py-20">

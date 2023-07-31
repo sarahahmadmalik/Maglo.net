@@ -57,8 +57,8 @@ const Header = () => {
               <Link href="/seller">
                 <li className='hover:text-[#F6BE00] duration-300 ease-in transition-all'>Buyer</li>
               </Link>
-              <Link href="/blogs">
-                <li className='hover:text-[#F6BE00] duration-300 ease-in transition-all'>Blogs</li>
+              <Link href="/News">
+                <li className='hover:text-[#F6BE00] duration-300 ease-in transition-all'>News</li>
               </Link>
               <Link href="/inquiry">
                 <li className='hover:text-[#F6BE00] duration-300 ease-in transition-all'>Inquiries</li>
@@ -138,7 +138,7 @@ const Header = () => {
                 <Link href="/">Buyer</Link>
               </li>
               <li className="p-4 text-xl hover:text-custom-blue duration-30 cursor-pointer">
-                <Link href="/blogs">Blogs</Link>
+                <Link href="/News">News</Link>
               </li>
               <li className="p-4 text-xl hover:text-custom-blue duration-30 pb-16 cursor-pointer">
                 <Link href="/">Inquiries</Link>
