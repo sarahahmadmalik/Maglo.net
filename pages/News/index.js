@@ -19,7 +19,7 @@ const font4 = DM_Sans({
   weight: ["400", "500", "700"],
 });
 
-function blogs() {
+function News() {
   const popularTags = [
     "marine",
     "Spare",
@@ -109,14 +109,14 @@ function blogs() {
   return (
     <>
     <Header/>
-      <Banner title="Blogs" para="Blogs" />
+      <Banner title="News" para="News" />
       <div className="max-w-screen-xl mx-auto">
       <main className="grid md:grid-cols-3 gap-4 smd:mx-[2.4rem] mx-[1.8rem] mdd:mx-[4rem] my-5">
         {/* First Column */}
         <div className={`md:col-span-1 w-[67%] ${font3.className}`}>
           {/* Recent Blogs Section */}
           <div className="hidden mdd:block bg-white p-4 shadow md:w-[295px]">
-            <h2 className="text-lg font-semibold mb-4">Recent Blogs</h2>
+            <h2 className="text-lg font-semibold mb-4">Recent News</h2>
             {recentBlogs.map((recent, index) => (
               <div key={index} className="flex w-full my-2 cursor-pointer">
                 <div className="relative w-full objectFit-contain h-full">
@@ -206,4 +206,4 @@ function blogs() {
   );
 }
 
-export default blogs;
+export default News;

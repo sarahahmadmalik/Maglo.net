@@ -20,24 +20,24 @@ const font45 = Work_Sans({
 const WhyUs = () => {
   const data = [
     {
-      image: "/assets/img1.svg",
+      image: "/assets/img.png",
       heading: "Efficiency",
-      text: "Streamline your procurement process and access a wide range of services and spare parts efficiently, saving valuable time and resources.",
+      text: "Save time and effort with a single inquiry across multiple channels. Experience seamless multichannel chat with instant answers to your questions.",
     },
     {
-      image: "/assets/img2.svg",
+      image: "/assets/img2.png",
       heading: "Global Reached",
-      text: "Streamline your procurement process and access a wide range of services and spare parts efficiently, saving valuable time and resources.",
+      text: "Expand your business horizon by tapping into our vast global supplier network. Connect with partners worldwide and access a world of opportunities",
     },
     {
-      image: "/assets/img3.svg",
+      image: "/assets/img3.png",
       heading: "Reliability",
-      text: "Streamline your procurement process and access a wide range of services and spare parts efficiently, saving valuable time and resources.",
+      text: "Trust in our secure payment system as we act as an intermediary bank, safeguarding your credits until successful service provision",
     },
     {
-      image: "/assets/img4.svg",
+      image: "/assets/imgg.png",
       heading: "Expertise",
-      text: "Streamline your procurement process and access a wide range of services and spare parts efficiently, saving valuable time and resources.",
+      text: "Benefit from our maritime proficiency and deep understanding of your demands. Leverage our mariners' insights for enhanced growth and prosperity",
     },
   ];
 

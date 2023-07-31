@@ -61,7 +61,7 @@ function Main() {
                 <h1
                   className={` ${font.className}  text-xl sm:text-xl md:text-2xl font-extrabold text-black`}
                 >
-                  Welcome to ShipParts.com
+                  Welcome to Maglo.net
                 </h1>
               </div>
               <form className="mt-3 text-black">
@@ -204,7 +204,7 @@ function Main() {
                 <div className="flex justify-center mt-6">
                   <button
                     type="submit"
-                    className="bg-customYellow  text-black font-normal w-[60%] md:w-[50%] py-3 px-5 rounded hover:scale-105 ease-in duration-300 transition-all"
+                    className="bg-customYellow  text-black font-normal w-[60%] md:w-[20%] py-3 px-5 rounded hover:scale-105 ease-in duration-300 transition-all"
                   >
                     Sign up
                   </button>

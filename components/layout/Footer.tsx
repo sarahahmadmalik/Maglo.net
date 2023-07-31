@@ -13,7 +13,7 @@ const Footer = () => {
     <footer className="bg-[#EAF0FF] pt-10 pb-2">
       <Wrapper>
         <div className="flex justify-center items-center flex-col gap-6">
-          <div className="bg-[#1E7FCB] rounded-md">
+          <div className="">
             <Image
               src={"/assets/Maglologo.png"}
               alt=""

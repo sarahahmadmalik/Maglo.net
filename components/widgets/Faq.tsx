@@ -15,43 +15,40 @@ const Faq = () => {
   const questions = [
     {
       id: 1,
-      title: "What services do you oofer?",
-      info: "We accept various payment methods to provide convenience and flexibility to our customers. Currently, we accept payments via credit or debit cards, including major card providers such as Visa, Mastercard, and American Express. Additionally, we also accept payments through bank transfers or electronic fund transfers (EFT).",
+      title: "What is this website about?",
+      info: "Our website serves as a platform that connects customers with reputable suppliers and service workshops. It's designed to streamline the process  of finding reliable providers for various products and services, ensuring a seamless experience for both customers and businesses.",
     },
     {
       id: 2,
-      title: "What services do you oofer?",
-      info: "We accept various payment methods to provide convenience and flexibility to our customers. Currently, we accept payments via credit or debit cards, including major card providers such as Visa, Mastercard, and American Express. Additionally, we also accept payments through bank transfers or electronic fund transfers (EFT).",    },
+      title: "How does the linking process work?",
+      info: "The linking process is simple and efficient. Customers can browse through our extensive list of suppliers and service workshops, each with detailed profiles showcasing their offerings and expertise. Once customers find a suitable match, they can request quotes or book services directly through the website.",    },
     {
       id: 3,
-      title: "What services do you oofer?",
-      info: "We accept various payment methods to provide convenience and flexibility to our customers. Currently, we accept payments via credit or debit cards, including major card providers such as Visa, Mastercard, and American Express. Additionally, we also accept payments through bank transfers or electronic fund transfers (EFT).",    },
+      title: "Are the suppliers and service workshops verified?",
+      info: "Yes, we take verification seriously. We carefully screen and vet allsuppliers and service workshops before listing them on our platform. We ensure they meet strict quality and reliability standards to offer customers the best options available.",    },
     {
       id: 4,
-      title: "What services do you oofer?",
-      info: "We accept various payment methods to provide convenience and flexibility to our customers. Currently, we accept payments via credit or debit cards, including major card providers such as Visa, Mastercard, and American Express. Additionally, we also accept payments through bank transfers or electronic fund transfers (EFT).",
+      title: "Can I review and rate suppliers or service workshops?",
+      info: "Absolutely! We value customer feedback and encourage you to leave honest reviews and ratings based on your experiences. Your input helps other customers make informed decisions and ensures continuous improvement in service quality.",
     },
 
   ];
   const questions2 = [
     {
-        id: 1,
-        title: "What services do you oofer?",
-        info: "We accept various payment methods to provide convenience and flexibility to our customers. Currently, we accept payments via credit or debit cards, including major card providers such as Visa, Mastercard, and American Express. Additionally, we also accept payments through bank transfers or electronic fund transfers (EFT).",
-      },
-      {
-        id: 2,
-        title: "What services do you oofer?",
-        info: "We accept various payment methods to provide convenience and flexibility to our customers. Currently, we accept payments via credit or debit cards, including major card providers such as Visa, Mastercard, and American Express. Additionally, we also accept payments through bank transfers or electronic fund transfers (EFT).",    },
-      {
-        id: 3,
-        title: "What services do you oofer?",
-        info: "We accept various payment methods to provide convenience and flexibility to our customers. Currently, we accept payments via credit or debit cards, including major card providers such as Visa, Mastercard, and American Express. Additionally, we also accept payments through bank transfers or electronic fund transfers (EFT).",    },
-      {
-        id: 4,
-        title: "What services do you oofer?",
-        info: "We accept various payment methods to provide convenience and flexibility to our customers. Currently, we accept payments via credit or debit cards, including major card providers such as Visa, Mastercard, and American Express. Additionally, we also accept payments through bank transfers or electronic fund transfers (EFT).",
-      },
+      id:1,
+      title: "Is there any cost to use the website's services as a customer?",
+      info: "No, our services are entirely free for customers. You can browse, connect with suppliers, and book services without any additional charges. You only pay the suppliers or service workshops for the products or services you choose.",
+    },
+    {
+      id: 2,
+      title: "How do I pay for the services I book through the website?",
+      info: "We offer multiple secure payment options for your convenience. You can pay directly through our platform using credit/debit cards, digital wallets, or other supported payment methods, ensuring a safe and hassle-free transaction.",
+    },
+    {
+      id: 3,
+      title: "Can I customize my search for specific products or services?",
+      info: "Yes, our website allows you to refine your search based on your specific needs. You can use filters to narrow down options by location, pricing, ratings, and other relevant criteria to find the perfect match for your requirements.",
+    },
   ]
   return (
     <section className="py-20">
@@ -90,7 +87,7 @@ const Faq = () => {
             </div>
             <div className="container-faq basis-[50%]">
               <section className="info md:mt-3 ">
-              {questions.map((q) => (
+              {questions2.map((q) => (
                   <RevealWrapper
                   rotate={{ x: -12, y: 0, z: 0 }}
                   origin="bottom"

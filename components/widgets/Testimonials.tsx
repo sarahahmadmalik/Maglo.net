@@ -16,7 +16,6 @@ const Testimonials = () => {
       <Wrapper>
         <div className={`md:my-6 ${font54.className}`}>
           <div className="text-left px-4 ">
-            <h1 className="text-[24px] font-bold">Testomonials</h1>
             <h2 className="text-[24px] font-bold md:text-[40px] md:font-[800]">What Our Client Say About Us</h2>
           </div>
           <div className="overflow-hidden" id="content">

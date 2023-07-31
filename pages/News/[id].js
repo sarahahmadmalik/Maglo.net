@@ -19,7 +19,7 @@ const font2 = Nunito_Sans({
   weight: ["200", "300", "400", "500", "700", "800", "900"],
 });
 
-function BlogDetails() {
+function NewsDetails() {
   const router = useRouter();
   const { id } = router.query;
   // console.log(id);
@@ -175,4 +175,4 @@ function BlogDetails() {
   );
 }
 
-export default BlogDetails;
+export default NewsDetails;

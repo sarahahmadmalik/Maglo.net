@@ -46,15 +46,15 @@ const Hero = () => {
              viewOffset={{ top: 0, right: 0, bottom: 0, left: 0 }}
             
            >
-            <h1 className={`text-[35px] font-[700] md:leading-[6rem]   md:text-[70px] xxl:text-[70px] ${font6.className}  z-90`}>Bridging the ocean</h1>
-            <p className={`text-[28px] md:text-[48px] md:leading-[4rem] font-[600] ${font6.className} z-90`}>Worldwide Connections <br /> for Your Needs</p>
+            <h1 className={`text-[35px] font-[700] md:leading-[6rem]   md:text-[63px] xxl:text-[70px] ${font6.className}  z-90`}>Bridging the Oceans</h1>
+            <p className={`text-[28px] md:text-[46px] md:leading-[4rem] font-[600] ${font6.className} z-90`}>Worldwide Connections <br /> for Your Needs</p>
             <div className="flex gap-x-4 mt-6 z-90">
-            <Button text="Get quotation" linkTo="" />
+            <Button text="Join as Supplier" linkTo="" />
             <button
               type="button"
               className="bg-transparent border-[#F6BE00] border-2 rounded-full w-40 h-12 flex-shrink-0 text-[#F6BE00] hover:scale-105 ease-in duration-300 transition-all"
             >
-              Sales Here
+              Join as Vendor
             </button>
             </div>
             </RevealWrapper>
@@ -79,7 +79,7 @@ const Hero = () => {
           }`}
           onClick={() => setActiveTab('tab1')}
         >
-          Get Quotation
+          Get Service
         </button>
         <button
           className={`w-full h-12 rounded-tr-lg ${
@@ -87,7 +87,7 @@ const Hero = () => {
           }`}
           onClick={() => setActiveTab('tab2')}
         >
-          Sales Here
+          Get Spareparts
         </button>
       </div>
 

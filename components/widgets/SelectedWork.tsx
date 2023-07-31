@@ -69,12 +69,15 @@ const SelectedWork = () => {
         <div className="flex flex-col my-5  justify-center items-center">
           <div>
             <h1 className={`${font21.className} text-[24px] md:text-[40px] font-[600] text-[#081840] text-center`}>
-              Selected Works
+            Top Rated Suppliers
             </h1>
             <p className="px-4 md:px-44 py-4 text-center">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation
+            Don't miss out on
+the opportunity to
+choose from the best.
+Start browsing now and
+make your selections
+with confidence
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6  mt-6">
