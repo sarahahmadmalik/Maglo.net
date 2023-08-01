@@ -15,7 +15,7 @@ const Footer = () => {
         <div className="flex justify-center items-center flex-col gap-6">
           <div className="">
             <Image
-              src={"/assets/Maglologo.png"}
+              src={"/assets/logoFooter.svg"}
               alt=""
               width={100}
               height={100}
