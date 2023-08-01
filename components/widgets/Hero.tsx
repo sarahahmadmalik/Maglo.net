@@ -48,7 +48,7 @@ const Hero = () => {
             
            >
             <h1 className={`text-[35px] font-[700] md:leading-[6rem]   md:text-[63px] xxl:text-[70px] ${font6.className}  z-90`}>Bridging the Oceans</h1>
-            <div className={`text-[28px] md:text-[43px] md:leading-[4rem] font-[600] h-[150px] mr-3 ${font6.className} z-90`}>
+            <div className={`text-[28px] md:text-[43px] md:leading-[4rem] font-[600] h-[150px] xl:h-auto mr-3 ${font6.className} z-90`}>
             <Typewriter
                 options={{
                   autoStart: true,
@@ -90,7 +90,7 @@ const Hero = () => {
              viewOffset={{ top: 0, right: 12, bottom: 0, left: 0 }}
             
            >
-          <div className="max-w-[450px] max-h-[530px]  bg float-right backdrop-blur-[5px]" >
+        <div className="max-w-[450px] max-h-[530px]  bg float-right backdrop-blur-[5px]" >
       <div className="flex  border-slate-600 z-60">
         <button
           className={` w-full h-12 rounded-tl-lg  ${
