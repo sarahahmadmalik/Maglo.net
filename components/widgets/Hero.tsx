@@ -48,7 +48,7 @@ const Hero = () => {
             
            >
             <h1 className={`text-[35px] font-[700] md:leading-[6rem]   md:text-[63px] xxl:text-[70px] ${font6.className}  z-90`}>Bridging the Oceans</h1>
-            <div className={`text-[28px] md:text-[43px] md:leading-[4rem] font-[600] h-[160px] mr-3 ${font6.className} z-90`}>
+            <div className={`text-[28px] md:text-[43px] md:leading-[4rem] font-[600] h-[150px] mr-3 ${font6.className} z-90`}>
             <Typewriter
                 options={{
                   autoStart: true,

@@ -46,7 +46,7 @@ function contact() {
             </div>
         </div>
 
- <div className="md:w-[40%] h-full w-full mx-[1rem] py-[2.5rem] px-[1.6rem] rounded bg-[#1E7FCB] overflow-hidden">
+ <div className="md:w-[40%] h-full w-full mx-[1rem] py-[2rem] px-[1.6rem] rounded bg-[#1E7FCB] overflow-hidden">
   <form className="bg-transparent flex flex-col h-full">
     <input
       type='text'
@@ -69,7 +69,7 @@ function contact() {
     <textarea
       type='text'
       placeholder='Your Message'
-      className="px-5 py-2 rounded-sm text-[16px] font-[400] mb-6 h-full w-100 resize-none transition-all duration-300 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+      className="px-5 py-2 rounded-sm text-[16px] font-[400] mb-6 h-[100px] w-100 resize-none transition-all duration-300 focus:ring-2 focus:ring-blue-500 focus:outline-none"
       required
     />
     <button

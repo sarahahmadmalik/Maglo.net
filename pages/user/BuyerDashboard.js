@@ -5,7 +5,12 @@ import {useAuth} from "../../context/AuthProvider";
 import {KeyboardArrowDown as KeyboardArrowDownIcon} from "@mui/icons-material";
 import CommentsSection from '../../components/CommentsSection'
 import Button from "../../components/shared/Button";
+import { useRouter } from "next/router";
+import {OrderProvider} from '../../context/OrderContext'
+import { useOrderContext } from "../../context/OrderContext";
+
 const BuyerDashboard = () => {
+  const router = useRouter();
     const [activeButton, setActiveButton] = useState("inquiries");
     const [showMoreContent, setShowMoreContent] = useState(false);
     const [selectedInquiryIndex, setSelectedInquiryIndex] = useState(null);
@@ -17,7 +22,15 @@ const BuyerDashboard = () => {
     const [newPassword, setNewPassword] = useState('');
     const [repeatNewPassword, setRepeatNewPassword] = useState('');
     const[isSubmitted, setIsSubmitted] = useState(false);
+    const { setSelectedOrder } = useOrderContext();
 
+    const showOrderDetails = (order) => {
+      setSelectedOrder(order)
+      router.push({
+        pathname: `/user/OrderDetails`,
+        query: {id: order.id, orderId: order.orderId, status: order.status, subtotal: order.subtotal, storeCredit:order.storeCredit, shipping: order.shipping, total:order.total,  deliverDate:order.deliverDate, address:order.address, name:order.orderName }, 
+      });
+    }
  
     if (!user) {
         return <div>User not logged in</div>;
@@ -134,6 +147,7 @@ const BuyerDashboard = () => {
                   <th className="py-2 smd:pb-6 smd:text-[16px] text-[13px]">Delivery Pricing</th>
                   <th className="py-2 smd:pb-6 smd:text-[16px] text-[13px]">Delivery Status</th>
                   <th className="py-2 smd:pb-6  smd:text-[16px] text-[13px]">Payment</th>
+                  <th className="py-2 smd:pb-6  smd:text-[16px] text-[13px]"></th>
                 </tr>
               </thead>
               <tbody>
@@ -162,6 +176,7 @@ const BuyerDashboard = () => {
                       </span>
                     </td>
                     <td className="py-2 text-center text-gray-400">{order.payment}</td>
+                    <td className="py-2 text-center text-black"><button className="py-1 px-4 bg-[#F6BE00] rounded" onClick={() => showOrderDetails(order)}>View</button></td>
                   </tr>
                 ))}
               </tbody>
@@ -320,6 +335,7 @@ const BuyerDashboard = () => {
     };
 
     return (
+      <OrderProvider>
         <div>
             <Header/> 
             <div className="max-w-screen-xl mx-auto mt-8 mb-20 mr-3 md:mr-0">
@@ -379,6 +395,7 @@ const BuyerDashboard = () => {
             </div>
             <Footer/>
         </div>
+        </OrderProvider>
     );
 };
 

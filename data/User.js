@@ -1,4 +1,4 @@
-const User = [
+let User = [
     {
         id: 1,
         firstName: "James",
@@ -360,7 +360,14 @@ const User = [
                 deliveryDate: "12.08.2023",
                 deliveryPricing: "78.00",
                 status: "Completed",
-                payment: "Credit Card"
+                payment: "Credit Card",
+                price: 12600,
+                subtotal: 12600.00,
+                storeCredit:12600.00,
+                shipping: 1600.00,
+                total: 8787.00,
+                address: "street 55 house 7 flat 8788D Area United State",
+                deliverDate: "Monday, July 2023"
 
             },
             {
@@ -370,7 +377,13 @@ const User = [
                 deliveryDate: "12.08.2023",
                 deliveryPricing: "78.00",
                 status: "Cancelled",
-                payment: "Credit Card"
+                payment: "Credit Card",
+                subtotal: 12600.00,
+                storeCredit:12600.00,
+                shipping: 1600.00,
+                total: 8787.00,
+                address: "street 55 house 7 flat 8788D Area United State",
+                deliverDate: "Monday, July 2023"
 
             },
             {
@@ -380,7 +393,13 @@ const User = [
                 deliveryDate: "12.08.2023",
                 deliveryPricing: "78.00",
                 status: "Completed",
-                payment: "Credit Card"
+                payment: "Credit Card",
+                subtotal: 12600.00,
+                storeCredit:12600.00,
+                shipping: 1600.00,
+                total: 8787.00,
+                address: "street 55 house 7 flat 8788D Area United State",
+                deliverDate: "Monday, July 2023"
 
             },
             {
@@ -390,7 +409,13 @@ const User = [
                 deliveryDate: "12.08.2023",
                 deliveryPricing: "78.00",
                 status: "Completed",
-                payment: "Credit Card"
+                payment: "Credit Card",
+                subtotal: 12600.00,
+                storeCredit:12600.00,
+                shipping: 1600.00,
+                total: 8787.00,
+                address: "street 55 house 7 flat 8788D Area United State",
+                deliverDate: "Monday, July 2023"
 
             },
             {
@@ -400,7 +425,13 @@ const User = [
                 deliveryDate: "12.08.2023",
                 deliveryPricing: "78.00",
                 status: "Completed",
-                payment: "Credit Card"
+                payment: "Credit Card",
+                subtotal: 12600.00,
+                storeCredit:12600.00,
+                shipping: 1600.00,
+                total: 8787.00,
+                address: "street 55 house 7 flat 8788D Area United State",
+                deliverDate: "Monday, July 2023"
 
             },
             {
@@ -410,7 +441,13 @@ const User = [
                 deliveryDate: "12.08.2023",
                 deliveryPricing: "78.00",
                 status: "Completed",
-                payment: "Credit Card"
+                payment: "Credit Card",
+                subtotal: 12600.00,
+                storeCredit:12600.00,
+                shipping: 1600.00,
+                total: 8787.00,
+                address: "street 55 house 7 flat 8788D Area United State",
+                deliverDate: "Monday, July 2023"
 
             },
             {
@@ -420,7 +457,13 @@ const User = [
                 deliveryDate: "12.08.2023",
                 deliveryPricing: "78.00",
                 status: "Cancelled",
-                payment: "Credit Card"
+                payment: "Credit Card",
+                subtotal: 12600.00,
+                storeCredit:12600.00,
+                shipping: 1600.00,
+                total: 8787.00,
+                address: "street 55 house 7 flat 8788D Area United State",
+                deliverDate: "Monday, July 2023"
 
             }
         ]

@@ -60,8 +60,11 @@ const Header = () => {
               <Link href="/News">
                 <li className='hover:text-[#F6BE00] duration-300 ease-in transition-all'>News</li>
               </Link>
-              <Link href="/inquiry">
+              {/* <Link href="/inquiry">
                 <li className='hover:text-[#F6BE00] duration-300 ease-in transition-all'>Inquiries</li>
+              </Link> */}
+              <Link href="/contact">
+                <li className='hover:text-[#F6BE00] duration-300 ease-in transition-all'>Contact Us</li>
               </Link>
               <div className="text-base flex gap-x-4">
                 {isLoggedIn ? (
@@ -140,9 +143,9 @@ const Header = () => {
               <li className="p-4 text-xl hover:text-custom-blue duration-30 cursor-pointer">
                 <Link href="/News">News</Link>
               </li>
-              <li className="p-4 text-xl hover:text-custom-blue duration-30 pb-16 cursor-pointer">
-                <Link href="/">Inquiries</Link>
-              </li>
+              <Link href="/contact">
+                <li className='hover:text-[#F6BE00] duration-300 ease-in transition-all'>Contact Us</li>
+              </Link>
               <div className="text-base flex-col space-y-4">
               {isLoggedIn ? (
                 <>
