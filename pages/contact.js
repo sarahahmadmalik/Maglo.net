@@ -46,7 +46,7 @@ function contact() {
             </div>
         </div>
 
- <div className="md:w-[40%] w-full mx-[1rem] py-[2.5rem] px-[1.6rem] rounded bg-[#1E7FCB] overflow-hidden">
+ <div className="md:w-[40%] h-full w-full mx-[1rem] py-[2.5rem] px-[1.6rem] rounded bg-[#1E7FCB] overflow-hidden">
   <form className="bg-transparent flex flex-col h-full">
     <input
       type='text'
