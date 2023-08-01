@@ -27,10 +27,10 @@ const OrderDetails = () => {
   return (
     <>
       <Header />
-      <div className="h-full w-full flex flex-col py-4 justify-center items-center">
-        <h1 className={`text-[40px] font-[600] mb-7 ${font6.className}`}>Order ID: {orderId}</h1>
-        <div className="flex justify-center mb-4 w-full">
-          <div className="rounded-md shadow-md border border-[#1E7FCB24] flex flex-col py-5 px-6 w-[50%] h-[400px]">
+      <div className="h-full w-full flex flex-col py-4 justify-center items-center px-7">
+        <h1 className={`mdd:text-[40px] text-[24px] xs:text-[30px] font-[600] mb-7 ${font6.className}`}>Order ID: {orderId}</h1>
+        <div className="flex flex-col smd:flex-row mdd:justify-center items-center mb-4 w-full">
+          <div className="rounded-md shadow-md border border-[#1E7FCB24] flex flex-col py-5 px-6  w-full mdd:w-[50%] h-[400px] flex flex-col">
             <div className="mb-[1.5rem]">
               <p>Estimated Delivery Date</p>
               <p className="text-[18px] font-[500]">{deliverDate}</p>
@@ -53,8 +53,8 @@ const OrderDetails = () => {
                 </div>
               )}
             </div>
-            <div className="flex justify-between w-[70%] mt-4">
-              <div className="w-[200px] ">
+            <div className="flex flex-col xs:flex-row mdd:justify-between  w-full mdd:w-[70%] mt-4">
+              <div className="w-[200px] mb-7 xs:mb-0 ">
                 <h1 className='text-[16px] font-[500]'>
                   {status === "Completed"
                     ? "Delivered"
@@ -70,7 +70,7 @@ const OrderDetails = () => {
               </div>
             </div>
           </div>
-          <div className="rounded-md shadow-md flex flex-col mx-4 py-2 border border-[#1E7FCB24]  w-[30%] h-[400px]">
+          <div className="rounded-md shadow-md flex flex-col mx-4 py-2 my-7 border border-[#1E7FCB24] w-full  mdd:w-[30%] h-[400px]">
             <div className="border-b border-[#E3E3E3] px-[2rem] py-4">
               <h1 className="text-[16px] font-[600]">Your Order</h1>
             </div>
