@@ -79,7 +79,7 @@ function Login() {
             <div className="">
               
               <Image
-                src="/assets/logo.png"
+                src="/assets/logoFooter.svg"
                 alt="banner-image"
                 width={106}
                 height={106}

@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Wrapper from "../shared/Wrapper";
 import Button from "../shared/Button";
 import GetQuot from "./forms/GetQuot";
@@ -9,7 +9,7 @@ import Sales from "./forms/Sales";
 import {  Work_Sans } from "next/font/google";
 import {  Saira_Condensed } from "next/font/google";
 import { RevealWrapper } from "next-reveal";
-
+import Typewriter from 'typewriter-effect';
 
 const font6 = Work_Sans({
   subsets: ["latin"],
@@ -27,6 +27,7 @@ const font99 = Saira_Condensed({
 
 const Hero = () => {
   const [activeTab, setActiveTab] = useState('tab1');
+
   
   return (
     <section className="bg-image h-full w-full overflow-hidden "  >
@@ -47,8 +48,26 @@ const Hero = () => {
             
            >
             <h1 className={`text-[35px] font-[700] md:leading-[6rem]   md:text-[63px] xxl:text-[70px] ${font6.className}  z-90`}>Bridging the Oceans</h1>
-            <p className={`text-[28px] md:text-[46px] md:leading-[4rem] font-[600] ${font6.className} z-90`}>Worldwide Connections <br /> for Your Needs</p>
-            <div className="flex gap-x-4 mt-6 z-90">
+            <div className={`text-[28px] md:text-[43px] md:leading-[4rem] font-[600] h-[160px] mr-3 ${font6.className} z-90`}>
+            <Typewriter
+                options={{
+                  autoStart: true,
+                  loop: true,
+                  delay: 50,
+                  strings: [
+                    "Worldwide Connections for your needs",
+                    "Looking for global spare parts suppliers?",
+                    "Need service engineer attendance?",
+                    "Looking for a global network to boost your business?",
+                    "Make MAGLO.net Your Ultimate Choice for your inquiries",
+                    "Your Gateway to Worldwide Connections",
+                  ],
+                }}
+              />
+              </div>
+          
+              
+              <div className="flex gap-x-4 mt-6 z-90">
             <Button text="Join as Supplier" linkTo="" />
             <button
               type="button"
