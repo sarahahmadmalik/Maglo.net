@@ -27,17 +27,16 @@ const Report = () => {
     console.log('Reason:', reason);
     console.log('Other Reason:', otherReason);
 
-    // Simulate some asynchronous report submission
     setTimeout(() => {
       setIsLoading(false);
       setErrorMessage('');
       setIsSubmitted(true);
 
-      // Automatically redirect back to the previous page after 3 seconds
+
       setTimeout(() => {
         router.back();
       }, 3000);
-    }, 2000); // 2000 milliseconds (2 seconds) delay before showing the success message
+    }, 2000);
   };
 
   return (

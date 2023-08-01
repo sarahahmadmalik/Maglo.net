@@ -34,7 +34,7 @@ const Hero = () => {
         {/* <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-black opacity-60 -z-[-2] "></div> */}
       <Wrapper>
         {/* parent  */}
-        <div className="flex flex-col mdd:flex-row mdd:justify-between sm:justify-center items-center py-10 w-full border">
+        <div className="flex flex-col mdd:flex-row mdd:justify-between sm:justify-center items-center py-10 w-full">
           {/* right  */}
            <div className="basis-[100%] md:basis-[60%] flex flex-col mt-[1rem] md:mt-0 xl:mt-0 justify-start items-start text-white z-10">
            <RevealWrapper

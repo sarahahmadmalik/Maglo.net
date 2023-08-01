@@ -15,14 +15,24 @@ const font6 = Work_Sans({
 const OrderDetails = () => {
   const router = useRouter();
   const { id, orderId, status, subtotal, storeCredit, shipping, total, deliverDate, address, name } = router.query;
-  const { user } = useAuth();
+  const { isLoggedIn } = useAuth();
+ 
 
   useEffect(() => {
-    // Check if any of the query parameters is missing, then redirect back to the user page
-    if (!orderId || !status || !subtotal || !storeCredit || !shipping || !total) {
-      router.push({ pathname: '/user', query: { role: user.role } });
+    if(isLoggedIn){
+      if (!orderId || !status || !subtotal || !storeCredit || !shipping || !total) {
+        router.push({ pathname: '/user', query: { role: user.role } });
+      }
     }
+   
   }, [orderId, status, subtotal, storeCredit, shipping, total, router]);
+  useEffect(() => {
+    
+    if (!isLoggedIn) {
+      router.back(); 
+    }
+  }, [isLoggedIn, router]);
+
 
   return (
     <>

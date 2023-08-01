@@ -338,10 +338,10 @@ const BuyerDashboard = () => {
       <OrderProvider>
         <div>
             <Header/> 
-            <div className="max-w-screen-xl mx-auto mt-8 mb-20 mr-3 md:mr-0">
+            <div className="xl:mx-4 mx-auto mt-8 mb-20 mr-3 md:mr-0">
             {
             user && isLoggedIn ? (
-                <div className="w-[100vw]  h-full flex-col smd:flex justify-center items-center">
+                <div className="w-[100vw]  xl:h-[70vh] flex-col smd:flex justify-center items-center">
                     <div className="smd:flex smd:flex-row smd:justify-center flex-col w-full h-full my-2 mb-3">
                         <div className=" smd:flex-col w-full smd:w-[20%] smd:h-[400px] md:h-[582px] flex flex-row mx-4  mb-4 bg-[#DEF1FF66] rounded-md">
                             <div className="smd:p-7 p-3 hidden smd:block">
