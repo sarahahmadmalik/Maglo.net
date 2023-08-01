@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Image from "next/image";
-
+import { AiOutlineFlag } from 'react-icons/ai';
+import { useRouter } from "next/router";
 const ReplyButton = ({ onClick }) => {
   return (
     <button onClick={onClick} className="text-black focus:outline-none ml-5">
@@ -18,7 +19,7 @@ const ReplyItem = ({ reply, wrapperStyles }) => {
   const [showReplyInput, setShowReplyInput] = useState(false);
   const [newReply, setNewReply] = useState([]);
 const { user, comments, day } = reply;
-
+const router = useRouter()
 
 const handleReplyClick = () => {
   setShowReplyInput(true);
@@ -31,6 +32,18 @@ const handleReplySubmit = () => {
   setShowReplyInput(false);
   setNewReply('');
 };
+
+ const handleReportClick = () => {
+    router.push({
+      pathname: '/Report',
+      query: {
+        commentId: reply.id, 
+        commentUser: reply.user, 
+      },
+    });
+  };
+  
+
   return (
     <div className="flex items-start mt-2 pb-2 ">
     <div className="relative aspect-square rounded-md w-full min-w-[30px] max-w-[50px] overflow-hidden mr-3">
@@ -47,8 +60,21 @@ const handleReplySubmit = () => {
           <div className='flex'><p>{reply.user}</p> <p className="text-xs text-gray-500  smd:ml-[1.6rem]">
             {reply.day}
           </p>
+          
+          </div>
+          <div className="flex items-start m-0 p-0">
+          <div className="relative text-gray-400 font-[500]">
+            <button onClick={handleReportClick} className="focus:outline-none flex h-0">
+              <div className="flex text-sm ">
+                <div className="relative w-4 h-8">
+                  <AiOutlineFlag />
+                </div>
+                <p>Report</p>
+              </div>
+            </button>
           </div>
           {!showReplyInput && <ReplyButton onClick={handleReplyClick} />}
+          </div>
           </div>
         <div>
           <p>{comments}</p>
@@ -82,6 +108,18 @@ const Comments = (props) => {
   const [visibleReplies, setVisibleReplies] = useState(2); // Number of replies initially visible
   const [showReplyInput, setShowReplyInput] = useState(false);
   const [newReply, setNewReply] = useState([]);
+  const router = useRouter()
+
+  const handleReportClick = () => {
+    router.push({
+      pathname: '/Report',
+      query: {
+        commentId: props.eachComment.id, 
+        commentUser: props.eachComment.user, 
+      },
+    });
+  };
+  
   
 const handleReplyClick = () => {
   setShowReplyInput(true);
@@ -110,14 +148,28 @@ const handleReplySubmit = () => {
       </div>
       <div>
       <div className={ props.wrapperStyles ? `sm:px-5 sm:py-4 px-auto border border-grey-600 rounded-lg mb-5` : `sm:px-5 sm:py-4 px-auto`}>
-        <div className="w-full font-bold us:text-[14px] flex align-center justify-start sm:justify-between mb-3">
+        <div className="w-full font-bold us:text-[14px] flex align-center justify-start sm:justify-between mb-3 ">
           <div className='flex '>
           <p>{props.eachComment.user}</p>{' '}
           <p className="text-sm text-gray-500 us:text-[14px] sm:ml-[1.6rem]">
             {props.eachComment.day}
           </p>
+          
+          </div>
+          <div className="flex items-start m-0 p-0 ">
+          <div className="relative text-gray-400 font-[500]">
+            <button onClick={handleReportClick} className="focus:outline-none flex h-0">
+              <div className="flex text-sm ">
+                <div className="relative w-4 h-8">
+                  <AiOutlineFlag />
+                </div>
+                <p>Report</p>
+              </div>
+            </button>
           </div>
           {!showReplyInput && <ReplyButton onClick={handleReplyClick} />}
+          </div>
+          
         </div>
         <div className={ props.wrapperStyles ? `sm:px-2 pb-8 us:text-[15px]`: `sm:px-2 pb-8 us:text-[15px] rounded border-b border-[#E6D8D8]`}>
           <p>{props.eachComment.comment}</p>
