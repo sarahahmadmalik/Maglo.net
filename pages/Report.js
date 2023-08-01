@@ -113,7 +113,7 @@ const Report = () => {
               <p className="text-green-500">Your report has been submitted.</p>
             )}
             <div className="w-full flex justify-center mt-4">
-              <button className="bg-[#FFB84E] rounded-md py-2 w-[30%] text-black font-[400] text-[16px] hover:bg-[DF9F3E] ease-in duration-300 transition-all" type="submit" disabled={isLoading}>
+              <button className="bg-[#FFB84E] rounded-md py-2 w-[70%] smd:w-[30%] text-black font-[400] text-[16px] hover:bg-[DF9F3E] ease-in duration-300 transition-all" type="submit" disabled={isLoading}>
                 {isLoading ? 'Submitting...' : 'Submit Report'}
               </button>
             </div>

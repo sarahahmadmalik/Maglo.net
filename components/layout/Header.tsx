@@ -41,7 +41,7 @@ const Header = () => {
                 alt="Maglo"
                 width={160}
                 height={130}
-                className="h-9 w-20 md:h-24 md:w-32"
+                className="h-20 w-20 md:h-24 md:w-32"
               />
             </Link>
           </div>
@@ -130,7 +130,7 @@ const Header = () => {
                 : 'sm:hidden fixed top-0 right-0 left-[-100%] bottom-0 flex justify-center items-center w-full h-full bg-white text-black text-center ease-linear duration-300 z-20'
             }
           >
-            <ul>
+            <ul className="">
               <li className="p-4 text-xl hover:text-custom-blue duration-300 cursor-pointer">
                 <Link href="/">Home</Link>
               </li>
@@ -144,12 +144,12 @@ const Header = () => {
                 <Link href="/News">News</Link>
               </li>
               <Link href="/contact">
-                <li className='hover:text-[#F6BE00] duration-300 ease-in transition-all'>Contact Us</li>
+                <li className='p-4 text-xl hover:text-custom-blue duration-30 cursor-pointer'>Contact Us</li>
               </Link>
-              <div className="text-base flex-col space-y-4">
+              <div className="text-base flex-col space-y-4 mt-4 ">
               {isLoggedIn ? (
                 <>
-                <div className="flex items-center cursor-pointer mb-3">
+                <div className="flex items-center cursor-pointer mb-4">
                 <Link href={{ pathname: '/user', query: { role: user.role } }} className='flex items-center gap-x-3 '>
                   <Image
                     src={user.image}
