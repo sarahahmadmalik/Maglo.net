@@ -19,7 +19,7 @@ function InquiryLists({ inquiries }) {
       {inquiries.map((data, id) => (
         <div
           key={id}
-          className="max-w-[480px] h-[250px] md:h-auto bg-white mt-8 overflow-hidden rounded-md shadow-md"
+          className="max-w-[480px] h-[340px] smd:h-[250px] md:h-auto bg-white mt-8 overflow-hidden rounded-md shadow-md"
         >
           <div className={`${font2.className} bg-[#1E7FCB] w-full h-8 flex justify-between items-center px-4`}>
             <p className="text-white font-medium">Whimson International</p>

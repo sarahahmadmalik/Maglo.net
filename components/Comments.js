@@ -65,13 +65,13 @@ const handleReplySubmit = () => {
         />
       </div>
       <div className={wrapperStyles ? `rounded-md border border-grey-600 px-0 smd:px-4 py-5 overflow-hidden` : ``}>
-        <div className="flex justify-between items-center w-full mb-1 text-sm font-bold">
-          <div className='flex'><p>{reply.user}</p> <p className="text-xs text-gray-500  smd:ml-[1.6rem]">
+        <div className="flex justify-between items-center w-full mb-1 text-sm font-bold flex-wrap">
+          <div className='flex'><p>{reply.user}</p> <p className="text-xs text-gray-500 ml-4 smd:ml-[1.6rem]">
             {reply.day}
           </p>
           
           </div>
-          <div className="flex items-start m-0 p-0">
+          <div className="smd:flex items-start m-0 p-0 hidden">
           <div className="relative text-[#777777] font-[500]">
             <button onClick={() => handleReportClick(reply)} className="focus:outline-none flex h-0">
               <div className="flex text-sm ">
@@ -87,6 +87,20 @@ const handleReplySubmit = () => {
           </div>
         <div>
           <p>{comments}</p>
+          <div className="items-start mt-4 p-0 flex smd:hidden">
+          <div className="relative text-[#777777] font-[500]">
+            <button onClick={() => handleReportClick(props.eachComment)} className="focus:outline-none flex h-0">
+              <div className="flex text-sm ">
+              <div className="relative w-4 h-8">
+                <Image src='/assets/flag.svg' alt="report" width={10} height={10} />
+                </div>
+                <p>Report</p>
+              </div>
+            </button>
+          </div>
+          {!showReplyInput && <ReplyButton onClick={handleReplyClick} />}
+          </div>
+          
         </div>
         <div className="flex w-full justify-end sm:items-center sm:justify-start sm:ml-[1.6rem] mt-[0.3rem]">
        
@@ -212,15 +226,15 @@ const handleReplySubmit = () => {
       </div>
       <div>
       <div className={ props.wrapperStyles ? `sm:px-5 sm:py-4 px-auto border border-grey-600 rounded-lg mb-5` : `sm:px-5 sm:py-4 px-auto`}>
-        <div className="w-full font-bold us:text-[14px] flex align-center justify-start sm:justify-between mb-3 ">
+        <div className="w-full font-bold us:text-[14px] flex align-center justify-start sm:justify-between mb-3 flex-wrap">
           <div className='flex '>
           <p>{props.eachComment.user}</p>{' '}
-          <p className="text-sm text-gray-500 us:text-[14px] sm:ml-[1.6rem]">
+          <p className="text-sm text-gray-500 us:text-[14px] ml-3 sm:ml-[1.6rem]">
             {props.eachComment.day}
           </p>
           
           </div>
-          <div className="flex items-start m-0 p-0 ">
+          <div className="items-start m-0 p-0 hidden smd:flex">
           <div className="relative text-[#777777] font-[500]">
             <button onClick={() => handleReportClick(props.eachComment)} className="focus:outline-none flex h-0">
               <div className="flex text-sm ">
@@ -237,6 +251,19 @@ const handleReplySubmit = () => {
         </div>
         <div className={ props.wrapperStyles ? `sm:px-2 pb-8 us:text-[15px]`: `sm:px-2 pb-8 us:text-[15px] rounded border-b border-[#E6D8D8]`}>
           <p>{props.eachComment.comment}</p>
+          <div className="items-start mt-4 p-0 flex smd:hidden">
+          <div className="relative text-[#777777] font-[500]">
+            <button onClick={() => handleReportClick(props.eachComment)} className="focus:outline-none flex h-0">
+              <div className="flex text-sm ">
+              <div className="relative w-4 h-8">
+                <Image src='/assets/flag.svg' alt="report" width={10} height={10} />
+                </div>
+                <p>Report</p>
+              </div>
+            </button>
+          </div>
+          {!showReplyInput && <ReplyButton onClick={handleReplyClick} />}
+          </div>
         </div>
         <div className="flex w-full justify-end sm:items-center sm:justify-start sm:ml-[1.6rem] mt-[0.3rem]">
        
