@@ -16,7 +16,7 @@ const Success = () => {
       </div>
       <div 
       className={`  bg-white w-[270px] p-5 h-[370px] sm:w-[500px] sm:h-[400px] 
-      md:w-[600px] md:h-[420px] absolute z-1 flex flex-col md:p-10   sm:ml-[20rem] md:ml-[42rem]  mt-[9rem] md:mt-[10rem] overflow-hidden`}>
+      md:w-[600px] md:h-[420px] absolute z-1 flex flex-col md:p-10 sm:ml-[11rem]   smd:ml-[17rem] md:ml-[52%]  lg:ml-[41rem]   mt-[9rem] md:mt-[10rem] overflow-hidden`}>
         <h1 className={`sm:text-[30px] md:text-[40px] font-[600] ${font21.className}`}>Navigating to Success: How Working with Us Sets You Apart</h1>
         <p className="mb-6">Dont miss out on the countless opportunities that await you. Start your inquiry today and unlock the full potential of the Marine Global Network. Together, we will navigate the seas of success.</p>
         <Button text="Read more" linkTo=""/>
