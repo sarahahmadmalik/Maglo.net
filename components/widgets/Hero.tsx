@@ -67,11 +67,11 @@ const Hero = () => {
               </div>
           
               
-              <div className="ws:flex-row flex flex-col items-center ws:items-start gap-x-4 md:mt-5 mt-7 z-90 ">
+              <div className="ws:flex-row flex flex-col ws:justify-left  items-center  gap-x-4 md:mt-5 mt-7 z-90 ">
             <Button text="Join as Supplier" linkTo="" />
             <button
               type="button"
-              className="bg-transparent border-[#F6BE00] border-2 rounded-full w-40 h-12 mt-5 xs:mt-0 flex-shrink-0 text-[#F6BE00] hover:scale-105 ease-in duration-300 transition-all"
+              className="bg-transparent border-[#F6BE00] border-2 rounded-full w-40 h-12 us:mt-5 ws:mt-0 flex-shrink-0 text-[#F6BE00] hover:scale-105 ease-in duration-300 transition-all"
             >
               Join as Vendor
             </button>
