@@ -47,8 +47,8 @@ const Hero = () => {
              viewOffset={{ top: 0, right: 0, bottom: 0, left: 0 }}
             
            >
-            <h1 className={`text-[35px] font-[700] md:leading-[6rem] mdd:text-[48px] md:text-[55px]   lg:text-[63px] xxl:text-[70px] ${font6.className}  z-90`}>Bridging the Oceans</h1>
-            <div className={`text-[28px] md:text-[43px] md:leading-[4rem] font-[600] smd:h-[100px] mdd:w-full md:h-[160px] xl:h-auto mr-3 xs:w-[400px] xs:h-[100px] w-full ${font6.className} z-90`}>
+            <h1 className={`sm:text-[35px] text-[30px] font-[700] md:leading-[6rem] mdd:text-[48px]    lg:text-[63px] xxl:text-[70px] ${font6.className}  z-90`}>Bridging the Oceans</h1>
+            <div className={`text-[28px] mdd:text-[36px] lg:text-[43px] md:leading-[4rem] font-[600] smd:h-[100px] mdd:w-full md:h-[160px] lg:-h[150px] xl:h-auto mr-5 xs:w-[400px] xs:h-[100px] us:h-[120px] w-full ${font6.className} z-90`}>
             <Typewriter
                 options={{
                   autoStart: true,
@@ -67,11 +67,11 @@ const Hero = () => {
               </div>
           
               
-              <div className="flex gap-x-4 md:mt-6 mt-4 z-90">
+              <div className="ws:flex-row flex flex-col items-center ws:items-start gap-x-4 md:mt-5 mt-7 z-90 ">
             <Button text="Join as Supplier" linkTo="" />
             <button
               type="button"
-              className="bg-transparent border-[#F6BE00] border-2 rounded-full w-40 h-12 flex-shrink-0 text-[#F6BE00] hover:scale-105 ease-in duration-300 transition-all"
+              className="bg-transparent border-[#F6BE00] border-2 rounded-full w-40 h-12 mt-5 xs:mt-0 flex-shrink-0 text-[#F6BE00] hover:scale-105 ease-in duration-300 transition-all"
             >
               Join as Vendor
             </button>
@@ -79,7 +79,7 @@ const Hero = () => {
             </RevealWrapper>
           </div>
           {/* left  */}
-           <div className="basis-[100%] md:basis-[40%] mt-10 md:mt-10 z-10 ">
+           <div className="basis-[100%] md:basis-[40%] mt-10 mb-7 md:mt-0 md:mb-6 z-10 ">
            <RevealWrapper
              rotate={{ x: -12, y: 0, z: 0 }}
              origin="right"
