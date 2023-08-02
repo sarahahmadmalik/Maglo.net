@@ -8,7 +8,6 @@ interface BorderButtonProps {
 
 const BorderButton: FC<BorderButtonProps> = ({ text, linkTo }) => {
   const router = useRouter();
-console.log(linkTo)
   const handleButtonClick = () => {
     if (linkTo) {
       router.push(`/${linkTo}`);
@@ -19,7 +18,7 @@ console.log(linkTo)
     <div>
       <button
         type="button"
-        className="bg-transparent border-black border-2 hover:border-transparent hover:bg-[#F6BE00] rounded-full w-40 h-12 flex-shrink-0 text-black hover:scale-105 ease-in duration-300 transition-all"
+        className="bg-transparent border-black border-2 hover:border-transparent hover:bg-[#F6BE00] rounded-full w-30 h-12 flex-shrink-0 text-black hover:scale-105 ease-in duration-300 transition-all"
         onClick={handleButtonClick}
       >
         {text}

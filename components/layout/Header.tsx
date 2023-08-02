@@ -1,14 +1,14 @@
-import { useState } from 'react';
+
 import { useAuth } from '../../context/AuthProvider';
 import Image from 'next/image';
 import Link from 'next/link';
 import Wrapper from '../shared/Wrapper';
-import { AiOutlineClose } from 'react-icons/ai';
 import Logo from '../../public/assets/headerLogo.svg';
 import Button from '../shared/Button';
-import { CgMenuRightAlt } from 'react-icons/cg';
 import BorderButton from '../shared/BorderButton';
-
+import { useState, useEffect } from 'react';
+import { AiOutlineClose } from 'react-icons/ai';
+import { CgMenuRightAlt } from 'react-icons/cg';
 const Header = () => {
   const [nav, setNav] = useState(false);
   const handleNavbar = () => {
@@ -18,6 +18,29 @@ const Header = () => {
 
   const { isLoggedIn, user, logout } = useAuth();
   const [showDropdown, setShowDropdown] = useState(false);
+
+  const [searchQuery, setSearchQuery] = useState('');
+  const [showSuggestions, setShowSuggestions] = useState(false);
+  const [suggestions, setSuggestions] = useState<string[]>([]);
+
+  const handleSearchChange = (value: string) => {
+    setSearchQuery(value);
+    setShowSuggestions(value.length > 0); 
+  };
+
+  const clearSearch = () => {
+    setSearchQuery('');
+    setShowSuggestions(false);
+  };
+
+  useEffect(() => {
+
+    const dummySuggestions = ['ship spare parts', 'Engine Spare Parts', 'Engine Spare Parts', 'Engine Spare Parts', 'Engine Spare Parts'];
+    const filteredSuggestions = dummySuggestions.filter((item) =>
+      item.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    setSuggestions(filteredSuggestions);
+  }, [searchQuery]);
 
   const handleDropdown = () => {
     setShowDropdown(!showDropdown);
@@ -45,16 +68,60 @@ const Header = () => {
               />
             </Link>
           </div>
+          <div className=" relative flex flex-col justify-center border border-green-700 items-center w-[140px] smd:w-[200px]  xl:w-[40%]">
+            <div className="absolute top-[-25px] right-[50] bg-white text-black rounded-xl border border-[#E7E5E5] py-1 px-2 w-50 z-30  xl:w-full">
+            <div className="relative flex items-center">
+            <div className="absolute left-3">
+              <Image src="/assets/search.svg" height={20} width={20} alt="search"/>
+            </div>
+            <input
+              type="text"
+              placeholder="Search..."
+              className={`pl-12 pr-8 py-2 text-base focus:outline-none ${showSuggestions ? `border-b border-[#E7E5E5]` : ``} `}
+              value={searchQuery}
+              onChange={(e) => handleSearchChange(e.target.value)}
+            />
+            {searchQuery && (
+              <div className="absolute right-3">
+                <div
+                  className="rounded-full bg-[#1E7FCB21] p-1 cursor-pointer"
+                  onClick={clearSearch}
+                >
+                  <AiOutlineClose size={13} className="text-[#1E7FCB]" />
+                </div>
+              </div>
+            )}
+              </div>
+              {showSuggestions && (
+              <ul className="bg-white w-full text-black  py-2">
+                {suggestions.map((item, index) => (
+                  <li
+                    key={index}
+                    className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                    onClick={() => {
+                      setSearchQuery(item);
+                      setShowSuggestions(false);
+                    }}
+                  >
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            )}
+        
+            </div>
+         
+          </div>
+        
+           
           {/* right section */}
           <div className="md:flex flex-col hidden">
             <ul className="flex-col text-base pb-6 flex md:flex-row space-x-12 items-center mt-6 text-primary-color-text">
-              <Link href="/">
-                <li className='hover:text-[#F6BE00] duration-300 ease-in transition-all'>Home</li>
-              </Link>
+             
               <Link href="/seller">
                 <li className='hover:text-[#F6BE00] duration-300 ease-in transition-all'>Seller</li>
               </Link>
-              <Link href="/seller">
+              <Link href="/buyer">
                 <li className='hover:text-[#F6BE00] duration-300 ease-in transition-all'>Buyer</li>
               </Link>
               <Link href="/News">
@@ -63,9 +130,7 @@ const Header = () => {
               {/* <Link href="/inquiry">
                 <li className='hover:text-[#F6BE00] duration-300 ease-in transition-all'>Inquiries</li>
               </Link> */}
-              <Link href="/contact">
-                <li className='hover:text-[#F6BE00] duration-300 ease-in transition-all'>Contact Us</li>
-              </Link>
+           
               <div className="text-base flex gap-x-4">
                 {isLoggedIn ? (
                   <div
@@ -131,21 +196,17 @@ const Header = () => {
             }
           >
             <ul className="">
-              <li className="p-4 text-xl hover:text-custom-blue duration-300 cursor-pointer">
-                <Link href="/">Home</Link>
-              </li>
+              
               <li className="p-4 text-xl hover:text-custom-blue duration-300 cursor-pointer">
                 <Link href="/seller">Seller</Link>
               </li>
               <li className="p-4 text-xl hover:text-custom-blue duration-30 cursor-pointer">
-                <Link href="/">Buyer</Link>
+                <Link href="/buyer">Buyer</Link>
               </li>
               <li className="p-4 text-xl hover:text-custom-blue duration-30 cursor-pointer">
                 <Link href="/News">News</Link>
               </li>
-              <Link href="/contact">
-                <li className='p-4 text-xl hover:text-custom-blue duration-30 cursor-pointer'>Contact Us</li>
-              </Link>
+              
               <div className="text-base flex-col space-y-4 mt-4 ">
               {isLoggedIn ? (
                 <>

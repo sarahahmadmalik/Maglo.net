@@ -2,6 +2,15 @@ import { useState } from 'react';
 import Image from "next/image";
 import { AiOutlineFlag } from 'react-icons/ai';
 import { useRouter } from "next/router";
+import { Modal, Button, Checkbox } from 'antd';
+import { IoIosInformationCircle } from 'react-icons/io'; 
+import {  Work_Sans } from "next/font/google";
+
+const font6 = Work_Sans({
+  subsets: ["latin"],
+  weight: ["100", "300", "400", "500", "700"],
+});
+
 const ReplyButton = ({ onClick }) => {
   return (
     <button onClick={onClick} className="text-black focus:outline-none ml-5">
@@ -15,11 +24,11 @@ const ReplyButton = ({ onClick }) => {
   );
 };
 
-const ReplyItem = ({ reply, wrapperStyles }) => {
+const ReplyItem = ({ reply, wrapperStyles, handleReportClick }) => {
   const [showReplyInput, setShowReplyInput] = useState(false);
   const [newReply, setNewReply] = useState([]);
 const { user, comments, day } = reply;
-const router = useRouter()
+
 
 const handleReplyClick = () => {
   setShowReplyInput(true);
@@ -33,15 +42,15 @@ const handleReplySubmit = () => {
   setNewReply('');
 };
 
- const handleReportClick = () => {
-    router.push({
-      pathname: '/Report',
-      query: {
-        commentId: reply.id, 
-        commentUser: reply.user, 
-      },
-    });
-  };
+//  const handleReportClick = () => {
+//     router.push({
+//       pathname: '/Report',
+//       query: {
+//         commentId: reply.id, 
+//         commentUser: reply.user, 
+//       },
+//     });
+//   };
   
 
   return (
@@ -63,11 +72,11 @@ const handleReplySubmit = () => {
           
           </div>
           <div className="flex items-start m-0 p-0">
-          <div className="relative text-gray-400 font-[500]">
-            <button onClick={handleReportClick} className="focus:outline-none flex h-0">
+          <div className="relative text-[#777777] font-[500]">
+            <button onClick={() => handleReportClick(reply)} className="focus:outline-none flex h-0">
               <div className="flex text-sm ">
                 <div className="relative w-4 h-8">
-                  <AiOutlineFlag />
+                <Image src='/assets/flag.svg' alt="report" width={10} height={10} />
                 </div>
                 <p>Report</p>
               </div>
@@ -108,17 +117,72 @@ const Comments = (props) => {
   const [visibleReplies, setVisibleReplies] = useState(2); // Number of replies initially visible
   const [showReplyInput, setShowReplyInput] = useState(false);
   const [newReply, setNewReply] = useState([]);
-  const router = useRouter()
+  const [reason, setReason] = useState('');
+  const [otherReason, setOtherReason] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [commentUser, setCommentUser] = useState('');
+  const [commentId, setCommentId] = useState('');
 
-  const handleReportClick = () => {
-    router.push({
-      pathname: '/Report',
-      query: {
-        commentId: props.eachComment.id, 
-        commentUser: props.eachComment.user, 
-      },
-    });
+  const router = useRouter()
+  // const handleReportClick = () => {
+  //   router.push({
+  //     pathname: '/Report',
+  //     query: {
+  //       commentId: props.eachComment.id, 
+  //       commentUser: props.eachComment.user, 
+  //     },
+  //   });
+  // };
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
   };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setCommentUser('')
+    setCommentId('')
+  };
+
+  const handleReportClick = (comment) => {
+    setCommentUser(comment.user)
+    setCommentId(comment.id)
+    handleOpenModal();
+  };
+
+  const handleReport = (e) => {
+    e.preventDefault();
+    if (reason === '') {
+      setErrorMessage('Please select one reason.');
+      return;
+    }
+    
+    setIsLoading(true);
+
+    console.log('Reported Comment ID:', commentId);
+    console.log('Reported User:', commentUser);
+    console.log('Reason:', reason);
+    console.log('Other Reason:', otherReason);
+
+    setTimeout(() => {
+      setIsLoading(false);
+      setErrorMessage('');
+      setIsSubmitted(true);
+      setCommentUser('')
+      setCommentId('')
+
+
+      setTimeout(() => {
+        handleCloseModal()
+      }, 3000);
+    }, 2000);
+  };
+
+
+
   
   
 const handleReplyClick = () => {
@@ -157,11 +221,11 @@ const handleReplySubmit = () => {
           
           </div>
           <div className="flex items-start m-0 p-0 ">
-          <div className="relative text-gray-400 font-[500]">
-            <button onClick={handleReportClick} className="focus:outline-none flex h-0">
+          <div className="relative text-[#777777] font-[500]">
+            <button onClick={() => handleReportClick(props.eachComment)} className="focus:outline-none flex h-0">
               <div className="flex text-sm ">
-                <div className="relative w-4 h-8">
-                  <AiOutlineFlag />
+              <div className="relative w-4 h-8">
+                <Image src='/assets/flag.svg' alt="report" width={10} height={10} />
                 </div>
                 <p>Report</p>
               </div>
@@ -203,11 +267,110 @@ const handleReplySubmit = () => {
           </button>
         )}
         {props.eachComment.replies.slice(0, visibleReplies).map((reply, index) => (
-          <ReplyItem wrapperStyles={props.wrapperStyles} key={index} reply={reply} />
+          <ReplyItem wrapperStyles={props.wrapperStyles} key={index} reply={reply} handleReportClick={handleReportClick} />
         ))}
 
        
       </div>
+      <Modal
+        title={
+          <h1 className={`font-[700] text-[24px] text-center ${font6.className}`}>
+              Why do you wish to report this message?
+            </h1>
+        }
+        visible={isModalOpen}
+        onCancel={handleCloseModal}
+        footer={null} // We'll use a custom footer for the modal
+        style={{minWidth: "65%", height:"80vh", top: '50%', 
+        transform: 'translateY(-50%)',}}
+      >
+        <div className="flex flex-col items-center justify-center w-full">            
+            <div className="bg-[#1E7FCB2E] w-full text-[16px] px-3 py-3 flex items-center mt-2 rounded-md">
+              <div className="flex items-center justify-center">
+                <IoIosInformationCircle
+                  size={24}
+                  style={{ color: '#1E7FCB', marginRight: '5px' }}
+                />
+              </div>
+              <p className="text-[#1E7FCB]">Your report will be kept anonymous</p>
+            </div>
+           {!isSubmitted && (
+            <form className="py-4 flex flex-col w-full px-2" onSubmit={handleReport}>
+              <label className={`my-3 ${font6.className} text-[#000000]`}>
+                <input
+                  type="radio"
+                  value="Payment or Communication Outside Maglo"
+                  checked={reason === 'Payment or Communication Outside Maglo'}
+                  onChange={(e) => setReason(e.target.value)}
+                  className="mr-2 h-4 w-4 "
+                  
+                />
+                The user asked for payment or wanted to communicate Outside Maglo
+              </label>
+
+              <label className={`my-3 ${font6.className} text-[#000000]`}>
+                <input
+                  type="radio"
+                  value="Behaved Inappropriately"
+                  checked={reason === 'Behaved Inappropriately'}
+                  onChange={(e) => setReason(e.target.value)}
+                  className="mr-2 h-4 w-4 "
+                />
+                The user behaved Inappropriately
+              </label>
+
+              <label className={`my-3 ${font6.className} text-[#000000]`}>
+                <input
+                  type="radio"
+                  value="Sent Spam"
+                  checked={reason === 'Sent Spam'}
+                  onChange={(e) => setReason(e.target.value)}
+                  className="mr-2 h-4 w-4 "
+                />
+                The user Sent Spam
+              </label>
+
+              <label className={`my-2 ${font6.className} text-[#000000]`}>
+                <input
+                  type="radio"
+                  value="Other"
+                  checked={reason === 'Other'}
+                  onChange={(e) => setReason(e.target.value)}
+                  className="mr-2 h-4 w-4 "
+                />
+                Other
+              </label>
+
+              {reason === 'Other' && (
+                <textarea
+                  value={otherReason}
+                  onChange={(e) => setOtherReason(e.target.value)}
+                  placeholder="Tell us what went wrong"
+                  className={`my-1 rounded-sm border border-[#1E7FCB5E] focus:outline-none px-3 py-2 h-[200px] ${font6.className} text-[#000000] `}
+                  style={{ resize: 'none' }}
+                />
+              )}
+
+              {errorMessage && <p className="text-red-500">{errorMessage}</p>}
+            
+                
+            
+
+              <div className="w-full flex justify-end mt-4">
+                <button
+                  className="bg-[#F6BE00] rounded-md py-2 px-5 text-black font-[400] text-[16px] hover:bg-[DF9F3E] ease-in duration-300 transition-all"
+                  type="submit"
+                  disabled={isLoading}
+                >
+                  {isLoading ? 'Submitting...' : 'Submit'}
+                </button>
+              </div>
+            </form>
+           ) } 
+           {isSubmitted && (<p className="text-green-500 my-5 text-[500] text-[18px]">Your report has been submitted.</p>)}
+        
+        </div>
+      </Modal>
     </div>
   );
 };

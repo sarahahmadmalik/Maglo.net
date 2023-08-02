@@ -47,8 +47,8 @@ const Hero = () => {
              viewOffset={{ top: 0, right: 0, bottom: 0, left: 0 }}
             
            >
-            <h1 className={`text-[35px] font-[700] md:leading-[6rem]   md:text-[63px] xxl:text-[70px] ${font6.className}  z-90`}>Bridging the Oceans</h1>
-            <div className={`text-[28px] md:text-[43px] md:leading-[4rem] font-[600] h-[150px] xl:h-auto mr-3 ${font6.className} z-90`}>
+            <h1 className={`text-[35px] font-[700] md:leading-[6rem] mdd:text-[48px] md:text-[55px]   lg:text-[63px] xxl:text-[70px] ${font6.className}  z-90`}>Bridging the Oceans</h1>
+            <div className={`text-[28px] md:text-[43px] md:leading-[4rem] font-[600] smd:h-[100px] mdd:w-full md:h-[160px] xl:h-auto mr-3 xs:w-[400px] xs:h-[100px] w-full ${font6.className} z-90`}>
             <Typewriter
                 options={{
                   autoStart: true,
@@ -67,7 +67,7 @@ const Hero = () => {
               </div>
           
               
-              <div className="flex gap-x-4 mt-6 z-90">
+              <div className="flex gap-x-4 md:mt-6 mt-4 z-90">
             <Button text="Join as Supplier" linkTo="" />
             <button
               type="button"

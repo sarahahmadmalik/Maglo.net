@@ -26,7 +26,7 @@ const Footer = () => {
               <li><Link href="/login">Log in</Link></li>
               <li><Link href="/login">Join Us</Link></li>
               <li><Link href="/inquiry">Inquiry</Link></li>
-              <li><Link href="">Contact</Link></li>
+              <li><Link href="/contact">Contact</Link></li>
             </ul>
           </div>
           <div className="flex gap-6">
