@@ -11,8 +11,8 @@ const font = Raleway({
 const Sales = () => {
   const [image, setImage] = useState<string | null>(null);
   const [fileName, setFileName] = useState<string | null>(null);
-  const [inputType, setInputType] = useState<'text' | 'date'>('text'); // Change 'file' to 'date'
-  const [choice, setChoice] = useState<'text' | 'file'>('text'); // Change the state type to match options
+  const [inputType, setInputType] = useState<'text' | 'date'>('text'); 
+  const [choice, setChoice] = useState<'text' | 'file'>('text'); 
   const [text, setText] = useState('');
 
   const handleFileChange = ({ target: { files } }: React.ChangeEvent<HTMLInputElement>) => {
@@ -123,7 +123,7 @@ const Sales = () => {
            </div>
            <input
              type="file"
-             accept=".docx,.pdf"
+             accept=".jpeg,.jpg,.png"
              className="w-full h-12 pl-10 text-white pr-2 mb-4 rounded-lg focus:outline-none bg-transparent upload"
              onChange={handleFileChange}
              style={{ visibility: "hidden" }}

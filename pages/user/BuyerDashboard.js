@@ -45,14 +45,29 @@ const BuyerDashboard = () => {
         setSelectedInquiryIndex(index);
         setShowMoreContent(!showMoreContent);
     };
+    const placeOrder = (commentId, commentUser) => {
+      const inquiry = user.inquiries.filter((inquiry) => inquiry.id === selectedInquiryIndex )
+      const orderData = {
+        commentUser,
+        inquiry,
 
+      };
+
+      
+  
+      router.push({
+        pathname: `/user/CheckOut`,
+        query: orderData,
+      });
+    }
+    
     const renderSelectedInquiryComments = () => {
         if (selectedInquiryIndex !== null) {
             const selectedInquiry = user.inquiries[selectedInquiryIndex];
             return <CommentsSection hide={true}
                 comments={
                     selectedInquiry.Comments
-                } placeorder="Place an order"/>;
+                } placeorder="Place an order" orderFunction={placeOrder}/>;
         }
         return null;
     };

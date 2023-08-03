@@ -70,7 +70,7 @@ const CommentsSection = (props) => {
 
       <div>
         {props.comments.map((eachComment, index) => (
-          <Comments placeOrder={props.placeorder} wrapperStyles={wrapperStyles} key={index} eachComment={eachComment} />
+          <Comments placeOrder={props.placeorder} wrapperStyles={wrapperStyles} key={index} eachComment={eachComment} orderFunction={props.orderFunction} />
         ))}
       </div>
       {wrapperStyles && (

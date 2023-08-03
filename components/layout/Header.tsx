@@ -72,7 +72,7 @@ const Header = () => {
             </Link>
           </div>
           <div className=" hidden xs:flex relative flex-col  justify-center border border-green-700 items-center w-[140px] smd:w-[200px]  xl:w-[40%]">
-            <div className="absolute top-[-25px] right-[50] bg-white text-black rounded-xl border border-[#E7E5E5] py-1 px-2 w-50 z-30  xl:w-full">
+            <div className={`absolute top-[-25px] right-[50] bg-white text-black rounded-xl ${showSuggestions ? `border border-[#E7E5E5]` : ``}    py-1 px-2 w-50 z-30  xl:w-full`}>
             <div className="relative flex items-center">
             <div className="absolute left-3">
               <Image src="/assets/search.svg" height={20} width={20} alt="search"/>
@@ -80,7 +80,7 @@ const Header = () => {
             <input
               type="text"
               placeholder="Search..."
-              className={`pl-12 pr-8 py-2 text-base focus:outline-none ${showSuggestions ? `border-b border-[#E7E5E5]` : ``} `}
+              className={`pl-12 pr-8 py-2 text-base focus:outline-none border-b border-[#E7E5E5] `}
               value={searchQuery}
               onChange={(e) => handleSearchChange(e.target.value)}
             />
