@@ -17,6 +17,7 @@
     "@mui/icons-material": "^5.14.1",
     "@mui/material": "^5.14.2",
     "@next/font": "^13.4.11",
+    "@react-hook/media-query": "^1.1.1",
     "@splidejs/react-splide": "^0.7.12",
     "@splidejs/splide-extension-auto-scroll": "^0.5.3",
     "antd": "^5.8.1",
