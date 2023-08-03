@@ -176,7 +176,12 @@ const BuyerDashboard = () => {
                       </span>
                     </td>
                     <td className="py-2 text-center text-gray-400">{order.payment}</td>
-                    <td className="py-2 text-center text-black"><button className="py-1 px-4 bg-[#F6BE00] rounded" onClick={() => showOrderDetails(order)}>View</button></td>
+                    <td className="py-2 text-center text-black"> <button
+    className="py-1 px-4 text-[#1E7FCB] rounded border-2 border-transparent transition-all duration-300 hover:[#389EEE]  hover:underline focus:outline-none"
+    onClick={() => showOrderDetails(order)}
+  >
+    View
+  </button></td>
                   </tr>
                 ))}
               </tbody>
