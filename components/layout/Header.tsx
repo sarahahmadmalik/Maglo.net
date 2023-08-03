@@ -9,6 +9,8 @@ import BorderButton from '../shared/BorderButton';
 import { useState, useEffect } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
 import { CgMenuRightAlt } from 'react-icons/cg';
+import { useRouter } from 'next/router';
+
 const Header = () => {
   const [nav, setNav] = useState(false);
   const handleNavbar = () => {
@@ -22,6 +24,7 @@ const Header = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [suggestions, setSuggestions] = useState<string[]>([]);
+  const router = useRouter();
 
   const handleSearchChange = (value: string) => {
     setSearchQuery(value);
@@ -101,6 +104,7 @@ const Header = () => {
                     onClick={() => {
                       setSearchQuery(item);
                       setShowSuggestions(false);
+                      router.push(`/suppliers?searchQuery=${encodeURIComponent(item)}`)
                     }}
                   >
                     {item}
