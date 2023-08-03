@@ -269,10 +269,13 @@ const handleReplySubmit = () => {
           </div>
           {!showReplyInput && <ReplyButton onClick={handleReplyClick} />}
           </div>
-          <button className="bg-[#F6BE00] text-[12px] mt-4 ml-4 md:ml-0 rounded-full py-2 px-3 text-black transition-all duration-300 hover:bg-yellow-400 hover:scale-105 focus:outline-none"
-          onClick={() => props.orderFunction(props.eachComment.id, props.eachComment.user)}>
-  Place an Order
+          {props.placeOrder && (
+  <button className="bg-[#F6BE00] text-[12px] mt-4 ml-4 md:ml-0 rounded-full py-2 px-3 text-black transition-all duration-300 hover:bg-yellow-400 hover:scale-105 focus:outline-none"
+  onClick={() => props.orderFunction(props.eachComment.id, props.eachComment.user)}>
+Place an Order
 </button>
+          )}
+        
 
           </div>
 
