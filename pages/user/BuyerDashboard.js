@@ -52,14 +52,14 @@ const BuyerDashboard = () => {
             return <CommentsSection hide={true}
                 comments={
                     selectedInquiry.Comments
-                }/>;
+                } placeorder="Place an order"/>;
         }
         return null;
     };
 
     const renderInquiriesContent = () => {
         return (
-            <div className=' w-full max-w-screen-md'> {
+            <div className=' w-full '> {
                 user.inquiries.map((inquiry, index) => (
                     <>
                         <div key={index}
@@ -137,8 +137,8 @@ const BuyerDashboard = () => {
 
     const renderOrdersContent = () => {
         return (
-          <div className="shadow-md border border-grey-400 rounded-md px-3 py-5 overflow-x-auto max-w-screen-md">
-            <table className="w-full">
+          <div className="w-full flex-1 flex shadow-md border border-grey-400 rounded-md px-3 py-5 overflow-x-auto ">
+            <table className="w-full ">
               <thead>
                 <tr className="">
                   <th className="py-2 smd:pb-6 smd:text-[16px] text-[13px]">OrderId</th>
@@ -200,7 +200,7 @@ const BuyerDashboard = () => {
         };
       
         return (
-            <div className="rounded-md shadow-md border border-grey-400 px-10 py-5 overflow-hidden max-w-screen-md md:h-[582px]">
+            <div className="rounded-md shadow-md border border-grey-400 px-10 py-5 overflow-hidden  md:h-[582px]">
             <h1 className="font-semibold text-lg mb-4 ml-4">Personal Information</h1>
             {isSubmitted ? (
               <div className="mb-4 text-green-500">Changes successfully saved!</div>
@@ -338,13 +338,13 @@ const BuyerDashboard = () => {
       <OrderProvider>
         <div>
             <Header/> 
-            <div className="xl:mx-4 mx-auto mt-8 mb-20 mr-3 md:mr-0">
+            <div className="xl:mx-4 mx-auto mt-8 mb-20 mr-3 md:mr-0 ">
             {
             user && isLoggedIn ? (
-                <div className="w-[100vw]  xl:h-[70vh] flex-col smd:flex justify-center items-center">
+                <div className="w-[100vw]  flex-col smd:flex justify-center items-center">
                     <div className="smd:flex smd:flex-row smd:justify-center flex-col w-full h-full my-2 mb-3">
                         <div className=" smd:flex-col w-full smd:w-[20%] smd:h-[400px] md:h-[582px] flex flex-row mx-4  mb-4 bg-[#DEF1FF66] rounded-md">
-                            <div className="smd:p-7 p-3 hidden smd:block">
+                            <div className="smd:p-7 p-3 hidden smd:block"> 
                                 <h1 className="font-semibold text-lg">My Account</h1>
                             </div>
                             <div className="flex smd:flex-col justify-center text-left w-full">
@@ -382,8 +382,7 @@ const BuyerDashboard = () => {
                             </div>
                         </div>
 
-                        <div className="smd:w-[80%] w-full  h-full overflow-hidden px-3 smd:mx-5">
-
+                        <div className="smd:w-[80%]  w-full xl:w-[50%] flex flex-col items-center  h-full overflow-hidden px-3 smd:mx-5">
                             {
                             renderContent()
                         } </div>

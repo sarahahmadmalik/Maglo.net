@@ -93,7 +93,7 @@ const InquiryDetails = () => {
         </div>
       </div>
       </div>
-      {inquiry && <CommentsSection hide={false} comments={inquiry.Comments}/>}
+      {inquiry && <CommentsSection placeorder="" hide={false} comments={inquiry.Comments}/>}
       <Footer/>
     </>
   );

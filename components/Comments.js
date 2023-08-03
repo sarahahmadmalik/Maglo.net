@@ -71,7 +71,7 @@ const handleReplySubmit = () => {
           </p>
           
           </div>
-          <div className="smd:flex items-start m-0 p-0 hidden">
+          <div className="ssmd:flex items-start m-0 p-0 hidden">
           <div className="relative text-[#777777] font-[500]">
             <button onClick={() => handleReportClick(reply)} className="focus:outline-none flex h-0">
               <div className="flex text-sm ">
@@ -87,7 +87,11 @@ const handleReplySubmit = () => {
           </div>
         <div>
           <p>{comments}</p>
-          <div className="items-start mt-4 p-0 flex smd:hidden">
+          <div className="flex">
+
+          </div>
+          
+          <div className="items-start mt-4 p-0 flex ssmd:hidden">
           <div className="relative text-[#777777] font-[500]">
             <button onClick={() => handleReportClick(props.eachComment)} className="focus:outline-none flex h-0">
               <div className="flex text-sm ">
@@ -234,7 +238,7 @@ const handleReplySubmit = () => {
           </p>
           
           </div>
-          <div className="items-start m-0 p-0 hidden smd:flex">
+          <div className="items-start m-0 p-0 hidden ssmd:flex">
           <div className="relative text-[#777777] font-[500]">
             <button onClick={() => handleReportClick(props.eachComment)} className="focus:outline-none flex h-0">
               <div className="flex text-sm ">
@@ -251,7 +255,8 @@ const handleReplySubmit = () => {
         </div>
         <div className={ props.wrapperStyles ? `sm:px-2 pb-8 us:text-[15px]`: `sm:px-2 pb-8 us:text-[15px] rounded border-b border-[#E6D8D8]`}>
           <p>{props.eachComment.comment}</p>
-          <div className="items-start mt-4 p-0 flex smd:hidden">
+          <div className="flex items-center">
+          <div className="items-start mt-4 p-0 flex ssmd:hidden">
           <div className="relative text-[#777777] font-[500]">
             <button onClick={() => handleReportClick(props.eachComment)} className="focus:outline-none flex h-0">
               <div className="flex text-sm ">
@@ -264,6 +269,14 @@ const handleReplySubmit = () => {
           </div>
           {!showReplyInput && <ReplyButton onClick={handleReplyClick} />}
           </div>
+          <button className="bg-[#F6BE00] text-[12px] mt-4 ml-4 md:ml-0 rounded-full py-2 px-3 text-black transition-all duration-300 hover:bg-yellow-400 hover:scale-105 focus:outline-none">
+  Place an Order
+</button>
+
+          </div>
+
+          
+         
         </div>
         <div className="flex w-full justify-end sm:items-center sm:justify-start sm:ml-[1.6rem] mt-[0.3rem]">
        

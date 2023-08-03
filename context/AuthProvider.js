@@ -4,7 +4,6 @@ import User from '../data/User'
 const AuthContext = createContext();
 
 export const useAuth = () => useContext(AuthContext);
-
 export const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const router = useRouter();
@@ -29,7 +28,6 @@ export const AuthProvider = ({ children }) => {
   function logout() {
     if (typeof window !== 'undefined') {
       window.localStorage.removeItem('user');
-      window.localStorage.setItem('isLoggedIn', false);
     }
     setIsLoggedIn(false);
     setUser({});
@@ -37,26 +35,19 @@ export const AuthProvider = ({ children }) => {
 
   const login = (userData) => {
     updateUser(userData);
-    if (typeof window !== 'undefined') {
-      window.localStorage.setItem('isLoggedIn', true);
-    }
     setIsLoggedIn(true);
   };
 
   useEffect(() => {
     let userFromLocalStorage = getUserFromLocalStorage();
     if (userFromLocalStorage) {
-
-      setUser(() => userFromLocalStorage = User.find((user) => userFromLocalStorage.id === user.id));
+      setUser(() => User.find((user) => userFromLocalStorage.id === user.id));
+      setIsLoggedIn(true);
+    } else {
+      setIsLoggedIn(false);
+      router.push('/')
     }
-
-    const isLoggedInFromLocalStorage = typeof window !== 'undefined' ? window.localStorage.getItem('isLoggedIn') : false;
-    setIsLoggedIn(isLoggedInFromLocalStorage === 'true');
-
-    // if (!isLoggedIn) {
-    //   router.push('/');
-    // }
-  }, [isLoggedIn]);
+  }, []);
 
   return (
     <AuthContext.Provider value={{ isLoggedIn, user, login, logout }}>
