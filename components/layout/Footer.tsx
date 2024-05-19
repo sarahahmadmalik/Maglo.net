@@ -48,9 +48,9 @@ const Footer = () => {
       <div className="border-t border-[#C7C7C7] mt-6"></div>
       <div>
         <ul className="flex flex-col md:flex-row justify-around items-center px-8 py-4">
-          <li>Design and Developed by: ZySoftec</li>
+          <li>Developed by: Sara Ahmad Malik</li>
           <li>
-            <Link href="">www.zysoftec.com</Link>
+            <Link href="">https://github.com/sarahahmadmalik</Link>
           </li>
           <li>
             <Link href="/">Privacy & Policy</Link>
